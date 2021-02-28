@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.bean.validators.plugins.Validators;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;

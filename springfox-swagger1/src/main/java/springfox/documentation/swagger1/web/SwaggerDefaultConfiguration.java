@@ -20,20 +20,21 @@
 package springfox.documentation.swagger1.web;
 
 import com.fasterxml.classmate.TypeResolver;
-import springfox.documentation.PathProvider;
-import springfox.documentation.schema.AlternateTypeRule;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.DefaultsProviderPlugin;
-import springfox.documentation.spi.service.contexts.Defaults;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.core.schema.AlternateTypeRule;
+import springfox.documentation.core.schema.WildcardType;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.Defaults;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
 import springfox.documentation.spring.web.plugins.DefaultConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.schema.AlternateTypeRules.newMapRule;
+import static springfox.documentation.core.schema.AlternateTypeRules.newRule;
 
 public class SwaggerDefaultConfiguration implements DefaultsProviderPlugin {
 

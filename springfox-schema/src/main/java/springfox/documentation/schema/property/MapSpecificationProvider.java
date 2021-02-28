@@ -1,9 +1,9 @@
 package springfox.documentation.schema.property;
 
 import com.fasterxml.classmate.ResolvedType;
-import springfox.documentation.schema.MapSpecification;
+import springfox.documentation.core.schema.MapSpecification;
 import springfox.documentation.schema.Maps;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.Optional;
 

@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.hateoas.server.LinkRelationProvider;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
 
 @Configuration
 public class SpringDataRestSchemaExtensions {

@@ -3,8 +3,11 @@ package springfox.documentation.schema
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.service.VendorExtension
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.schema.ModelProperty
+import springfox.documentation.core.schema.Xml
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.core.service.VendorExtension
 
 class ModelSpec extends Specification {
   @Unroll

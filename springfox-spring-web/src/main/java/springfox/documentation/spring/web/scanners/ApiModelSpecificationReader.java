@@ -4,10 +4,10 @@ import com.fasterxml.classmate.TypeResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import springfox.documentation.schema.ModelSpecification;
+import springfox.documentation.core.schema.ModelSpecification;
 import springfox.documentation.schema.ModelSpecificationProvider;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 
 import java.util.HashSet;

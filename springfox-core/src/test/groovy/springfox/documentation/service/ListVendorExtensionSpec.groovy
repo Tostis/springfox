@@ -19,12 +19,13 @@
 package springfox.documentation.service
 
 import spock.lang.Specification
+import springfox.documentation.core.service.ListVendorExtension
 
 
 class ListVendorExtensionSpec extends Specification {
   def "List vendor extension adds and retrieves properties" () {
     given:
-      ListVendorExtension sut = new ListVendorExtension<Integer>("Name", [1, 2])
+    ListVendorExtension sut = new ListVendorExtension<Integer>("Name", [1, 2])
     expect:
       sut.getName().equals("Name")
       sut.value.size() == 2

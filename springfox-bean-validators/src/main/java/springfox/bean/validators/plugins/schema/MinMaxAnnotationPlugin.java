@@ -24,12 +24,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.bean.validators.plugins.Validators;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.schema.NumericElementFacet;
-import springfox.documentation.service.AllowableRangeValues;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.schema.NumericElementFacet;
+import springfox.documentation.core.service.AllowableRangeValues;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

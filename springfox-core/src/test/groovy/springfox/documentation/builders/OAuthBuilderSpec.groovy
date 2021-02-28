@@ -20,8 +20,9 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.AuthorizationScope
-import springfox.documentation.service.GrantType
+import springfox.documentation.core.builders.OAuthBuilder
+import springfox.documentation.core.service.AuthorizationScope
+import springfox.documentation.core.service.GrantType
 
 class OAuthBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

@@ -7,10 +7,10 @@ import io.swagger.models.properties.Property;
 import io.swagger.models.properties.StringProperty;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import springfox.documentation.schema.ModelFacets;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.PropertySpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.ModelFacets;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.PropertySpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.Map;
 
@@ -112,7 +112,7 @@ public class PropertyMapper {
     return property;
   }
   
-  private Xml mapXml(springfox.documentation.schema.Xml xml) {
+  private Xml mapXml(springfox.documentation.core.schema.Xml xml) {
     if (xml == null) {
       return null;
     }

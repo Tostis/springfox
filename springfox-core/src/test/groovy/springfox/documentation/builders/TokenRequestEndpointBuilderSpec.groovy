@@ -20,6 +20,7 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
+import springfox.documentation.core.builders.TokenRequestEndpointBuilder
 
 class TokenRequestEndpointBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

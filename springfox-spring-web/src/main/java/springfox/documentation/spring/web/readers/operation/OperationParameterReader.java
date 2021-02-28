@@ -29,14 +29,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.service.RequestParameter;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 import springfox.documentation.spring.web.readers.parameter.ExpansionContext;
 import springfox.documentation.spring.web.readers.parameter.ModelAttributeParameterExpander;
@@ -48,9 +49,9 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 import static org.slf4j.LoggerFactory.*;
+import static springfox.documentation.core.schema.ScalarTypes.builtInScalarType;
 import static springfox.documentation.schema.Collections.*;
 import static springfox.documentation.schema.Maps.*;
-import static springfox.documentation.schema.ScalarTypes.*;
 
 @SuppressWarnings("deprecation")
 @Component
@@ -77,7 +78,7 @@ public class OperationParameterReader implements OperationBuilderPlugin {
   @Override
   public void apply(OperationContext context) {
     context.operationBuilder().parameters(context.getGlobalOperationParameters());
-    List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> compatibilities
+    List<Compatibility<Parameter, RequestParameter>> compatibilities
         = readParameters(context);
     context.operationBuilder().parameters(
         compatibilities.stream()
@@ -100,10 +101,10 @@ public class OperationParameterReader implements OperationBuilderPlugin {
     return true;
   }
 
-  private List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>>
+  private List<Compatibility<Parameter, RequestParameter>>
   readParameters(OperationContext context) {
     List<ResolvedMethodParameter> methodParameters = context.getParameters();
-    List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> parameters = new ArrayList<>();
+    List<Compatibility<Parameter, RequestParameter>> parameters = new ArrayList<>();
     LOGGER.debug("Reading parameters for method {} at path {}", context.getName(), context.requestMappingPattern());
 
     int index = 0;
@@ -132,9 +133,9 @@ public class OperationParameterReader implements OperationBuilderPlugin {
         .collect(toList());
   }
 
-  private Predicate<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> hiddenParameter() {
+  private Predicate<Compatibility<Parameter, RequestParameter>> hiddenParameter() {
     return c -> c.getLegacy()
-        .map(springfox.documentation.service.Parameter::isHidden)
+        .map(Parameter::isHidden)
         .orElse(false);
   }
 

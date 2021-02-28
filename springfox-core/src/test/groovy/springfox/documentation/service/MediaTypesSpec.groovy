@@ -2,6 +2,7 @@ package springfox.documentation.service
 
 import org.springframework.http.MediaType
 import spock.lang.Specification
+import springfox.documentation.core.service.MediaTypes
 
 class MediaTypesSpec extends Specification {
   def "Cannot instantiate this class"() {

@@ -20,12 +20,12 @@
 package springfox.documentation.spring.web.plugins;
 
 import com.fasterxml.classmate.TypeResolver;
-import springfox.documentation.PathProvider;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.DefaultsProviderPlugin;
-import springfox.documentation.spi.service.contexts.ApiSelector;
-import springfox.documentation.spi.service.contexts.Defaults;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ApiSelector;
+import springfox.documentation.spi.spi.service.contexts.Defaults;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
 
 public class DefaultConfiguration implements DefaultsProviderPlugin {
 

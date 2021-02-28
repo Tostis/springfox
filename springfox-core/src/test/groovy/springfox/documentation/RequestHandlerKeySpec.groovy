@@ -21,6 +21,7 @@ package springfox.documentation
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.RequestMethod
 import spock.lang.Specification
+import springfox.documentation.core.RequestHandlerKey
 
 class RequestHandlerKeySpec extends Specification {
   def "tests getters"() {

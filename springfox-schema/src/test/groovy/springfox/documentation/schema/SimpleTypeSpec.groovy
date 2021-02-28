@@ -21,10 +21,13 @@ package springfox.documentation.schema
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Unroll
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.schema.ModelSpecification
+import springfox.documentation.core.schema.ScalarType
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class SimpleTypeSpec extends SchemaSpecification implements ModelTestingSupport {
   @Shared def resolver = new TypeResolver()

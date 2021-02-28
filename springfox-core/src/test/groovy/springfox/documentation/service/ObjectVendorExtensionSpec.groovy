@@ -1,12 +1,14 @@
 package springfox.documentation.service
 
 import spock.lang.Specification
+import springfox.documentation.core.service.ObjectVendorExtension
+import springfox.documentation.core.service.StringVendorExtension
 
 class ObjectVendorExtensionSpec extends Specification {
   def "Object vendor extension adds and retrieves properties" () {
     given:
-      ObjectVendorExtension sut = new ObjectVendorExtension("Name")
-      StringVendorExtension prop = new StringVendorExtension("A", "B")
+    ObjectVendorExtension sut = new ObjectVendorExtension("Name")
+    StringVendorExtension prop = new StringVendorExtension("A", "B")
     and:
       sut.addProperty(prop)
     expect:

@@ -20,11 +20,11 @@
 package springfox.service.model
 
 import spock.lang.Specification
-import springfox.documentation.builders.DocumentationBuilder
-import springfox.documentation.service.ApiKey
-import springfox.documentation.service.ApiListingReference
-import springfox.documentation.service.Documentation
-import springfox.documentation.service.SecurityScheme
+import springfox.documentation.core.builders.DocumentationBuilder
+import springfox.documentation.core.service.ApiKey
+import springfox.documentation.core.service.ApiListingReference
+import springfox.documentation.core.service.Documentation
+import springfox.documentation.core.service.SecurityScheme
 
 class DocumentationSpec extends Specification {
   def "Groups are built correctly"() {

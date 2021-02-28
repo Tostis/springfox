@@ -27,9 +27,9 @@ import org.springframework.mock.env.MockEnvironment
 import spock.lang.Unroll
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
-import springfox.documentation.service.ResolvedMethodParameter
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.ParameterContext
+import springfox.documentation.core.service.ResolvedMethodParameter
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.ParameterContext
 import springfox.documentation.spring.web.DescriptionResolver
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.mixins.ModelProviderForServiceSupport

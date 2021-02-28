@@ -22,10 +22,12 @@ package springfox.documentation.schema
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Unroll
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.core.schema.EnumerationFacet
+import springfox.documentation.core.schema.ScalarType
+import springfox.documentation.spi.spi.DocumentationType
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 
 class BeanWithFactoryMethodSpec extends SchemaSpecification {

@@ -5,10 +5,10 @@ import io.swagger.v3.oas.models.security.OAuthFlows;
 import io.swagger.v3.oas.models.security.Scopes;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.mapstruct.Mapper;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.HttpAuthenticationScheme;
-import springfox.documentation.service.OAuth2Scheme;
-import springfox.documentation.service.OpenIdConnectScheme;
+import springfox.documentation.core.service.ApiKey;
+import springfox.documentation.core.service.HttpAuthenticationScheme;
+import springfox.documentation.core.service.OAuth2Scheme;
+import springfox.documentation.core.service.OpenIdConnectScheme;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,13 +16,13 @@ import java.util.Map;
 
 @Mapper(componentModel = "spring")
 public class SecuritySchemeMapper {
-  Map<String, SecurityScheme> map(List<springfox.documentation.service.SecurityScheme> schemes) {
+  Map<String, SecurityScheme> map(List<springfox.documentation.core.service.SecurityScheme> schemes) {
     Map<String, SecurityScheme> mapped = new HashMap<>();
     schemes.forEach(each -> mapScheme(mapped, each));
     return mapped;
   }
 
-  void mapScheme(Map<String, SecurityScheme> map, springfox.documentation.service.SecurityScheme scheme) {
+  void mapScheme(Map<String, SecurityScheme> map, springfox.documentation.core.service.SecurityScheme scheme) {
     SecurityScheme mapped = null;
     SecurityScheme securityScheme = new SecurityScheme()
         .extensions(new VendorExtensionsMapper().mapExtensions(scheme.getVendorExtensions()));

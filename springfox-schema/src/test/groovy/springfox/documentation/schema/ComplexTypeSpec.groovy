@@ -23,11 +23,14 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.schema.ModelSpecification
+import springfox.documentation.core.schema.ScalarType
 import springfox.documentation.schema.mixins.ModelProviderSupport
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ComplexTypeSpec extends Specification implements ModelProviderSupport, ModelTestingSupport {
   @Shared

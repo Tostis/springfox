@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.Optional;

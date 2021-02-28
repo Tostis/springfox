@@ -22,6 +22,7 @@ package springfox.documentation.schema;
 import com.fasterxml.classmate.ResolvedType;
 import com.fasterxml.classmate.TypeResolver;
 import org.springframework.lang.Nullable;
+import springfox.documentation.core.schema.CollectionType;
 
 import java.util.Collection;
 import java.util.List;

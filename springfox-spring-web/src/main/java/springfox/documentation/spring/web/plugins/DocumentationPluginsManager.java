@@ -24,34 +24,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.stereotype.Component;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.Operation;
-import springfox.documentation.service.PathDecorator;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.service.Response;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.ApiListingBuilderPlugin;
-import springfox.documentation.spi.service.ApiListingScannerPlugin;
-import springfox.documentation.spi.service.DefaultsProviderPlugin;
-import springfox.documentation.spi.service.DocumentationPlugin;
-import springfox.documentation.spi.service.ExpandedParameterBuilderPlugin;
-import springfox.documentation.spi.service.ModelNamesRegistryFactoryPlugin;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.OperationModelsProviderPlugin;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.ResponseBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ApiListingContext;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.spi.service.contexts.ParameterContext;
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext;
-import springfox.documentation.spi.service.contexts.PathContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
-import springfox.documentation.spi.service.contexts.ResponseContext;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ApiListing;
+import springfox.documentation.core.service.Operation;
+import springfox.documentation.spi.service.PathDecorator;
+import springfox.documentation.core.service.RequestParameter;
+import springfox.documentation.core.service.Response;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.ApiListingBuilderPlugin;
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin;
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin;
+import springfox.documentation.spi.spi.service.DocumentationPlugin;
+import springfox.documentation.spi.spi.service.ExpandedParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.ModelNamesRegistryFactoryPlugin;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.OperationModelsProviderPlugin;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.ResponseBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ApiListingContext;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext;
+import springfox.documentation.spi.spi.service.contexts.PathContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spi.spi.service.contexts.ResponseContext;
 import springfox.documentation.spring.web.scanners.ApiListingScanningContext;
 import springfox.documentation.spring.web.scanners.DefaultModelNamesRegistryFactory;
 
@@ -111,7 +112,7 @@ public class DocumentationPluginsManager {
   }
 
   @SuppressWarnings("deprecation")
-  public Compatibility<springfox.documentation.service.Parameter, RequestParameter>
+  public Compatibility<Parameter, RequestParameter>
   parameter(ParameterContext parameterContext) {
     for (ParameterBuilderPlugin each : parameterPlugins.getPluginsFor(parameterContext.getDocumentationType())) {
       each.apply(parameterContext);
@@ -129,7 +130,7 @@ public class DocumentationPluginsManager {
   }
 
   @SuppressWarnings("deprecation")
-  public Compatibility<springfox.documentation.service.Parameter, RequestParameter> expandParameter(
+  public Compatibility<Parameter, RequestParameter> expandParameter(
       ParameterExpansionContext context) {
     for (ExpandedParameterBuilderPlugin each : parameterExpanderPlugins.getPluginsFor(context.getDocumentationType())) {
       each.apply(context);

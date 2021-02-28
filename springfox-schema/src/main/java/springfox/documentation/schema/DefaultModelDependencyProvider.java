@@ -28,10 +28,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
+import springfox.documentation.core.schema.ModelProperty;
 import springfox.documentation.schema.plugins.SchemaPluginsManager;
 import springfox.documentation.schema.property.ModelPropertiesProvider;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.ArrayList;
 import java.util.Collection;

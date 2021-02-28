@@ -5,14 +5,14 @@ import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
 import org.slf4j.Logger;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.QualifiedModelName;
-import springfox.documentation.schema.ReferenceModelSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.QualifiedModelName;
+import springfox.documentation.core.schema.ReferenceModelSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.Optional;
 
 import static org.slf4j.LoggerFactory.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.emptyToNull;
 
 public class ReferenceModelSpecificationToPropertyConverter
     implements Converter<ReferenceModelSpecification, Property> {

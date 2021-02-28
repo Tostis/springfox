@@ -7,7 +7,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.util.StringUtils;
 import org.springframework.web.util.UrlPathHelper;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 
 import javax.servlet.http.HttpServletRequest;
 

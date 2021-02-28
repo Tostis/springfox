@@ -6,10 +6,10 @@ import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.AnnotationsSupport
 import springfox.bean.validators.plugins.ReflectionSupport
-import springfox.documentation.builders.ParameterBuilder
-import springfox.documentation.builders.RequestParameterBuilder
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext
 import springfox.documentation.spring.web.readers.parameter.ModelAttributeParameterMetadataAccessor
 
 import javax.validation.constraints.NotBlank

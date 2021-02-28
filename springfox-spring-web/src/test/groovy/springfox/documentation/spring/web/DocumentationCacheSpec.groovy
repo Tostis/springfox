@@ -20,8 +20,7 @@
 package springfox.documentation.spring.web
 
 import spock.lang.Specification
-import springfox.documentation.builders.DocumentationBuilder
-import springfox.documentation.spring.web.DocumentationCache
+import springfox.documentation.core.builders.DocumentationBuilder
 
 class DocumentationCacheSpec extends Specification {
   def "Behaves like a map" () {

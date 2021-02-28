@@ -20,8 +20,8 @@
 package springfox.documentation.schema;
 
 
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.TypeNameProviderPlugin;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin;
 
 public class DefaultTypeNameProvider implements TypeNameProviderPlugin {
 

@@ -6,16 +6,16 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import springfox.documentation.schema.AlternateTypeRule;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.DefaultsProviderPlugin;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.core.schema.AlternateTypeRule;
+import springfox.documentation.core.schema.WildcardType;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.schema.AlternateTypeRules.newRule;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebfluxDefaultsProvider implements DefaultsProviderPlugin {

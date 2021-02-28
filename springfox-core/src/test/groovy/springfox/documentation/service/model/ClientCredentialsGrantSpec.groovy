@@ -20,7 +20,7 @@
 package springfox.documentation.service.model
 
 import spock.lang.Specification
-import springfox.documentation.service.ClientCredentialsGrant
+import springfox.documentation.core.service.ClientCredentialsGrant
 
 class ClientCredentialsGrantSpec extends Specification {
   def "Bean properties are set as expected via constructor" () {

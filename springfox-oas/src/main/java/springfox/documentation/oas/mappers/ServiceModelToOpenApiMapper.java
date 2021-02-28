@@ -49,22 +49,13 @@ import org.slf4j.Logger;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import springfox.documentation.schema.CollectionElementFacet;
-import springfox.documentation.schema.ElementFacet;
-import springfox.documentation.schema.EnumerationFacet;
-import springfox.documentation.schema.Example;
-import springfox.documentation.schema.NumericElementFacet;
-import springfox.documentation.schema.StringElementFacet;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.Documentation;
-import springfox.documentation.service.ModelNamesRegistry;
-import springfox.documentation.service.ParameterStyle;
-import springfox.documentation.service.Representation;
-import springfox.documentation.service.RequestBody;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.service.SimpleParameterSpecification;
+import springfox.documentation.core.schema.CollectionElementFacet;
+import springfox.documentation.core.schema.ElementFacet;
+import springfox.documentation.core.schema.EnumerationFacet;
+import springfox.documentation.core.schema.Example;
+import springfox.documentation.core.schema.NumericElementFacet;
+import springfox.documentation.core.schema.StringElementFacet;
+import springfox.documentation.core.service.*;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -78,7 +69,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static org.slf4j.LoggerFactory.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
 
 @Mapper(componentModel = "spring",
     uses = {
@@ -117,7 +108,7 @@ public abstract class ServiceModelToOpenApiMapper {
       @Mapping(target = "externalDocs", ignore = true)
   })
   abstract Operation mapOperation(
-      springfox.documentation.service.Operation from,
+      springfox.documentation.core.service.Operation from,
       @Context ModelNamesRegistry modelNamesRegistry);
 
   @Mappings({
@@ -191,10 +182,10 @@ public abstract class ServiceModelToOpenApiMapper {
   }
 
   protected ApiResponses map(
-      Set<springfox.documentation.service.Response> from,
+      Set<Response> from,
       @Context ModelNamesRegistry modelNamesRegistry) {
     ApiResponses responses = new ApiResponses();
-    for (springfox.documentation.service.Response each : from) {
+    for (Response each : from) {
       ApiResponse response = new ApiResponse()
           .description(each.getDescription());
       Content content = new Content();
@@ -278,7 +269,7 @@ public abstract class ServiceModelToOpenApiMapper {
     if (existingPath == null) {
       path = new PathItem();
     }
-    for (springfox.documentation.service.Operation each : nullToEmptyList(api.getOperations())) {
+    for (springfox.documentation.core.service.Operation each : nullToEmptyList(api.getOperations())) {
       LOGGER.debug("Mapping operation {}", api.getPath());
       Operation operation = mapOperation(each, modelNamesRegistry);
       path.operation(
@@ -312,11 +303,11 @@ public abstract class ServiceModelToOpenApiMapper {
       @Context ModelNamesRegistry modelNamesRegistry);
 
   protected Map<String, Encoding> fromEncodings(
-      Collection<springfox.documentation.service.Encoding> encodings,
+      Collection<springfox.documentation.core.service.Encoding> encodings,
       @Context ModelNamesRegistry namesRegistry) {
     return encodings.stream()
         .collect(Collectors.toMap(
-            springfox.documentation.service.Encoding::getPropertyRef,
+            springfox.documentation.core.service.Encoding::getPropertyRef,
             e -> mapEncoding(e, namesRegistry)));
   }
 
@@ -326,15 +317,15 @@ public abstract class ServiceModelToOpenApiMapper {
           "EncodingStyleEnum"})
   })
   protected abstract Encoding mapEncoding(
-      springfox.documentation.service.Encoding from,
+      springfox.documentation.core.service.Encoding from,
       @Context ModelNamesRegistry modelNamesRegistry);
 
   protected Map<String, Header> fromHeaders(
-      Collection<springfox.documentation.service.Header> headers,
+      Collection<springfox.documentation.core.service.Header> headers,
       @Context ModelNamesRegistry modelNamesRegistry) {
     return headers.stream()
         .collect(Collectors.toMap(
-            springfox.documentation.service.Header::getName,
+            springfox.documentation.core.service.Header::getName,
             h -> mapHeader(h, modelNamesRegistry)));
   }
 
@@ -352,7 +343,7 @@ public abstract class ServiceModelToOpenApiMapper {
       @Mapping(target = "$ref", ignore = true),
   })
   protected abstract Header mapHeader(
-      springfox.documentation.service.Header from,
+      springfox.documentation.core.service.Header from,
       @Context ModelNamesRegistry modelNamesRegistry);
 
   @Mappings({
@@ -369,25 +360,25 @@ public abstract class ServiceModelToOpenApiMapper {
   @Mappings({
       @Mapping(target = "extensions", ignore = true)
   })
-  protected abstract Contact map(springfox.documentation.service.Contact from);
+  protected abstract Contact map(springfox.documentation.core.service.Contact from);
 
   @Mappings({
       @Mapping(target = "externalDocs", ignore = true),
       @Mapping(target = "extensions", source = "vendorExtensions"),
   })
-  protected abstract Tag mapTag(springfox.documentation.service.Tag from);
+  protected abstract Tag mapTag(springfox.documentation.core.service.Tag from);
 
   @Mappings({
       @Mapping(target = "extensions", source = "extensions")
   })
-  protected abstract Server mapServer(springfox.documentation.service.Server from);
+  protected abstract Server mapServer(springfox.documentation.core.service.Server from);
 
   protected ServerVariables serverVariableMap(
-      Collection<springfox.documentation.service.ServerVariable> serverVariables) {
+      Collection<springfox.documentation.core.service.ServerVariable> serverVariables) {
     ServerVariables variables = new ServerVariables();
     variables.putAll(serverVariables.stream()
         .collect(Collectors.toMap(
-            springfox.documentation.service.ServerVariable::getName,
+            springfox.documentation.core.service.ServerVariable::getName,
             this::mapServerVariable)));
     return variables;
   }
@@ -398,7 +389,7 @@ public abstract class ServiceModelToOpenApiMapper {
       @Mapping(target = "_enum", ignore = true),
       @Mapping(target = "_default", ignore = true)
   })
-  protected abstract ServerVariable mapServerVariable(springfox.documentation.service.ServerVariable from);
+  protected abstract ServerVariable mapServerVariable(springfox.documentation.core.service.ServerVariable from);
 
-  protected abstract ExternalDocumentation mapExternalDocs(springfox.documentation.common.ExternalDocumentation from);
+  protected abstract ExternalDocumentation mapExternalDocs(springfox.documentation.core.common.ExternalDocumentation from);
 }

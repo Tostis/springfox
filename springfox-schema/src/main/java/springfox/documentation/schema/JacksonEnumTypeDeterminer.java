@@ -21,7 +21,7 @@ package springfox.documentation.schema;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
 
 @Component
 public class JacksonEnumTypeDeterminer implements EnumTypeDeterminer {

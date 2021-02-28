@@ -21,10 +21,12 @@ package springfox.documentation.builders
 
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.schema.Model
-import springfox.documentation.service.ApiDescription
-import springfox.documentation.service.SecurityReference
-import springfox.documentation.service.Tag
+import springfox.documentation.core.builders.ApiListingBuilder
+import springfox.documentation.core.builders.ModelBuilder
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.service.ApiDescription
+import springfox.documentation.core.service.SecurityReference
+import springfox.documentation.core.service.Tag
 
 class ApiListingBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

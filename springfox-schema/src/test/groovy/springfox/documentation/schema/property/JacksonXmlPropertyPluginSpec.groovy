@@ -23,11 +23,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 import spock.lang.Specification
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 
 class JacksonXmlPropertyPluginSpec extends Specification {
   def "Should support all swagger documentation types"() {

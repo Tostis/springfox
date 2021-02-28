@@ -24,10 +24,10 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import springfox.documentation.schema.JaxbPresentInClassPathCondition;
-import springfox.documentation.schema.Xml;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ModelBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.core.schema.Xml;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;

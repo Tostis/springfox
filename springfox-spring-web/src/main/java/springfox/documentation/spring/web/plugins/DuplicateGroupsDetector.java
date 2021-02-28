@@ -18,7 +18,7 @@
  */
 package springfox.documentation.spring.web.plugins;
 
-import springfox.documentation.spi.service.DocumentationPlugin;
+import springfox.documentation.spi.spi.service.DocumentationPlugin;
 
 import java.util.LinkedHashMap;
 import java.util.List;

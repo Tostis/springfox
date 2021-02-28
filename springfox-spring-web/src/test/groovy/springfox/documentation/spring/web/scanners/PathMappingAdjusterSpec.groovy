@@ -20,7 +20,7 @@
 package springfox.documentation.spring.web.scanners
 
 import spock.lang.Specification
-import springfox.documentation.spi.service.contexts.DocumentationContext
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext
 import springfox.documentation.spring.web.paths.PathMappingAdjuster
 
 import static java.util.Optional.*

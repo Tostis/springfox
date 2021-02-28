@@ -26,11 +26,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.PropertySpecification;
+import springfox.documentation.core.schema.ScalarTypes;
 import springfox.documentation.schema.plugins.SchemaPluginsManager;
 import springfox.documentation.schema.property.ModelPropertiesProvider;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.HashSet;
 import java.util.List;

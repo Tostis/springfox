@@ -27,11 +27,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.documentation.schema.TypeNameExtractor;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.HashMap;

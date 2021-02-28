@@ -5,8 +5,8 @@ import org.springframework.mock.env.MockEnvironment
 import org.springframework.plugin.core.PluginRegistry
 import org.springframework.web.util.WebUtils
 import spock.lang.Unroll
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.Defaults
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.Defaults
 import springfox.documentation.spring.web.DocumentationCache
 import springfox.documentation.spring.web.json.JsonSerializer
 import springfox.documentation.spring.web.mixins.ApiListingSupport
@@ -26,7 +26,7 @@ import javax.servlet.ServletContext
 import javax.servlet.http.HttpServletRequest
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.service.contexts.Orderings.*
+import static springfox.documentation.spi.spi.service.contexts.Orderings.*
 
 class Swagger2ControllerSpec extends DocumentationContextSpec
     implements MapperSupport,

@@ -5,11 +5,11 @@ import io.swagger.v3.oas.models.media.ByteArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.mapstruct.factory.Mappers;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.CollectionSpecification;
-import springfox.documentation.schema.CollectionType;
-import springfox.documentation.schema.ScalarModelSpecification;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CollectionSpecification;
+import springfox.documentation.core.schema.CollectionType;
+import springfox.documentation.core.schema.ScalarModelSpecification;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 public class CollectionSpecificationToSchemaConverter implements Converter<CollectionSpecification, Schema<?>> {
   private final ModelNamesRegistry modelNamesRegistry;

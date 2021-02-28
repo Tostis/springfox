@@ -22,6 +22,7 @@ package springfox.documentation.schema;
 import com.fasterxml.classmate.ResolvedType;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.core.schema.ScalarType;
 
 import java.lang.reflect.Type;
 import java.math.BigDecimal;

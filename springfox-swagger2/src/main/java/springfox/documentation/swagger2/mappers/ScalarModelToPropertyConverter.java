@@ -15,8 +15,8 @@ import io.swagger.models.properties.Property;
 import io.swagger.models.properties.StringProperty;
 import io.swagger.models.properties.UUIDProperty;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.ScalarModelSpecification;
-import springfox.documentation.schema.ScalarType;
+import springfox.documentation.core.schema.ScalarModelSpecification;
+import springfox.documentation.core.schema.ScalarType;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -4,14 +4,14 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import springfox.documentation.schema.AlternateTypesSupport
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.schema.ModelSpecification
-import springfox.documentation.service.ModelNamesRegistry
+import springfox.documentation.core.schema.ModelSpecification
+import springfox.documentation.core.service.ModelNamesRegistry
 import springfox.documentation.spring.web.scanners.DefaultModelNamesRegistryFactory
 import springfox.documentation.spring.web.scanners.ModelSpecificationRegistryBuilder
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 trait ModelRegistrySupport extends AlternateTypesSupport {
   def modelRegistryBuilder = new ModelSpecificationRegistryBuilder()

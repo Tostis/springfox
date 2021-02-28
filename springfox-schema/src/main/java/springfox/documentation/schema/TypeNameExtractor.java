@@ -30,11 +30,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy;
-import springfox.documentation.spi.schema.TypeNameProviderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy;
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

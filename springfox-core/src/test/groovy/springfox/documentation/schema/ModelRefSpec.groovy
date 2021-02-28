@@ -22,8 +22,10 @@ package springfox.documentation.schema
 
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.service.AllowableValues
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.schema.ModelReference
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.core.service.AllowableValues
 
 class ModelRefSpec extends Specification {
   @Unroll
@@ -34,8 +36,8 @@ class ModelRefSpec extends Specification {
 
     where:
     model                                               | isCollection | isMap
-    new ModelRef("string")                              | false        | false
-    new ModelRef("string", null as ModelReference)      | false        | false
+    new ModelRef("string")                         | false | false
+    new ModelRef("string", null as ModelReference) | false | false
     new ModelRef("string", null, true)                  | false        | false
     new ModelRef("string", new ModelRef("List"), true)  | false        | true
     new ModelRef("string", new ModelRef("List"), false) | true         | false

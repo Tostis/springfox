@@ -22,16 +22,17 @@ package springfox.documentation.builders
 import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Specification
-import springfox.documentation.RequestHandler
-import springfox.documentation.annotations.ApiIgnore
+import springfox.documentation.core.RequestHandler
+import springfox.documentation.core.annotations.ApiIgnore
+import springfox.documentation.core.builders.RequestHandlerSelectors
 import springfox.documentation.schema.JustAnotherClass
 
-import static springfox.documentation.builders.RequestHandlerSelectors.*
+import static springfox.documentation.core.builders.RequestHandlerSelectors.*
 
 class RequestHandlerSelectorsSpec extends Specification {
   def "Static types cannot be instantiated" () {
     when:
-      RequestHandlerSelectors.newInstance();
+    RequestHandlerSelectors.newInstance();
     then:
       thrown(UnsupportedOperationException)
   }

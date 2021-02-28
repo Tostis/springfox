@@ -23,11 +23,11 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.schema.ModelSpecification;
+import springfox.documentation.core.schema.ModelSpecification;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
 import springfox.documentation.spring.web.DescriptionResolver;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 

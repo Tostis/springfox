@@ -2,9 +2,12 @@ package springfox.documentation.spi.service.contexts
 
 
 import spock.lang.Specification
-import springfox.documentation.OperationNameGenerator
-import springfox.documentation.builders.OperationBuilder
-import springfox.documentation.service.SecurityReference
+import springfox.documentation.core.OperationNameGenerator
+import springfox.documentation.core.builders.OperationBuilder
+import springfox.documentation.core.service.SecurityReference
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
+import springfox.documentation.spi.spi.service.contexts.SecurityContextBuilder
 
 import java.util.function.Predicate
 

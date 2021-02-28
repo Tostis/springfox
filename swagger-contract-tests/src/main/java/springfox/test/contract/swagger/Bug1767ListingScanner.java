@@ -21,16 +21,18 @@ package springfox.test.contract.swagger;
 import com.fasterxml.classmate.TypeResolver;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import springfox.documentation.builders.OperationBuilder;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.builders.ResponseBuilder;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ParameterType;
-import springfox.documentation.service.Response;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ApiListingScannerPlugin;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
+import springfox.documentation.core.builders.OperationBuilder;
+import springfox.documentation.core.builders.ParameterBuilder;
+import springfox.documentation.core.builders.RequestParameterBuilder;
+import springfox.documentation.core.builders.ResponseBuilder;
+import springfox.documentation.core.schema.ModelRef;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ParameterType;
+import springfox.documentation.core.service.Response;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
 import springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator;
 
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
                         .notes("This is a test method")
                         .parameters(
                             Collections.singletonList( //<4>
-                                new springfox.documentation.builders.ParameterBuilder()
+                                new ParameterBuilder()
                                     .description(
                                         "search by "
                                             + "description")
@@ -86,7 +88,7 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
                                     .parameterType("query")
                                     .parameterAccess("access")
                                     .required(true)
-                                    .modelRef(new springfox.documentation.schema.ModelRef(
+                                    .modelRef(new ModelRef(
                                         "string")) //<5>
                                     .build()))
                         .requestParameters(
@@ -99,7 +101,7 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
                                     .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING))) //<5b>
                                     .build()))
                         .responses(responseMessages()) //<6>
-                        .responseModel(new springfox.documentation.schema.ModelRef("string")) //<7>
+                        .responseModel(new ModelRef("string")) //<7>
                         .responses(responses()) //<6b>
                         .build()),
                 false),
@@ -118,14 +120,14 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
                         .notes("This is a test method")
                         .parameters(
                             Collections.singletonList(
-                                new springfox.documentation.builders.ParameterBuilder()
+                                new ParameterBuilder()
                                     .description("description of bug 2219")
                                     .type(new TypeResolver().resolve(String.class))
                                     .name("description")
                                     .parameterType("query")
                                     .parameterAccess("access")
                                     .required(true)
-                                    .modelRef(new springfox.documentation.schema.ModelRef("string"))
+                                    .modelRef(new ModelRef("string"))
                                     .build()))
                         .requestParameters(
                             Collections.singletonList(
@@ -137,7 +139,7 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
                                     .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)))
                                     .build()))
                         .responses(responseMessages())
-                        .responseModel(new springfox.documentation.schema.ModelRef("string"))
+                        .responseModel(new ModelRef("string"))
                         .build()),
                 false)));
   }
@@ -146,7 +148,7 @@ public class Bug1767ListingScanner implements ApiListingScannerPlugin {
    * @return Set of response messages that overide the default/global response messages
    */
   private Set<Response> responseMessages() { //<8>
-    return singleton(new springfox.documentation.builders.ResponseBuilder()
+    return singleton(new ResponseBuilder()
         .code("200")
         .description("Successfully received bug 1767 or 2219 response")
         .representation(MediaType.TEXT_PLAIN)

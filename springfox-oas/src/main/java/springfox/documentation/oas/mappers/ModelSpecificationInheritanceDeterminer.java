@@ -2,11 +2,11 @@ package springfox.documentation.oas.mappers;
 
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
-import springfox.documentation.schema.CompoundModelSpecification;
-import springfox.documentation.schema.ModelKey;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.ReferenceModelSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CompoundModelSpecification;
+import springfox.documentation.core.schema.ModelKey;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.ReferenceModelSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.ArrayList;
 import java.util.Collection;

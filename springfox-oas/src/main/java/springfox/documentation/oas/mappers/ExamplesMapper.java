@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
-import springfox.documentation.schema.Example;
+import springfox.documentation.core.schema.Example;
 
 import java.util.Collection;
 import java.util.Map;

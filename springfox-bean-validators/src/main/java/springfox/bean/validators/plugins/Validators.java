@@ -21,9 +21,9 @@ package springfox.bean.validators.plugins;
 import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;

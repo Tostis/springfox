@@ -20,7 +20,7 @@
 package springfox.documentation.service.model
 
 import spock.lang.Specification
-import springfox.documentation.service.AllowableRangeValues
+import springfox.documentation.core.service.AllowableRangeValues
 
 class AllowableRangeValuesSpec extends Specification {
   def "Bean properties test"() {

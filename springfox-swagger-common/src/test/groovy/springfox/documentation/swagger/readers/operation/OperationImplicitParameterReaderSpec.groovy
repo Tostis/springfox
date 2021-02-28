@@ -2,10 +2,10 @@ package springfox.documentation.swagger.readers.operation
 
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.builders.ModelSpecificationBuilder
-import springfox.documentation.builders.ReferenceModelSpecificationBuilder
-import springfox.documentation.schema.Example
-import springfox.documentation.schema.ScalarType
+import springfox.documentation.core.builders.ModelSpecificationBuilder
+import springfox.documentation.core.builders.ReferenceModelSpecificationBuilder
+import springfox.documentation.core.schema.Example
+import springfox.documentation.core.schema.ScalarType
 import springfox.documentation.swagger.readers.parameter.ApiImplicitParamAnnotationSupport
 
 class OperationImplicitParameterReaderSpec extends Specification implements ApiImplicitParamAnnotationSupport {

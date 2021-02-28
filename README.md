@@ -1,3 +1,16 @@
+Regarding this fork
+* Added partial support to Java Platform Module System (only core and spi projects)
+see https://github.com/springfox/springfox/issues/2064
+  
+Due to package collisions (same packages into different modules) I had to rename some of them so you have to change imports accordingly.
+Upgraded org.slf4j:slf4j-api:1.7.25 to 1.8.0-beta4 that adds JPMS support.
+
+Compile with
+```
+-PbuildNumberFormat=-Tostis-SNAPSHOT
+```
+
+
 # Springfox
 
 [![Join the chat at https://gitter.im/springfox/springfox](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/springfox/springfox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

@@ -24,7 +24,7 @@ import org.joda.time.LocalDateTime
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.property.bean.AccessorsProvider
 import springfox.documentation.schema.property.field.FieldProvider
-import springfox.documentation.spi.schema.EnumTypeDeterminer
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer
 import springfox.documentation.spring.web.dummy.models.Example
 import springfox.documentation.spring.web.dummy.models.ModelAttributeComplexTypeExample
 import springfox.documentation.spring.web.dummy.models.ModelAttributeExample
@@ -34,7 +34,7 @@ import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 import java.beans.BeanInfo
 import java.beans.IntrospectionException
 
-import static springfox.documentation.schema.AlternateTypeRules.*
+import static springfox.documentation.core.schema.AlternateTypeRules.*
 
 class ModelAttributeParameterExpanderSpec extends DocumentationContextSpec {
   TypeResolver typeResolver

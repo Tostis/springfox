@@ -4,9 +4,9 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
 
 import javax.xml.bind.annotation.XmlRootElement
 import javax.xml.bind.annotation.XmlType

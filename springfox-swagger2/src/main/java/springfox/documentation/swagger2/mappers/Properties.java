@@ -37,6 +37,8 @@ import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
 import io.swagger.models.properties.StringProperty;
 import io.swagger.models.properties.UUIDProperty;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.ModelReference;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
@@ -85,13 +87,13 @@ class Properties {
     return TYPE_FACTORY.getOrDefault(safeTypeName.toLowerCase(), voidOrRef(safeTypeName)).apply(safeTypeName);
   }
 
-  public static Property property(springfox.documentation.schema.ModelReference modelRef) {
+  public static Property property(ModelReference modelRef) {
     if (modelRef.isMap()) {
       return new MapProperty(property(modelRef.itemModel()
           .orElseThrow(() -> new IllegalStateException("ModelRef that is a map should have an itemModel"))));
     } else if (modelRef.isCollection()) {
       if ("byte".equals(modelRef.itemModel()
-          .map(springfox.documentation.schema.ModelReference::getType).orElse(""))) {
+          .map(ModelReference::getType).orElse(""))) {
         return new ByteArrayProperty();
       }
       return new ArrayProperty(
@@ -103,7 +105,7 @@ class Properties {
     return property(modelRef.getType());
   }
 
-  public static Property itemTypeProperty(springfox.documentation.schema.ModelReference paramModel) {
+  public static Property itemTypeProperty(ModelReference paramModel) {
     if (paramModel.isCollection()) {
       return new ArrayProperty(
           maybeAddAllowableValues(itemTypeProperty(paramModel.itemModel()
@@ -125,7 +127,7 @@ class Properties {
     };
   }
 
-  static Comparator<String> defaultOrdering(Map<String, springfox.documentation.schema.ModelProperty> properties) {
+  static Comparator<String> defaultOrdering(Map<String, ModelProperty> properties) {
     return byPosition(properties).thenComparing(byName());
   }
 
@@ -157,15 +159,15 @@ class Properties {
   }
 
   private static Comparator<String> byPosition(
-      Map<String, springfox.documentation.schema.ModelProperty> modelProperties) {
+      Map<String, ModelProperty> modelProperties) {
     return (first, second) -> {
-      springfox.documentation.schema.ModelProperty p1 = modelProperties.get(first);
-      springfox.documentation.schema.ModelProperty p2 = modelProperties.get(second);
+      ModelProperty p1 = modelProperties.get(first);
+      ModelProperty p2 = modelProperties.get(second);
       return Integer.compare(p1.getPosition(), p2.getPosition());
     };
   }
 
-  static Predicate<Map.Entry<String, springfox.documentation.schema.ModelProperty>> voidProperties() {
+  static Predicate<Map.Entry<String, ModelProperty>> voidProperties() {
     return input -> isVoid(input.getValue().getType())
         || collectionOfVoid(input.getValue().getType())
         || isVoid(input.getValue().getType().getArrayElementType());

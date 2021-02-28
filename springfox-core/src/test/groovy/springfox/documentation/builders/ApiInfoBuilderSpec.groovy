@@ -20,9 +20,10 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.Contact
-import springfox.documentation.service.ListVendorExtension
-import springfox.documentation.service.VendorExtension
+import springfox.documentation.core.builders.ApiInfoBuilder
+import springfox.documentation.core.service.Contact
+import springfox.documentation.core.service.ListVendorExtension
+import springfox.documentation.core.service.VendorExtension
 
 class ApiInfoBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

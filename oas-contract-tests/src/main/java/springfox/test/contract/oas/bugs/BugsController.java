@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import reactor.core.publisher.Mono;
-import springfox.documentation.annotations.ApiIgnore;
+import springfox.documentation.core.annotations.ApiIgnore;
 import springfox.test.contract.oas.model.Pet;
 
 import javax.servlet.http.HttpServletRequest;

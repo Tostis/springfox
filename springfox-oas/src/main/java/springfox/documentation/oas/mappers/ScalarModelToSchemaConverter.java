@@ -12,8 +12,8 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.media.StringSchema;
 import io.swagger.v3.oas.models.media.UUIDSchema;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.ScalarModelSpecification;
-import springfox.documentation.schema.ScalarType;
+import springfox.documentation.core.schema.ScalarModelSpecification;
+import springfox.documentation.core.schema.ScalarType;
 
 import java.util.HashMap;
 import java.util.Map;

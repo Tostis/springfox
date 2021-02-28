@@ -25,10 +25,11 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.http.ResponseEntity
 import spock.lang.Shared
 import spock.lang.Specification
+import springfox.documentation.core.schema.WildcardType
 
 import java.lang.reflect.Type
 
-import static WildcardType.*
+import static springfox.documentation.core.schema.WildcardType.*
 
 class WildcardTypeSpec extends Specification {
   @Shared TypeResolver resolver = new TypeResolver()

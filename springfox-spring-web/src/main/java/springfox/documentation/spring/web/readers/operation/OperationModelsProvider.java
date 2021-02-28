@@ -29,11 +29,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestPart;
 import springfox.documentation.schema.plugins.SchemaPluginsManager;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ViewProviderPlugin;
-import springfox.documentation.spi.service.OperationModelsProviderPlugin;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin;
+import springfox.documentation.spi.spi.service.OperationModelsProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import java.util.HashSet;
 import java.util.List;

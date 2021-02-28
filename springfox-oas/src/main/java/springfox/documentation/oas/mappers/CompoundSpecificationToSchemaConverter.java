@@ -4,8 +4,8 @@ import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.mapstruct.factory.Mappers;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.CompoundModelSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CompoundModelSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.Objects;
 import java.util.stream.Collectors;

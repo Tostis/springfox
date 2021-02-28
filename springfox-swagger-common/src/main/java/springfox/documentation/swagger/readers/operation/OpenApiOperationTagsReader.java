@@ -23,9 +23,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.Arrays;
@@ -38,7 +38,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.service.Tags.*;
+import static springfox.documentation.core.service.Tags.emptyTags;
 
 @Component
 @Order(SwaggerPluginSupport.OAS_PLUGIN_ORDER)
@@ -56,22 +56,22 @@ public class OpenApiOperationTagsReader implements OperationBuilderPlugin {
   private Set<String> controllerTags(OperationContext context) {
     return tagsFromOasAnnotations(context)
         .stream()
-        .map(springfox.documentation.service.Tag::getName)
+        .map(springfox.documentation.core.service.Tag::getName)
         .collect(toSet());
   }
 
-  private Set<springfox.documentation.service.Tag> tagsFromOasAnnotations(OperationContext context) {
-    HashSet<springfox.documentation.service.Tag> controllerTags
+  private Set<springfox.documentation.core.service.Tag> tagsFromOasAnnotations(OperationContext context) {
+    HashSet<springfox.documentation.core.service.Tag> controllerTags
         = new HashSet<>();
     List<Tags> tags =
         context.findAllAnnotations(Tags.class);
     tags.forEach(ts ->
         Arrays.stream(ts.value())
             .forEach(t -> controllerTags.add(
-                new springfox.documentation.service.Tag(t.name(), t.description()))));
+                new springfox.documentation.core.service.Tag(t.name(), t.description()))));
     List<Tag> tag = context.findAllAnnotations(Tag.class);
     tag.forEach(t -> controllerTags.add(
-        new springfox.documentation.service.Tag(t.name(), t.description())));
+        new springfox.documentation.core.service.Tag(t.name(), t.description())));
     return controllerTags;
   }
 

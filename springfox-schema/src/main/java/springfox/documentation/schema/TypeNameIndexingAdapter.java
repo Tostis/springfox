@@ -21,7 +21,7 @@ package springfox.documentation.schema;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import springfox.documentation.spi.schema.UniqueTypeNameAdapter;
+import springfox.documentation.spi.spi.schema.UniqueTypeNameAdapter;
 
 import java.util.Collections;
 import java.util.HashMap;

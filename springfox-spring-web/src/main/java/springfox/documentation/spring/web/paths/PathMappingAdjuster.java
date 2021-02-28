@@ -20,8 +20,8 @@
 package springfox.documentation.spring.web.paths;
 
 import org.springframework.web.util.UriComponentsBuilder;
-import springfox.documentation.service.PathAdjuster;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.service.PathAdjuster;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
 
 public class PathMappingAdjuster implements PathAdjuster {
   private final DocumentationContext context;

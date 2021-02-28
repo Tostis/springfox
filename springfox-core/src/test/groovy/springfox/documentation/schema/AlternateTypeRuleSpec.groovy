@@ -26,10 +26,13 @@ import org.springframework.core.Ordered
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.schema.AlternateTypeRule
+import springfox.documentation.core.schema.AlternateTypeRules
+import springfox.documentation.core.schema.WildcardType
 
 import java.lang.reflect.Type
 
-import static springfox.documentation.schema.AlternateTypeRules.*
+import static springfox.documentation.core.schema.AlternateTypeRules.*
 
 class AlternateTypeRuleSpec extends Specification {
   @Shared TypeResolver resolver = new TypeResolver()
@@ -52,7 +55,7 @@ class AlternateTypeRuleSpec extends Specification {
       resolve(Date)                     | resolve(String)           | resolve(String)               | false
       resolve(List, Date)               | resolve(String)           | resolve(List, Date)           | true
       resolve(List, Date)               | resolve(String)           | resolve(List, String)         | false
-      resolve(List, WildcardType)       | resolve(String)           | resolve(List, String)         | true
+      resolve(List, WildcardType) | resolve(String) | resolve(List, String) | true
       resolve(List, WildcardType)       | resolve(String)           | resolve(List, WildcardType)   | true
       listOfListsOfType(WildcardType)   | listOfListsOfType(String) | listOfListsOfType(Date)       | true
       resolve(WildcardType)             | resolve(String)           | resolve(Date)                 | false

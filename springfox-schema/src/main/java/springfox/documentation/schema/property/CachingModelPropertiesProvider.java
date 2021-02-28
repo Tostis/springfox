@@ -25,9 +25,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import springfox.documentation.schema.PropertySpecification;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.PropertySpecification;
 import springfox.documentation.schema.configuration.ObjectMapperConfigured;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,9 +42,9 @@ import java.util.function.Function;
 @Qualifier("cachedModelProperties")
 public class CachingModelPropertiesProvider implements ModelPropertiesProvider {
   private static final Logger LOGGER = LoggerFactory.getLogger(CachingModelPropertiesProvider.class);
-  private final Map<ModelContext, List<springfox.documentation.schema.ModelProperty>> cache;
+  private final Map<ModelContext, List<ModelProperty>> cache;
   private final Map<ModelContext, List<PropertySpecification>> specificationCache;
-  private final Function<ModelContext, List<springfox.documentation.schema.ModelProperty>> lookup;
+  private final Function<ModelContext, List<ModelProperty>> lookup;
   private final Function<ModelContext, List<PropertySpecification>> lookupSpecification;
 
   @Autowired
@@ -57,7 +58,7 @@ public class CachingModelPropertiesProvider implements ModelPropertiesProvider {
   }
 
   @Override
-  public List<springfox.documentation.schema.ModelProperty>
+  public List<ModelProperty>
   propertiesFor(ResolvedType type, ModelContext givenContext) {
     try {
       return cache.computeIfAbsent(givenContext, lookup);

@@ -26,8 +26,7 @@ import org.springframework.integration.webflux.inbound.WebFluxInboundEndpoint
 import org.springframework.web.method.HandlerMethod
 import org.springframework.web.reactive.result.method.RequestMappingInfo
 import spock.lang.Specification
-import springfox.documentation.service.ResolvedMethodParameter
-import springfox.documentation.spring.web.dummy.DummyClass
+import springfox.documentation.core.service.ResolvedMethodParameter
 import springfox.documentation.spring.web.dummy.models.Example
 import springfox.documentation.spring.web.plugins.SpringIntegrationParametersProvider
 import springfox.documentation.spring.web.readers.operation.HandlerMethodResolver

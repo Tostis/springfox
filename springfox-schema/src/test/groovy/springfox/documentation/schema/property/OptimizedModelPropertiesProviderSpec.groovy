@@ -39,13 +39,13 @@ import springfox.documentation.schema.configuration.ObjectMapperConfigured
 import springfox.documentation.schema.mixins.SchemaPluginsSupport
 import springfox.documentation.schema.property.bean.AccessorsProvider
 import springfox.documentation.schema.property.field.FieldProvider
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class OptimizedModelPropertiesProviderSpec extends Specification implements SchemaPluginsSupport {
   def "model properties are detected correctly"() {

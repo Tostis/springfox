@@ -21,11 +21,11 @@ package springfox.documentation.builders
 
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.service.ApiListing
-import springfox.documentation.service.ListVendorExtension
-import springfox.documentation.service.ResourceListing
-import springfox.documentation.service.Tag
-import springfox.documentation.service.VendorExtension
+import springfox.documentation.core.builders.DocumentationBuilder
+import springfox.documentation.core.service.ApiListing
+import springfox.documentation.core.service.ListVendorExtension
+import springfox.documentation.core.service.Tag
+import springfox.documentation.core.service.VendorExtension
 
 
 class DocumentationBuilderSpec extends Specification {

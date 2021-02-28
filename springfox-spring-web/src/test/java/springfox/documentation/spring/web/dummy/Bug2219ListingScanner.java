@@ -19,15 +19,15 @@
 package springfox.documentation.spring.web.dummy;
 
 import org.springframework.http.HttpMethod;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.builders.OperationBuilder;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ParameterType;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ApiListingScannerPlugin;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
+import springfox.documentation.core.builders.ModelSpecificationBuilder;
+import springfox.documentation.core.builders.OperationBuilder;
+import springfox.documentation.core.builders.RequestParameterBuilder;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ParameterType;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
 import springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator;
 
 import java.util.ArrayList;

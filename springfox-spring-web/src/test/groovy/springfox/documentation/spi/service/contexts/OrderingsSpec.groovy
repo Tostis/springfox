@@ -1,19 +1,23 @@
 package springfox.documentation.spi.service.contexts
 
 import spock.lang.Specification
-import springfox.documentation.RequestHandler
-import springfox.documentation.RequestHandlerKey
-import springfox.documentation.service.ResolvedMethodParameter
-import springfox.documentation.service.ResourceGroup
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.core.spring.wrapper.RequestMappingInfo
+import springfox.documentation.core.RequestHandler
+import springfox.documentation.core.RequestHandlerKey
+import springfox.documentation.core.service.ResolvedMethodParameter
+import springfox.documentation.core.service.ResourceGroup
+import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.spring.web.readers.operation.HandlerMethodResolver
-import springfox.documentation.spring.wrapper.PatternsRequestCondition
+import springfox.documentation.core.spring.wrapper.PatternsRequestCondition
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.models.SameFancyPet
 import springfox.documentation.spring.web.ControllerNamingUtils
 import springfox.documentation.spring.web.dummy.controllers.GenericRestController;
-import springfox.documentation.spring.web.dummy.controllers.PetRepository;
+import springfox.documentation.spring.web.dummy.controllers.PetRepository
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext
+import springfox.documentation.spi.spi.service.contexts.Orderings
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import static java.util.stream.Collectors.*
 
@@ -60,9 +64,9 @@ class OrderingsSpec extends Specification {
 
   def "Orderings is stable when RequestMappingContext is based on overloaded methods" () {
     given:
-      DocumentationContext documentationContext = Mock()
+    DocumentationContext documentationContext = Mock()
 
-      RequestMappingContext context1 =  requestMappingContext("0", documentationContext, SameFancyPet)
+    RequestMappingContext context1 =  requestMappingContext("0", documentationContext, SameFancyPet)
       RequestMappingContext context2 =  requestMappingContext("0", documentationContext, SameFancyPet, String)
       RequestMappingContext context3 =  requestMappingContext("0", documentationContext, String)
 
@@ -164,7 +168,7 @@ class OrderingsSpec extends Specification {
           }
 
           @Override
-          springfox.documentation.spring.wrapper.RequestMappingInfo<?> getRequestMapping() {
+          RequestMappingInfo<?> getRequestMapping() {
             return null
           }
 

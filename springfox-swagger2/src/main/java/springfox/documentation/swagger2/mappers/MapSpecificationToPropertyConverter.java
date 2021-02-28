@@ -3,8 +3,8 @@ package springfox.documentation.swagger2.mappers;
 import io.swagger.models.properties.MapProperty;
 import io.swagger.models.properties.Property;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.MapSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.MapSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 public class MapSpecificationToPropertyConverter implements Converter<MapSpecification, Property> {
   private final ModelNamesRegistry modelNamesRegistry;

@@ -21,14 +21,14 @@ package springfox.documentation.spring.web.scanners;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import springfox.documentation.PathProvider;
-import springfox.documentation.builders.DocumentationBuilder;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.ApiListingReference;
-import springfox.documentation.service.Documentation;
-import springfox.documentation.service.PathAdjuster;
-import springfox.documentation.service.Tag;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.core.builders.DocumentationBuilder;
+import springfox.documentation.core.service.ApiListing;
+import springfox.documentation.core.service.ApiListingReference;
+import springfox.documentation.core.service.Documentation;
+import springfox.documentation.spi.service.PathAdjuster;
+import springfox.documentation.core.service.Tag;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
 import springfox.documentation.spring.web.paths.PathMappingAdjuster;
 
 import java.util.Collection;
@@ -40,8 +40,8 @@ import java.util.TreeSet;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.service.Tags.*;
-import static springfox.documentation.spi.service.contexts.Orderings.*;
+import static springfox.documentation.core.service.Tags.toTags;
+import static springfox.documentation.spi.spi.service.contexts.Orderings.listingReferencePathComparator;
 import static springfox.documentation.spring.web.paths.Paths.*;
 
 @Component

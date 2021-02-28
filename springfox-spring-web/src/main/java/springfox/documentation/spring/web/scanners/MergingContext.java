@@ -18,7 +18,8 @@
  */
 package springfox.documentation.spring.web.scanners;
 
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -35,17 +36,17 @@ public class MergingContext {
   private final Map<String, Set<String>> circlePath;
   private final Map<String, Set<String>> circleParameters;
   private final Map<String, ComparisonCondition> globalComparisonConditions;
-  private final Map<String, Set<springfox.documentation.schema.Model>> typedModelMap;
+  private final Map<String, Set<Model>> typedModelMap;
   private final Map<String, String> modelIdToParameterId;
   private final Map<String, ModelContext> contextMap;
-  private final Map<String, springfox.documentation.schema.Model> currentBranch;
+  private final Map<String, Model> currentBranch;
   private final Set<String> seenModels;
 
   public MergingContext(
       String parameterId,
-      Map<String, Set<springfox.documentation.schema.Model>> typedModelMap,
+      Map<String, Set<Model>> typedModelMap,
       Map<String, String> modelIdToParameterId,
-      Map<String, springfox.documentation.schema.Model> currentBranch,
+      Map<String, Model> currentBranch,
       Map<String, ModelContext> contextMap) {
     this.rootId = "";
     this.parameterId = parameterId;
@@ -115,7 +116,7 @@ public class MergingContext {
     return this.circleParameters.get(circleId);
   }
 
-  public springfox.documentation.schema.Model getRootModel() {
+  public Model getRootModel() {
     return this.currentBranch.get(rootId);
   }
 
@@ -123,7 +124,7 @@ public class MergingContext {
     return this.contextMap.containsKey(modelId);
   }
 
-  public springfox.documentation.schema.Model getModel(String modelId) {
+  public Model getModel(String modelId) {
     return this.currentBranch.get(modelId);
   }
 
@@ -135,7 +136,7 @@ public class MergingContext {
     return this.modelIdToParameterId.get(modelId);
   }
 
-  public Set<springfox.documentation.schema.Model> getSimilarTypeModels(String type) {
+  public Set<Model> getSimilarTypeModels(String type) {
     if (this.typedModelMap.containsKey(type)) {
       return this.typedModelMap.get(type);
     }

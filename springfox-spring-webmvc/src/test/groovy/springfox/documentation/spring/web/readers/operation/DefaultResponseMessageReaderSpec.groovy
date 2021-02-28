@@ -26,13 +26,13 @@ import org.springframework.plugin.core.PluginRegistry
 import org.springframework.web.bind.annotation.RequestMethod
 import springfox.documentation.schema.DefaultTypeNameProvider
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
-import springfox.documentation.schema.Model
+import springfox.documentation.core.schema.Model
 import springfox.documentation.schema.TypeNameExtractor
 import springfox.documentation.schema.property.ModelSpecificationFactory
-import springfox.documentation.service.ResponseMessage
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.core.service.ResponseMessage
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 

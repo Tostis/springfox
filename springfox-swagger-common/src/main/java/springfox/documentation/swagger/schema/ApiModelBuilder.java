@@ -25,13 +25,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.schema.ReferenceModelSpecification;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.schema.ReferenceModelSpecification;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.ModelBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class ApiModelBuilder implements ModelBuilderPlugin {
   public void apply(ModelContext context) {
     ApiModel annotation = AnnotationUtils.findAnnotation(forClass(context), ApiModel.class);
     if (annotation != null) {
-      List<springfox.documentation.schema.ModelReference> modelRefs = new ArrayList<>();
+      List<ModelReference> modelRefs = new ArrayList<>();
       List<ReferenceModelSpecification> subclassKeys = new ArrayList<>();
       for (Class<?> each : annotation.subTypes()) {
         modelRefs.add(modelRefFactory(context, enumTypeDeterminer, typeNameExtractor)

@@ -28,24 +28,24 @@ import io.swagger.models.properties.StringProperty
 import org.mapstruct.factory.Mappers
 import spock.lang.Shared
 import spock.lang.Unroll
-import springfox.documentation.builders.ModelBuilder
-import springfox.documentation.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.ModelBuilder
+import springfox.documentation.core.builders.ModelPropertyBuilder
 import springfox.documentation.schema.CodeGenGenericTypeNamingStrategy
-import springfox.documentation.schema.Model
-import springfox.documentation.schema.ModelProperty
-import springfox.documentation.schema.ModelRef
-import springfox.documentation.schema.ModelReference
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.schema.ModelProperty
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.schema.ModelReference
 import springfox.documentation.schema.SchemaSpecification
 import springfox.documentation.schema.SimpleType
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.spi.spi.DocumentationType
 
 import java.util.function.Function
 import java.util.stream.Collectors
 
 import static java.util.Collections.*
 import static springfox.documentation.schema.ResolvedTypes.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 import static springfox.documentation.swagger2.mappers.ModelMapper.*
 
 class ModelMapperSpec extends SchemaSpecification {

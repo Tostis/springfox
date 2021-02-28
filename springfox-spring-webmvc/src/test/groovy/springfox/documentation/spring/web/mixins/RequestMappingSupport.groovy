@@ -29,10 +29,10 @@ import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition
 import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition
 import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
-import springfox.documentation.builders.OperationBuilder
-import springfox.documentation.schema.Model
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.RequestMappingContext
+import springfox.documentation.core.builders.OperationBuilder
+import springfox.documentation.core.schema.Model
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
 import springfox.documentation.spring.web.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.DummyController

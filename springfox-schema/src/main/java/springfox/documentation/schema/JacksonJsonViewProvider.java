@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ViewProviderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import java.util.Optional;
 

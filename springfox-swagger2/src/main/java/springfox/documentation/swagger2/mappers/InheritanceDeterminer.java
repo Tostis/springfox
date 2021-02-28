@@ -19,10 +19,13 @@
 package springfox.documentation.swagger2.mappers;
 
 import io.swagger.models.RefModel;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.core.schema.ModelReference;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
 
 /**
  * Not needed when using {@link ModelSpecificationMapper} instead
@@ -33,23 +36,23 @@ import static springfox.documentation.builders.BuilderDefaults.*;
 class InheritanceDeterminer {
   private final Map<String, RefModel> parentLookup = new HashMap<String, RefModel>();
 
-  InheritanceDeterminer(Map<String, springfox.documentation.schema.Model> models) {
-    for (springfox.documentation.schema.Model each : models.values()) {
-      for (springfox.documentation.schema.ModelReference modelReference : nullToEmptyList(each.getSubTypes())) {
+  InheritanceDeterminer(Map<String, Model> models) {
+    for (Model each : models.values()) {
+      for (ModelReference modelReference : nullToEmptyList(each.getSubTypes())) {
         parentLookup.put(modelReference.getType(), toRefModel(each));
       }
     }
   }
 
-  boolean hasParent(springfox.documentation.schema.Model model) {
+  boolean hasParent(Model model) {
     return parentLookup.containsKey(model.getName());
   }
 
-  RefModel parent(springfox.documentation.schema.Model model) {
+  RefModel parent(Model model) {
     return parentLookup.get(model.getName());
   }
 
-  private RefModel toRefModel(springfox.documentation.schema.Model model) {
+  private RefModel toRefModel(Model model) {
     return new RefModel(model.getName());
   }
 }

@@ -21,7 +21,7 @@ package springfox.documentation.service.model
 
 import spock.lang.Shared
 import spock.lang.Specification
-import springfox.documentation.service.ResourceGroup
+import springfox.documentation.core.service.ResourceGroup
 
 import static java.util.Optional.*
 

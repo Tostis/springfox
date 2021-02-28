@@ -25,7 +25,7 @@ import java.util.HashSet;
 import java.util.Optional;
 
 import static java.util.Optional.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
 
 public class ApiListingMerger {
   private ApiListingMerger() {

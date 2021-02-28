@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import spock.lang.Specification
-import springfox.documentation.service.ResolvedMethodParameter
+import springfox.documentation.core.service.ResolvedMethodParameter
 
 class ResolvedMethodParameterSpec extends Specification {
   def "Bean properties test" () {

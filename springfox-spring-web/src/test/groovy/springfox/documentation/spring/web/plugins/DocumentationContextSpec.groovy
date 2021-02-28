@@ -21,15 +21,15 @@ package springfox.documentation.spring.web.plugins
 
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.Defaults
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.Defaults
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.ServicePluginsSupport
 import springfox.documentation.spring.web.paths.DefaultPathProvider
 import springfox.documentation.spring.web.readers.operation.ApiOperationReader
 
-import static springfox.documentation.spi.service.contexts.Orderings.*
+import static springfox.documentation.spi.spi.service.contexts.Orderings.*
 
 class DocumentationContextSpec extends Specification implements ServicePluginsSupport {
   DocumentationContextBuilder contextBuilder

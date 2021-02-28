@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import springfox.documentation.schema.property.BaseModelProperty;
-import springfox.documentation.spi.schema.AlternateTypeProvider;
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider;
 
 import static springfox.documentation.schema.property.bean.Accessors.*;
 

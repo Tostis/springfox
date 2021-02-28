@@ -4,16 +4,16 @@ import com.fasterxml.classmate.ResolvedType
 import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.AnnotationsSupport
-import springfox.documentation.schema.NumericElementFacet
-import springfox.documentation.schema.ScalarType
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.service.ParameterType
-import springfox.documentation.service.ResolvedMethodParameter
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy
-import springfox.documentation.spi.service.contexts.DocumentationContext
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.ParameterContext
+import springfox.documentation.core.schema.NumericElementFacet
+import springfox.documentation.core.schema.ScalarType
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.core.service.ParameterType
+import springfox.documentation.core.service.ResolvedMethodParameter
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.ParameterContext
 
 
 class MinMaxAnnotationPluginSpec extends Specification implements AnnotationsSupport {

@@ -3,11 +3,10 @@ package springfox.documentation.schema.plugins
 import com.fasterxml.classmate.TypeResolver
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 import spock.lang.Specification
-import spock.lang.Unroll
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
 
 import static java.util.Collections.emptySet
 

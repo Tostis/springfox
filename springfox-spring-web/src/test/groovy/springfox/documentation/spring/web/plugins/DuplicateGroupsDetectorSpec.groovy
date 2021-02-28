@@ -19,8 +19,8 @@
 package springfox.documentation.spring.web.plugins
 
 import spock.lang.Specification
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.DocumentationPlugin
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.DocumentationPlugin
 
 import java.util.stream.Stream
 

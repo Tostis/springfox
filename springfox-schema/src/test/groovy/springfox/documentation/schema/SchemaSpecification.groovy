@@ -24,9 +24,8 @@ import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
 import spock.lang.Specification
 import springfox.documentation.schema.mixins.ModelProviderSupport
-import springfox.documentation.schema.mixins.TypesForTestingSupport
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
 
 class SchemaSpecification
     extends Specification

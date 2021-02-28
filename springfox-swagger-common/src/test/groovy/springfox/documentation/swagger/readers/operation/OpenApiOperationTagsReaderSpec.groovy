@@ -3,10 +3,9 @@ package springfox.documentation.swagger.readers.operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import io.swagger.v3.oas.annotations.tags.Tags
 import spock.lang.Unroll
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
-import springfox.documentation.spring.web.readers.operation.OperationTagsReader
 
 class OpenApiOperationTagsReaderSpec extends DocumentationContextSpec implements RequestMappingSupport {
   @Unroll

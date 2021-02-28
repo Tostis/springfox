@@ -3,9 +3,9 @@ package springfox.documentation.oas.mappers;
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.QualifiedModelName;
-import springfox.documentation.schema.ReferenceModelSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.QualifiedModelName;
+import springfox.documentation.core.schema.ReferenceModelSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 public class ReferenceModelSpecificationToSchemaConverter implements Converter<ReferenceModelSpecification, Schema<?>> {
   private final ModelNamesRegistry modelNamesRegistry;

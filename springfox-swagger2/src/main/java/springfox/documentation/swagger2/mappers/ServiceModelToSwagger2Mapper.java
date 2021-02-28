@@ -40,15 +40,8 @@ import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.Documentation;
-import springfox.documentation.service.Header;
-import springfox.documentation.service.ModelNamesRegistry;
-import springfox.documentation.service.Representation;
-import springfox.documentation.service.RequestParameter;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.service.*;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -65,7 +58,7 @@ import java.util.stream.Collectors;
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
 import static org.slf4j.LoggerFactory.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
 
 @Mapper(uses = {
     CompatibilityModelMapper.class,
@@ -110,13 +103,13 @@ public abstract class ServiceModelToSwagger2Mapper {
   })
   protected abstract Info mapApiInfo(ApiInfo from);
 
-  protected abstract Contact map(springfox.documentation.service.Contact from);
+  protected abstract Contact map(springfox.documentation.core.service.Contact from);
 
   @BeforeMapping
   @SuppressWarnings("deprecation")
   void beforeMappingOperations(
       @MappingTarget Operation target,
-      springfox.documentation.service.Operation source,
+      springfox.documentation.core.service.Operation source,
       @Context ModelNamesRegistry modelNamesRegistry) {
     List<io.swagger.models.parameters.Parameter> parameters = new ArrayList<>();
     if (useModelV3) {
@@ -126,7 +119,7 @@ public abstract class ServiceModelToSwagger2Mapper {
       }
       target.setResponses(mapResponses(source.getResponses(), modelNamesRegistry));
     } else {
-      for (springfox.documentation.service.Parameter each : source.getParameters()) {
+      for (Parameter each : source.getParameters()) {
         parameters.add(Mappers.getMapper(ParameterMapper.class).mapParameter(each));
       }
       target.setResponses(mapResponseMessages(source.getResponseMessages()));
@@ -149,14 +142,14 @@ public abstract class ServiceModelToSwagger2Mapper {
       @Mapping(target = "parameters", ignore = true)
   })
   protected abstract Operation mapOperation(
-      springfox.documentation.service.Operation from,
+      springfox.documentation.core.service.Operation from,
       @Context ModelNamesRegistry modelNames);
 
   @Mappings({
       @Mapping(target = "externalDocs", ignore = true),
       @Mapping(target = "vendorExtensions", source = "vendorExtensions")
   })
-  protected abstract Tag mapTag(springfox.documentation.service.Tag from);
+  protected abstract Tag mapTag(springfox.documentation.core.service.Tag from);
 
   protected List<Scheme> mapSchemes(List<String> from) {
     return from.stream().map(Scheme::forValue).collect(toList());
@@ -180,11 +173,11 @@ public abstract class ServiceModelToSwagger2Mapper {
    * @deprecated @since 3.0.0
    */
   @Deprecated
-  protected Map<String, Response> mapResponseMessages(Set<springfox.documentation.service.ResponseMessage> from) {
+  protected Map<String, Response> mapResponseMessages(Set<ResponseMessage> from) {
     Map<String, Response> responses = new TreeMap<>();
-    for (springfox.documentation.service.ResponseMessage responseMessage : from) {
+    for (ResponseMessage responseMessage : from) {
       Property responseProperty;
-      springfox.documentation.schema.ModelReference modelRef = responseMessage.getResponseModel();
+      ModelReference modelRef = responseMessage.getResponseModel();
       responseProperty = modelRefToProperty(modelRef);
       Response response = new Response()
           .description(responseMessage.getMessage())
@@ -203,10 +196,10 @@ public abstract class ServiceModelToSwagger2Mapper {
   }
 
   protected Map<String, Response> mapResponses(
-      Set<springfox.documentation.service.Response> from,
+      Set<springfox.documentation.core.service.Response> from,
       ModelNamesRegistry modelNamesRegistry) {
     Map<String, Response> responses = new TreeMap<>();
-    for (springfox.documentation.service.Response each : from) {
+    for (springfox.documentation.core.service.Response each : from) {
       Response response = new Response()
           .description(each.getDescription());
       for (Representation representation : each.getRepresentations()) {
@@ -242,7 +235,7 @@ public abstract class ServiceModelToSwagger2Mapper {
   }
 
   @SuppressWarnings("deprecation")
-  private Property modelRefToProperty(springfox.documentation.schema.ModelReference modelReference) {
+  private Property modelRefToProperty(ModelReference modelReference) {
     return springfox.documentation.swagger2.mappers.ModelMapper.modelRefToProperty(modelReference);
   }
 
@@ -266,7 +259,7 @@ public abstract class ServiceModelToSwagger2Mapper {
       Optional<Path> existingPath,
       ModelNamesRegistry modelNamesRegistry) {
     Path path = existingPath.orElse(new Path());
-    for (springfox.documentation.service.Operation each : nullToEmptyList(api.getOperations())) {
+    for (springfox.documentation.core.service.Operation each : nullToEmptyList(api.getOperations())) {
       Operation operation = mapOperation(each, modelNamesRegistry);
       path.set(each.getMethod().toString().toLowerCase(), operation);
     }

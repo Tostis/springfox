@@ -20,9 +20,10 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.ApiInfo
-import springfox.documentation.service.ApiListingReference
-import springfox.documentation.service.SecurityScheme
+import springfox.documentation.core.builders.ResourceListingBuilder
+import springfox.documentation.core.service.ApiInfo
+import springfox.documentation.core.service.ApiListingReference
+import springfox.documentation.core.service.SecurityScheme
 
 class ResourceListingBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

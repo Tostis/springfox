@@ -20,8 +20,8 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.AuthorizationScope
-import springfox.documentation.service.SecurityReference
+import springfox.documentation.core.service.AuthorizationScope
+import springfox.documentation.core.service.SecurityReference
 
 class AuthorizationBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

@@ -1,12 +1,14 @@
 package springfox.documentation.service
 
 import spock.lang.Specification
+import springfox.documentation.core.service.ObjectVendorExtension
+import springfox.documentation.core.service.StringVendorExtension
 
 class StringVendorExtensionSpec extends Specification {
 
   def "String vendor extension stores and retrieves properties" () {
     given:
-      StringVendorExtension sut = new StringVendorExtension("A", "B")
+    StringVendorExtension sut = new StringVendorExtension("A", "B")
     expect:
       sut.name == "A"
       sut.value == "B"

@@ -18,7 +18,7 @@
  */
 package springfox.documentation.swagger.readers.operation
 
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 

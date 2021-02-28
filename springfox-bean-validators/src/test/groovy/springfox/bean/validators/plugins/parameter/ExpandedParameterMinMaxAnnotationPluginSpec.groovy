@@ -6,14 +6,14 @@ import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.AnnotationsSupport
 import springfox.bean.validators.plugins.ReflectionSupport
-import springfox.documentation.builders.ParameterBuilder
-import springfox.documentation.builders.RequestParameterBuilder
-import springfox.documentation.schema.NumericElementFacet
-import springfox.documentation.schema.ScalarType
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.service.ParameterType
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
+import springfox.documentation.core.schema.NumericElementFacet
+import springfox.documentation.core.schema.ScalarType
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.core.service.ParameterType
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext
 import springfox.documentation.spring.web.readers.parameter.ModelAttributeParameterMetadataAccessor
 
 import javax.validation.constraints.Max

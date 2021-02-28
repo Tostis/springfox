@@ -24,13 +24,13 @@ import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.mvc.condition.HeadersRequestCondition
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Unroll
-import springfox.documentation.builders.SimpleParameterSpecificationBuilder
-import springfox.documentation.schema.ScalarType
-import springfox.documentation.service.Parameter
-import springfox.documentation.service.ParameterSpecification
-import springfox.documentation.service.RequestParameter
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.core.builders.SimpleParameterSpecificationBuilder
+import springfox.documentation.core.schema.ScalarType
+import springfox.documentation.core.service.Parameter
+import springfox.documentation.core.service.ParameterSpecification
+import springfox.documentation.core.service.RequestParameter
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 

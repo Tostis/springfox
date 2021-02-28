@@ -24,15 +24,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.stereotype.Component;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.PropertySpecification;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ModelBuilderPlugin;
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
-import springfox.documentation.spi.schema.ViewProviderPlugin;
-import springfox.documentation.spi.schema.SyntheticModelProviderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.PropertySpecification;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin;
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin;
+import springfox.documentation.spi.spi.schema.SyntheticModelProviderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -70,7 +72,7 @@ public class SchemaPluginsManager {
    * @return the model property
    */
   @Deprecated
-  public springfox.documentation.schema.ModelProperty property(ModelPropertyContext context) {
+  public ModelProperty property(ModelPropertyContext context) {
     for (ModelPropertyBuilderPlugin enricher : propertyEnrichers.getPluginsFor(context.getDocumentationType())) {
       enricher.apply(context);
     }
@@ -84,7 +86,7 @@ public class SchemaPluginsManager {
    * @return the model
    */
   @Deprecated
-  public springfox.documentation.schema.Model model(ModelContext context) {
+  public Model model(ModelContext context) {
     for (ModelBuilderPlugin enricher : modelEnrichers.getPluginsFor(context.getDocumentationType())) {
       enricher.apply(context);
     }
@@ -103,7 +105,7 @@ public class SchemaPluginsManager {
    * @return the model
    */
   @Deprecated
-  public Optional<springfox.documentation.schema.Model> syntheticModel(ModelContext context) {
+  public Optional<Model> syntheticModel(ModelContext context) {
       return syntheticModelProviders.getPluginFor(context).map(plugin -> plugin.create(context));
   }
 
@@ -126,7 +128,7 @@ public class SchemaPluginsManager {
    * @return the model
    */
   @Deprecated
-  public List<springfox.documentation.schema.ModelProperty> syntheticProperties(ModelContext context) {
+  public List<ModelProperty> syntheticProperties(ModelContext context) {
       return syntheticModelProviders.getPluginFor(context).map(plugin -> plugin.properties(context))
           .orElseGet(ArrayList::new);
   }

@@ -22,7 +22,7 @@ import spock.lang.Specification
 import springfox.documentation.schema.ExampleWithEnums
 import springfox.documentation.schema.TypeWithApiModelAnnotation
 import springfox.documentation.schema.TypeWithEmptyApiModelAnnotation
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.spi.spi.DocumentationType
 
 class ApiModelTypeNameProviderSpec extends Specification {
   def "renders the type names correctly" () {

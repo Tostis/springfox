@@ -22,9 +22,9 @@ package springfox.documentation.swagger1.web
 import com.fasterxml.classmate.TypeResolver
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Shared
-import springfox.documentation.service.ApiDescription
-import springfox.documentation.service.Operation
-import springfox.documentation.spi.service.contexts.RequestMappingContext
+import springfox.documentation.core.service.ApiDescription
+import springfox.documentation.core.service.Operation
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
 import springfox.documentation.spring.web.WebMvcRequestHandler
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.paths.DefaultPathProvider

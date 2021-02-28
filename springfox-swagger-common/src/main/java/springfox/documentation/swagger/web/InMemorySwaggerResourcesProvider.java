@@ -26,8 +26,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import springfox.documentation.service.Documentation;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.core.service.Documentation;
+import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.spring.web.DocumentationCache;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Optional.*;
-import static springfox.documentation.schema.ClassSupport.*;
+import static springfox.documentation.core.schema.ClassSupport.classByName;
 
 @Component
 public class InMemorySwaggerResourcesProvider implements SwaggerResourcesProvider, ApplicationContextAware {

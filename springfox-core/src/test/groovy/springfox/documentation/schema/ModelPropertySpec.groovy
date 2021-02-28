@@ -23,7 +23,10 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.service.AllowableRangeValues
+import springfox.documentation.core.schema.ModelProperty
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.schema.Xml
+import springfox.documentation.core.service.AllowableRangeValues
 
 class ModelPropertySpec extends Specification {
   @Shared

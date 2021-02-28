@@ -22,19 +22,21 @@ import com.fasterxml.classmate.ResolvedType;
 import com.fasterxml.classmate.TypeResolver;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.LinkRelationProvider;
-import springfox.documentation.builders.ModelPropertyBuilder;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.builders.PropertySpecificationBuilder;
-import springfox.documentation.schema.CollectionType;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.PropertySpecification;
+import springfox.documentation.core.builders.ModelPropertyBuilder;
+import springfox.documentation.core.builders.ModelSpecificationBuilder;
+import springfox.documentation.core.builders.PropertySpecificationBuilder;
+import springfox.documentation.core.schema.CollectionType;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.PropertySpecification;
 import springfox.documentation.schema.TypeNameExtractor;
-import springfox.documentation.schema.Xml;
+import springfox.documentation.core.schema.Xml;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.SyntheticModelProviderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.SyntheticModelProviderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.List;
 import java.util.Set;
@@ -67,7 +69,7 @@ class EmbeddedCollectionModelProvider implements SyntheticModelProviderPlugin {
 
   @SuppressWarnings("deprecation")
   @Override
-  public springfox.documentation.schema.Model create(ModelContext context) {
+  public Model create(ModelContext context) {
     ResolvedType resourceType = resolver.resolve(context.getType());
     List<ResolvedType> typeParameters = resourceType.getTypeParameters();
     Class<?> type = typeParameters.get(0).getErasedType();
@@ -80,7 +82,7 @@ class EmbeddedCollectionModelProvider implements SyntheticModelProviderPlugin {
         .qualifiedType(type.getName())
         .type(typeParameters.get(0))
         .properties(properties(context).stream()
-            .collect(toMap(springfox.documentation.schema.ModelProperty::getName, identity())))
+            .collect(toMap(ModelProperty::getName, identity())))
         .xml(new Xml()
             .wrapped(true)
             .name("content")
@@ -90,7 +92,7 @@ class EmbeddedCollectionModelProvider implements SyntheticModelProviderPlugin {
 
   @Override
   @SuppressWarnings("deprecation")
-  public List<springfox.documentation.schema.ModelProperty> properties(ModelContext context) {
+  public List<ModelProperty> properties(ModelContext context) {
     ResolvedType resourceType = resolver.resolve(context.getType());
     List<ResolvedType> typeParameters = resourceType.getTypeParameters();
     Class<?> type = typeParameters.get(0).getErasedType();

@@ -32,7 +32,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.*;
 
 @JsonPropertyOrder({ "apiVersion", "swaggerVersion", "basePath", "resourcePath", "produces", "consumes", "apis",
     "models" })

@@ -28,14 +28,15 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.schema.ReferenceModelSpecification;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.schema.ReferenceModelSpecification;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.ModelBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,7 @@ public class PropertyDiscriminatorBasedInheritancePlugin implements ModelBuilder
   @Override
   public void apply(ModelContext context) {
 
-    List<Compatibility<springfox.documentation.schema.ModelReference, ReferenceModelSpecification>> modelRefs
+    List<Compatibility<ModelReference, ReferenceModelSpecification>> modelRefs
         = subclassReferences(context);
 
     if (!modelRefs.isEmpty()) {
@@ -88,10 +89,10 @@ public class PropertyDiscriminatorBasedInheritancePlugin implements ModelBuilder
     }
   }
 
-  private List<Compatibility<springfox.documentation.schema.ModelReference, ReferenceModelSpecification>>
+  private List<Compatibility<ModelReference, ReferenceModelSpecification>>
   subclassReferences(ModelContext context) {
     JsonSubTypes subTypes = AnnotationUtils.getAnnotation(forClass(context), JsonSubTypes.class);
-    List<Compatibility<springfox.documentation.schema.ModelReference, ReferenceModelSpecification>> modelRefs
+    List<Compatibility<ModelReference, ReferenceModelSpecification>> modelRefs
         = new ArrayList<>();
     if (subTypes != null) {
       for (JsonSubTypes.Type each : subTypes.value()) {

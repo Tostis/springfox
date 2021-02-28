@@ -23,6 +23,7 @@ import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Ignore
 import spock.lang.Specification
+import springfox.documentation.core.RequestHandler
 import springfox.documentation.builders.MockRequestHandler
 
 @Ignore("Because this needs to be moved to implementations")
@@ -30,7 +31,7 @@ class RequestHandlerSpec extends Specification {
   def "tests getters and setters" (){
     given:
       def reqMapping = new RequestMappingInfo(null,null,null,null,null,null, null)
-      RequestHandler sut = new MockRequestHandler(reqMapping, Mock(HandlerMethod))
+    RequestHandler sut = new MockRequestHandler(reqMapping, Mock(HandlerMethod))
     expect:
       sut.with {
         getPatternsCondition()

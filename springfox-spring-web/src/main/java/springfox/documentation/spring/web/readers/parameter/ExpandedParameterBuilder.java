@@ -25,18 +25,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.schema.Enums;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.schema.ScalarTypes;
-import springfox.documentation.service.AllowableListValues;
-import springfox.documentation.service.AllowableValues;
-import springfox.documentation.service.CollectionFormat;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.service.ExpandedParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext;
+import springfox.documentation.core.builders.ModelSpecificationBuilder;
+import springfox.documentation.core.schema.*;
+import springfox.documentation.core.service.AllowableListValues;
+import springfox.documentation.core.service.AllowableValues;
+import springfox.documentation.core.service.CollectionFormat;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.service.ExpandedParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,8 +43,8 @@ import java.util.stream.Stream;
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
 import static org.springframework.util.StringUtils.*;
+import static springfox.documentation.core.service.RequestParameter.DEFAULT_PRECEDENCE;
 import static springfox.documentation.schema.Collections.*;
-import static springfox.documentation.service.RequestParameter.*;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -74,7 +71,7 @@ public class ExpandedParameterBuilder implements ExpandedParameterBuilderPlugin 
         : String.format("%s.%s", context.getParentName(), context.getFieldName());
 
     String typeName = context.getDataTypeName();
-    springfox.documentation.schema.ModelReference itemModel = null;
+    ModelReference itemModel = null;
     ResolvedType resolved = fieldType(context).orElse(resolver.resolve(context.getFieldType()));
     ModelSpecification modelSpecification;
     if (isContainerType(resolved)) {
@@ -86,7 +83,7 @@ public class ExpandedParameterBuilder implements ExpandedParameterBuilderPlugin 
         itemTypeName = "string";
       }
       typeName = containerType(resolved);
-      itemModel = new springfox.documentation.schema.ModelRef(itemTypeName, itemAllowables);
+      itemModel = new ModelRef(itemTypeName, itemAllowables);
       modelSpecification = new ModelSpecificationBuilder()
           .collectionModel(c ->
               c.model(m ->
@@ -121,7 +118,7 @@ public class ExpandedParameterBuilder implements ExpandedParameterBuilderPlugin 
         .required(Boolean.FALSE)
         .allowMultiple(isContainerType(resolved))
         .type(resolved)
-        .modelRef(new springfox.documentation.schema.ModelRef(typeName, itemModel))
+        .modelRef(new ModelRef(typeName, itemModel))
         .allowableValues(allowable)
         .parameterType(context.getParameterType())
         .order(DEFAULT_PRECEDENCE)

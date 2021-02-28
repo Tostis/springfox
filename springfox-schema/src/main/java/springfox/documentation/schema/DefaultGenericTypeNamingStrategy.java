@@ -19,7 +19,7 @@
 
 package springfox.documentation.schema;
 
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy;
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy;
 
 /**
  * Strategy that uses \u00ab, \u00bb, and comma in generic type names

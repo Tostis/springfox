@@ -27,8 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
-import springfox.documentation.service.Documentation;
+import springfox.documentation.core.annotations.ApiIgnore;
+import springfox.documentation.core.service.Documentation;
 import springfox.documentation.spring.web.DocumentationCache;
 import springfox.documentation.spring.web.json.Json;
 import springfox.documentation.spring.web.json.JsonSerializer;
@@ -94,7 +94,7 @@ public class Swagger1Controller {
     if (documentation == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    Map<String, List<springfox.documentation.service.ApiListing>> apiListingMap = documentation.getApiListings();
+    Map<String, List<springfox.documentation.core.service.ApiListing>> apiListingMap = documentation.getApiListings();
     Map<String, Collection<ApiListing>> dtoApiListings
         = apiListingMap.entrySet().stream()
         .map(toApiListingDto(servletRequest, documentation.getHost(), mapper))
@@ -113,7 +113,7 @@ public class Swagger1Controller {
     if (documentation == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    springfox.documentation.service.ResourceListing listing = documentation.getResourceListing();
+    springfox.documentation.core.service.ResourceListing listing = documentation.getResourceListing();
     ResourceListing resourceListing = mapper.toSwaggerResourceListing(listing);
 
     return ofNullable(jsonSerializer.toJson(resourceListing))

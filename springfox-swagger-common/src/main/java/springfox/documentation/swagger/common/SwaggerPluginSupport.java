@@ -20,7 +20,7 @@
 package springfox.documentation.swagger.common;
 
 import org.springframework.core.Ordered;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 
 public class SwaggerPluginSupport {
   private SwaggerPluginSupport() {

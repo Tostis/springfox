@@ -27,11 +27,11 @@ import springfox.documentation.schema.configuration.ObjectMapperConfigured
 import springfox.documentation.schema.mixins.ModelPropertyLookupSupport
 import springfox.documentation.schema.property.ObjectMapperBeanPropertyNamingStrategy
 import springfox.documentation.schema.property.field.FieldModelProperty
-import springfox.documentation.service.AllowableListValues
+import springfox.documentation.core.service.AllowableListValues
 
 import static java.util.Collections.*
 import static springfox.documentation.schema.property.BeanPropertyDefinitions.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ConstructorModelPropertySpec extends SchemaSpecification implements ModelPropertyLookupSupport {
   @Shared def resolver = new TypeResolver()

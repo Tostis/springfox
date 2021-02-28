@@ -1,8 +1,8 @@
 package springfox.documentation.spring.web.paths
 
 import spock.lang.Unroll
-import springfox.documentation.spi.service.contexts.PathContext
-import springfox.documentation.spi.service.contexts.RequestMappingContext
+import springfox.documentation.spi.spi.service.contexts.PathContext
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 
 import static java.util.Optional.*

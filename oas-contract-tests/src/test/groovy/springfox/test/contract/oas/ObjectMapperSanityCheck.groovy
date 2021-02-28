@@ -39,7 +39,7 @@ import org.springframework.http.RequestEntity
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 import springfox.documentation.oas.annotations.EnableOpenApi
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 
 import static org.springframework.boot.test.context.SpringBootTest.*

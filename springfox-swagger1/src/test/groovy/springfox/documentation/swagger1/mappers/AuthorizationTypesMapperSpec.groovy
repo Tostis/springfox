@@ -20,19 +20,18 @@
 package springfox.documentation.swagger1.mappers
 
 import spock.lang.Specification
-import springfox.documentation.builders.AuthorizationCodeGrantBuilder
-import springfox.documentation.builders.AuthorizationScopeBuilder
-import springfox.documentation.builders.ImplicitGrantBuilder
-import springfox.documentation.builders.LoginEndpointBuilder
-import springfox.documentation.builders.OAuthBuilder
-import springfox.documentation.builders.TokenRequestEndpointBuilder
-import springfox.documentation.service.ApiKey
-import springfox.documentation.service.AuthorizationScope
-import springfox.documentation.service.BasicAuth
-import springfox.documentation.service.GrantType
-import springfox.documentation.service.OAuth
-import springfox.documentation.service.SecurityReference
-import springfox.documentation.service.SecurityScheme
+import springfox.documentation.core.builders.AuthorizationCodeGrantBuilder
+import springfox.documentation.core.builders.AuthorizationScopeBuilder
+import springfox.documentation.core.builders.ImplicitGrantBuilder
+import springfox.documentation.core.builders.LoginEndpointBuilder
+import springfox.documentation.core.builders.OAuthBuilder
+import springfox.documentation.core.service.ApiKey
+import springfox.documentation.core.service.AuthorizationScope
+import springfox.documentation.core.service.BasicAuth
+import springfox.documentation.core.service.GrantType
+import springfox.documentation.core.service.OAuth
+import springfox.documentation.core.service.SecurityReference
+import springfox.documentation.core.service.SecurityScheme
 import springfox.documentation.swagger1.dto.Authorization
 import springfox.documentation.swagger1.dto.AuthorizationCodeGrant
 import springfox.documentation.swagger1.dto.ImplicitGrant
@@ -81,7 +80,7 @@ class AuthorizationTypesMapperSpec extends Specification implements MapperSuppor
   }
 
   OAuth createOAuth() {
-    springfox.documentation.service.LoginEndpoint loginEndpoint = new LoginEndpointBuilder().url("uri:login").build()
+    springfox.documentation.core.service.LoginEndpoint loginEndpoint = new LoginEndpointBuilder().url("uri:login").build()
     def implicitGrant = new ImplicitGrantBuilder()
         .loginEndpoint(loginEndpoint)
         .tokenName("oauth-implicit")

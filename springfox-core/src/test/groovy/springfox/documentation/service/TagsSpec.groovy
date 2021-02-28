@@ -1,8 +1,10 @@
 package springfox.documentation.service
 
 import spock.lang.Specification
+import springfox.documentation.core.service.Tag
+import springfox.documentation.core.service.Tags
 
-import static springfox.documentation.service.Tags.*
+import static springfox.documentation.core.service.Tags.*
 
 class TagsSpec extends Specification {
   def "Cannot instantiate Tags" () {

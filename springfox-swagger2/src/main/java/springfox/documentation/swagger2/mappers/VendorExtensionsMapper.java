@@ -20,9 +20,9 @@ package springfox.documentation.swagger2.mappers;
 
 
 import org.mapstruct.Mapper;
-import springfox.documentation.service.ObjectVendorExtension;
-import springfox.documentation.service.StringVendorExtension;
-import springfox.documentation.service.VendorExtension;
+import springfox.documentation.core.service.ObjectVendorExtension;
+import springfox.documentation.core.service.StringVendorExtension;
+import springfox.documentation.core.service.VendorExtension;
 
 import java.util.HashMap;
 import java.util.List;

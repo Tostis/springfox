@@ -27,16 +27,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import springfox.documentation.builders.AlternateTypeBuilder;
-import springfox.documentation.schema.AlternateTypeRule;
-import springfox.documentation.schema.AlternateTypeRuleConvention;
+import springfox.documentation.core.builders.AlternateTypeBuilder;
+import springfox.documentation.core.schema.AlternateTypeRule;
+import springfox.documentation.core.schema.AlternateTypeRuleConvention;
 import springfox.documentation.spring.web.OnServletBasedWebApplication;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
 import static java.util.Collections.*;
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.schema.AlternateTypeRules.newRule;
 
 @Configuration
 @ComponentScan(basePackages = "springfox.documentation.spring.data.rest")

@@ -3,12 +3,12 @@ package springfox.documentation.spring.web.readers.operation;
 import org.slf4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.PropertySpecificationBuilder;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.schema.PropertySpecification;
-import springfox.documentation.service.Encoding;
-import springfox.documentation.service.ParameterType;
-import springfox.documentation.service.RequestParameter;
+import springfox.documentation.core.builders.PropertySpecificationBuilder;
+import springfox.documentation.core.builders.RequestParameterBuilder;
+import springfox.documentation.core.schema.PropertySpecification;
+import springfox.documentation.core.service.Encoding;
+import springfox.documentation.core.service.ParameterType;
+import springfox.documentation.core.service.RequestParameter;
 
 import java.util.ArrayList;
 import java.util.Collection;

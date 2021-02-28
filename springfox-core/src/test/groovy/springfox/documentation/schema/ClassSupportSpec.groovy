@@ -1,8 +1,9 @@
 package springfox.documentation.schema
 
 import spock.lang.Specification
+import springfox.documentation.core.schema.ClassSupport
 
-import static springfox.documentation.schema.ClassSupport.*
+import static springfox.documentation.core.schema.ClassSupport.*
 
 class ClassSupportSpec extends Specification {
   def "Cannot instantiate this class"() {

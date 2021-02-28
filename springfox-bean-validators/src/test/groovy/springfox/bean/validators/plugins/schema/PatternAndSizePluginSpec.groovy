@@ -24,12 +24,11 @@ import com.fasterxml.jackson.databind.type.TypeFactory
 import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.models.PatternAndSizeTestModel
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 /**
  * @author : ashutosh 
  * 18/05/2016

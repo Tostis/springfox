@@ -28,10 +28,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 
 import java.util.Optional;
 

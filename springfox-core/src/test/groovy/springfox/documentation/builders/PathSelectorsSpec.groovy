@@ -20,13 +20,14 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
+import springfox.documentation.core.builders.PathSelectors
 
-import static springfox.documentation.builders.PathSelectors.*
+import static springfox.documentation.core.builders.PathSelectors.*
 
 class PathSelectorsSpec extends Specification {
   def "Static types cannot be instantiated" () {
     when:
-      PathSelectors.newInstance();
+    PathSelectors.newInstance();
     then:
       thrown(UnsupportedOperationException)
   }

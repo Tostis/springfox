@@ -22,6 +22,7 @@ package springfox.documentation.schema;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
+import springfox.documentation.core.schema.Xml;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;

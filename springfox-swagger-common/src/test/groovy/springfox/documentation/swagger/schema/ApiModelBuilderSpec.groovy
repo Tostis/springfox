@@ -25,10 +25,10 @@ import spock.lang.Specification
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.property.ModelSpecificationFactory
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
 
 import static java.util.Collections.*
 

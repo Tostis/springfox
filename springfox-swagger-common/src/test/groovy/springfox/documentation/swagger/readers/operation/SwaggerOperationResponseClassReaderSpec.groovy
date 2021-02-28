@@ -26,9 +26,9 @@ import spock.lang.Unroll
 import springfox.documentation.schema.DefaultTypeNameProvider
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.TypeNameExtractor
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 import springfox.documentation.swagger.mixins.SwaggerPluginsSupport

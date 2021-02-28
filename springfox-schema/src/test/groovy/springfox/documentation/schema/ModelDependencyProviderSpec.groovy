@@ -23,7 +23,7 @@ import spock.lang.Shared
 import spock.lang.Unroll
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ModelDependencyProviderSpec extends SchemaSpecification {
   @Shared def namingStrategy = new DefaultGenericTypeNamingStrategy()

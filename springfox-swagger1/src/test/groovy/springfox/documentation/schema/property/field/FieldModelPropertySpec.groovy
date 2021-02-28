@@ -26,11 +26,11 @@ import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.SchemaSpecification
 import springfox.documentation.schema.TypeWithGettersAndSetters
 import springfox.documentation.schema.mixins.ModelPropertyLookupSupport
-import springfox.documentation.service.AllowableListValues
+import springfox.documentation.core.service.AllowableListValues
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class FieldModelPropertySpec extends SchemaSpecification implements ModelPropertyLookupSupport {
   @Shared def namingStrategy = new DefaultGenericTypeNamingStrategy()

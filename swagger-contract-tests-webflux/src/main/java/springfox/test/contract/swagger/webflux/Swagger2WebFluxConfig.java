@@ -4,9 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.service.SecurityScheme;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.core.builders.PathSelectors;
+import springfox.documentation.core.service.SecurityScheme;
+import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.Arrays;

@@ -4,15 +4,15 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Specification
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.schema.ModelSpecification
+import springfox.documentation.core.schema.ModelSpecification
 import springfox.documentation.schema.mixins.ModelProviderSupport
-import springfox.documentation.service.ModelNamesRegistry
+import springfox.documentation.core.service.ModelNamesRegistry
 import springfox.documentation.spring.web.dummy.Address
 import springfox.documentation.spring.web.dummy.ModelWithSameNameClasses
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ModelNamesRegistrySpec
     extends Specification

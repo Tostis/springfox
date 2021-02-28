@@ -24,7 +24,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplicat
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.spi.service.DefaultsProviderPlugin;
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin;
 import springfox.documentation.spring.web.plugins.WebfluxDefaultsProvider;
 
 @Configuration

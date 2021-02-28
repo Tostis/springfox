@@ -27,11 +27,11 @@ import org.springframework.context.SmartLifecycle;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import springfox.documentation.PathProvider;
-import springfox.documentation.schema.AlternateTypeRuleConvention;
-import springfox.documentation.spi.service.RequestHandlerCombiner;
-import springfox.documentation.spi.service.RequestHandlerProvider;
-import springfox.documentation.spi.service.contexts.Defaults;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.core.schema.AlternateTypeRuleConvention;
+import springfox.documentation.spi.spi.service.RequestHandlerCombiner;
+import springfox.documentation.spi.spi.service.RequestHandlerProvider;
+import springfox.documentation.spi.spi.service.contexts.Defaults;
 import springfox.documentation.spring.web.DocumentationCache;
 import springfox.documentation.spring.web.scanners.ApiDocumentationScanner;
 

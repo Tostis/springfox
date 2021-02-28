@@ -21,11 +21,12 @@ package springfox.documentation.spring.web.paths;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.service.AllowableListValues;
-import springfox.documentation.service.AllowableValues;
-import springfox.documentation.service.PathDecorator;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.PathContext;
+import springfox.documentation.core.service.AllowableListValues;
+import springfox.documentation.core.service.AllowableValues;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.spi.service.PathDecorator;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.PathContext;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -86,7 +87,7 @@ class QueryStringUriTemplateDecorator implements PathDecorator {
   private Set<String> queryParamNames(PathContext context) {
     return context.getParameters().stream()
         .filter(queryStringParams().and(onlyOneAllowableValue().negate()))
-        .map(springfox.documentation.service.Parameter::getName)
+        .map(Parameter::getName)
         .collect(toCollection(TreeSet::new));
   }
 
@@ -99,7 +100,7 @@ class QueryStringUriTemplateDecorator implements PathDecorator {
             .collect(toCollection(TreeSet::new))).trim();
   }
 
-  private Predicate<springfox.documentation.service.Parameter> onlyOneAllowableValue() {
+  private Predicate<Parameter> onlyOneAllowableValue() {
     return input -> {
       AllowableValues allowableValues = input.getAllowableValues();
       return allowableValues instanceof AllowableListValues
@@ -107,12 +108,12 @@ class QueryStringUriTemplateDecorator implements PathDecorator {
     };
   }
 
-  private Predicate<springfox.documentation.service.Parameter> queryStringParams() {
+  private Predicate<Parameter> queryStringParams() {
     return input -> "query".equals(input.getParamType());
   }
 
 
-  private Function<springfox.documentation.service.Parameter, String> queryStringWithValue() {
+  private Function<Parameter, String> queryStringWithValue() {
     return input -> {
       AllowableListValues allowableValues = (AllowableListValues) input.getAllowableValues();
       return String.format(

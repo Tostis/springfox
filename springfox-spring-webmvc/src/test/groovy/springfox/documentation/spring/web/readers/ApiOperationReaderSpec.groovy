@@ -23,10 +23,10 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.http.HttpMethod
 import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
-import springfox.documentation.builders.PathSelectors
-import springfox.documentation.service.Operation
-import springfox.documentation.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spi.service.contexts.SecurityContext
+import springfox.documentation.core.builders.PathSelectors
+import springfox.documentation.core.service.Operation
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
+import springfox.documentation.spi.spi.service.contexts.SecurityContext
 import springfox.documentation.spring.web.WebMvcRequestHandler
 import springfox.documentation.spring.web.mixins.AuthSupport
 import springfox.documentation.spring.web.mixins.RequestMappingSupport

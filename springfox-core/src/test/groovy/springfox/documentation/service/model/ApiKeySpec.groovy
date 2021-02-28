@@ -20,10 +20,10 @@
 package springfox.documentation.service.model
 
 import spock.lang.Specification
-import springfox.documentation.service.ApiKey
-import springfox.documentation.service.ListVendorExtension
-import springfox.documentation.service.ObjectVendorExtension
-import springfox.documentation.service.StringVendorExtension
+import springfox.documentation.core.service.ApiKey
+import springfox.documentation.core.service.ListVendorExtension
+import springfox.documentation.core.service.ObjectVendorExtension
+import springfox.documentation.core.service.StringVendorExtension
 
 class ApiKeySpec extends Specification {
   def "Bean properties are set as expected via constructor" () {

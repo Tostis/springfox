@@ -23,14 +23,15 @@ import org.springframework.http.HttpHeaders
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.schema.Model
 import springfox.documentation.schema.mixins.ModelProviderSupport
 
 import java.util.function.Function
 import java.util.stream.Collectors
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ModelProviderSpec extends Specification implements ModelProviderSupport {
   @Shared def resolver = new TypeResolver()

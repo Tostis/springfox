@@ -22,8 +22,10 @@ import com.fasterxml.classmate.ResolvedType;
 import com.fasterxml.classmate.types.ResolvedPrimitiveType;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.multipart.MultipartFile;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.core.schema.ModelRef;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.Collections;
 import java.util.Map;
@@ -34,7 +36,7 @@ import static java.util.Optional.*;
 import static springfox.documentation.schema.Collections.*;
 import static springfox.documentation.schema.Maps.*;
 import static springfox.documentation.schema.ResolvedTypes.*;
-import static springfox.documentation.spi.schema.contexts.ModelContext.*;
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.fromParent;
 
 @Deprecated
 class ModelReferenceProvider implements Function<ResolvedType, ModelReference> {

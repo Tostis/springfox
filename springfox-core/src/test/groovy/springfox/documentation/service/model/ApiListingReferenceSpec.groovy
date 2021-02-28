@@ -20,7 +20,7 @@
 package springfox.documentation.service.model
 
 import spock.lang.Specification
-import springfox.documentation.service.ApiListingReference
+import springfox.documentation.core.service.ApiListingReference
 
 class ApiListingReferenceSpec extends Specification {
   def "Bean property test" () {

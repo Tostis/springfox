@@ -20,9 +20,9 @@
 package springfox.service.model
 
 import spock.lang.Specification
-import springfox.documentation.service.ApiKey
-import springfox.documentation.service.BasicAuth
-import springfox.documentation.service.OAuth
+import springfox.documentation.core.service.ApiKey
+import springfox.documentation.core.service.BasicAuth
+import springfox.documentation.core.service.OAuth
 
 class AuthorizationTypeNamesSpec extends Specification {
   def "AuthorizationTypes have the correct names" () {

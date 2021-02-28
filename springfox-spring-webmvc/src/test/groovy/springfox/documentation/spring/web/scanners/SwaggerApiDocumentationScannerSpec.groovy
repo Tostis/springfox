@@ -20,15 +20,15 @@
 package springfox.documentation.spring.web.scanners
 
 import com.fasterxml.classmate.TypeResolver
-import springfox.documentation.builders.ApiDescriptionBuilder
-import springfox.documentation.builders.ApiListingBuilder
-import springfox.documentation.service.ApiInfo
-import springfox.documentation.service.ApiKey
-import springfox.documentation.service.ApiListingReference
-import springfox.documentation.service.Documentation
-import springfox.documentation.service.ResourceListing
-import springfox.documentation.spi.service.contexts.Defaults
-import springfox.documentation.spi.service.contexts.RequestMappingContext
+import springfox.documentation.core.builders.ApiDescriptionBuilder
+import springfox.documentation.core.builders.ApiListingBuilder
+import springfox.documentation.core.service.ApiInfo
+import springfox.documentation.core.service.ApiKey
+import springfox.documentation.core.service.ApiListingReference
+import springfox.documentation.core.service.Documentation
+import springfox.documentation.core.service.ResourceListing
+import springfox.documentation.spi.spi.service.contexts.Defaults
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
 import springfox.documentation.spring.web.WebMvcRequestHandler
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.paths.DefaultPathProvider
@@ -36,7 +36,7 @@ import springfox.documentation.spring.web.paths.Paths
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 import springfox.documentation.spring.web.readers.operation.HandlerMethodResolver
 
-import static springfox.documentation.builders.PathSelectors.*
+import static springfox.documentation.core.builders.PathSelectors.*
 
 class SwaggerApiDocumentationScannerSpec extends DocumentationContextSpec implements RequestMappingSupport {
 

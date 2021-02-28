@@ -10,16 +10,16 @@ import io.swagger.models.properties.ObjectProperty;
 import io.swagger.models.properties.Property;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import springfox.documentation.schema.CollectionElementFacet;
-import springfox.documentation.schema.CompoundModelSpecification;
-import springfox.documentation.schema.EnumerationFacet;
-import springfox.documentation.schema.ModelFacets;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.NumericElementFacet;
-import springfox.documentation.schema.PropertySpecification;
-import springfox.documentation.schema.StringElementFacet;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CollectionElementFacet;
+import springfox.documentation.core.schema.CompoundModelSpecification;
+import springfox.documentation.core.schema.EnumerationFacet;
+import springfox.documentation.core.schema.ModelFacets;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.NumericElementFacet;
+import springfox.documentation.core.schema.PropertySpecification;
+import springfox.documentation.core.schema.StringElementFacet;
+import springfox.documentation.core.service.ApiListing;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 import static java.util.Collections.*;
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.emptyToNull;
 
 @Mapper
 public abstract class ModelSpecificationMapper {
@@ -247,7 +247,7 @@ public abstract class ModelSpecificationMapper {
             TreeMap::new));
   }
 
-  private Xml mapXml(springfox.documentation.schema.Xml xml) {
+  private Xml mapXml(springfox.documentation.core.schema.Xml xml) {
     if (xml == null) {
       return null;
     }

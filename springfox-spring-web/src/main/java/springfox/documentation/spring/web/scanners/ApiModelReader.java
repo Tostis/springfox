@@ -27,12 +27,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import springfox.documentation.core.builders.ModelBuilder;
+import springfox.documentation.core.builders.ModelPropertyBuilder;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.ModelReference;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.TypeNameIndexingAdapter;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.UniqueTypeNameAdapter;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.UniqueTypeNameAdapter;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 
 import java.util.ArrayList;
@@ -75,10 +80,10 @@ public class ApiModelReader {
   }
 
   @SuppressWarnings("rawtypes")
-  public Map<String, Set<springfox.documentation.schema.Model>> read(RequestMappingContext context) {
-    Map<String, Set<springfox.documentation.schema.Model>> mergedModelMap = new TreeMap<>();
+  public Map<String, Set<Model>> read(RequestMappingContext context) {
+    Map<String, Set<Model>> mergedModelMap = new TreeMap<>();
 
-    Map<String, springfox.documentation.schema.Model> uniqueModels = new HashMap<>();
+    Map<String, Model> uniqueModels = new HashMap<>();
     Map<String, String> parameterModelMap = new HashMap<>();
 
     UniqueTypeNameAdapter adapter = new TypeNameIndexingAdapter();
@@ -86,7 +91,7 @@ public class ApiModelReader {
     Set<Class> ignorableTypes = context.getIgnorableParameterTypes();
     Set<ModelContext> modelContexts = pluginsManager.modelContexts(context);
 
-    for (Map.Entry<String, Set<springfox.documentation.schema.Model>> entry : context.getModelMap().entrySet()) {
+    for (Map.Entry<String, Set<Model>> entry : context.getModelMap().entrySet()) {
       entry.getValue().stream()
           .filter(model -> !uniqueModels.containsKey(model.getName()))
           .forEach(
@@ -104,10 +109,10 @@ public class ApiModelReader {
     }
 
     for (ModelContext rootContext : modelContexts) {
-      Map<String, springfox.documentation.schema.Model> modelBranch = new HashMap<>();
+      Map<String, Model> modelBranch = new HashMap<>();
       Map<String, ModelContext> contextMap = new HashMap<>();
       markIgnorablesAsHasSeen(typeResolver, ignorableTypes, rootContext);
-      Optional<springfox.documentation.schema.Model> pModel = modelProvider.modelFor(rootContext);
+      Optional<Model> pModel = modelProvider.modelFor(rootContext);
       List<String> branchRoots = new ArrayList<>();
       if (pModel.isPresent()) {
         LOG.debug(
@@ -122,7 +127,7 @@ public class ApiModelReader {
         LOG.debug("Did not find any parameter models for {}", rootContext.getType());
       }
 
-      Map<ResolvedType, springfox.documentation.schema.Model> dependencies = modelProvider.dependencies(rootContext);
+      Map<ResolvedType, Model> dependencies = modelProvider.dependencies(rootContext);
       for (ResolvedType type : dependencies.keySet()) {
         ModelContext childContext = ModelContext.fromParent(rootContext, type);
         modelBranch.put(dependencies.get(type).getId(), dependencies.get(type));
@@ -144,7 +149,7 @@ public class ApiModelReader {
           .filter(modelBranch::containsKey)
           .forEach(rootId -> mergeModelBranch(adapter, mergingContext.toRootId(rootId)));
 
-      Set<springfox.documentation.schema.Model> updatedModels = updateModels(
+      Set<Model> updatedModels = updateModels(
           rootContext.getParameterId(),
           modelBranch.values(),
           contextMap,
@@ -283,17 +288,17 @@ public class ApiModelReader {
       allowedParameters = new HashSet<>(Collections.singletonList(""));
     }
 
-    springfox.documentation.schema.Model rootModel = mergingContext.getRootModel();
-    springfox.documentation.builders.ModelBuilder rootModelBuilder =
-        new springfox.documentation.builders.ModelBuilder(rootModel);
+    Model rootModel = mergingContext.getRootModel();
+    ModelBuilder rootModelBuilder =
+        new ModelBuilder(rootModel);
     Set<String> sameModels = new HashSet<>();
 
     String modelForTypeName = rootModel.getType().getErasedType().getName();
-    Set<springfox.documentation.schema.Model> modelsToCompare = mergingContext.getSimilarTypeModels(modelForTypeName);
+    Set<Model> modelsToCompare = mergingContext.getSimilarTypeModels(modelForTypeName);
 
     for (String parameter : allowedParameters) {
-      List<springfox.documentation.schema.ModelReference> subTypes = new ArrayList<>();
-      for (springfox.documentation.schema.ModelReference modelReference : rootModel.getSubTypes()) {
+      List<ModelReference> subTypes = new ArrayList<>();
+      for (ModelReference modelReference : rootModel.getSubTypes()) {
         Optional<String> modelId = getModelId(modelReference);
 
         if (modelId.isPresent() && mergingContext.containsModel(modelId.get())) {
@@ -314,11 +319,11 @@ public class ApiModelReader {
         subTypes.add(modelReference);
       }
 
-      Map<String, springfox.documentation.schema.ModelProperty> newProperties
+      Map<String, ModelProperty> newProperties
           = new HashMap<>(rootModel.getProperties());
       for (String propertyName : rootModel.getProperties().keySet()) {
-        springfox.documentation.schema.ModelProperty property = rootModel.getProperties().get(propertyName);
-        springfox.documentation.schema.ModelReference modelReference = property.getModelRef();
+        ModelProperty property = rootModel.getProperties().get(propertyName);
+        ModelReference modelReference = property.getModelRef();
         Optional<String> modelId = getModelId(modelReference);
 
         if (modelId.isPresent() && mergingContext.containsModel(modelId.get())) {
@@ -333,7 +338,7 @@ public class ApiModelReader {
 
           newProperties.put(
               propertyName,
-              new springfox.documentation.builders.ModelPropertyBuilder(property).build().updateModelRef(
+              new ModelPropertyBuilder(property).build().updateModelRef(
                   modelRefFactory(
                       modelContext,
                       enumTypeDeterminer,
@@ -342,7 +347,7 @@ public class ApiModelReader {
         }
       }
 
-      springfox.documentation.schema.Model modelToCompare
+      Model modelToCompare
           = rootModelBuilder.properties(newProperties).subTypes(subTypes).build();
 
       modelsToCompare.stream()
@@ -350,7 +355,7 @@ public class ApiModelReader {
               m -> StringUtils.isEmpty(parameter)
                   || parameter.equals(mergingContext.getModelParameter(m.getId())))
           .filter(m -> m.equalsIgnoringName(modelToCompare))
-          .map(springfox.documentation.schema.Model::getId)
+          .map(Model::getId)
           .findFirst()
           .ifPresent(sameModels::add);
     }
@@ -440,9 +445,9 @@ public class ApiModelReader {
   private Set<String> collectNodes(
       UniqueTypeNameAdapter adapter,
       MergingContext mergingContext) {
-    springfox.documentation.schema.Model rootModel = mergingContext.getRootModel();
+    Model rootModel = mergingContext.getRootModel();
     Set<String> nodes = new TreeSet<>();
-    for (springfox.documentation.schema.ModelReference modelReference : rootModel.getSubTypes()) {
+    for (ModelReference modelReference : rootModel.getSubTypes()) {
       Optional<String> modelId = getModelId(modelReference);
 
       if (modelId.isPresent() && mergingContext.containsModel(modelId.get())) {
@@ -461,7 +466,7 @@ public class ApiModelReader {
       }
     }
 
-    for (springfox.documentation.schema.ModelProperty modelProperty : rootModel.getProperties().values()) {
+    for (ModelProperty modelProperty : rootModel.getProperties().values()) {
       Optional<String> modelId = getModelId(modelProperty.getModelRef());
       if (modelId.isPresent() && mergingContext.containsModel(modelId.get())) {
         nodes.add(modelId.get());
@@ -500,7 +505,7 @@ public class ApiModelReader {
     }
 
     String modelForTypeName = mergingContext.getModel(modelId).getType().getErasedType().getName();
-    Set<springfox.documentation.schema.Model> similarTypeModels = mergingContext.getSimilarTypeModels(modelForTypeName);
+    Set<Model> similarTypeModels = mergingContext.getSimilarTypeModels(modelForTypeName);
     Set<String> candidateParameters = similarTypeModels.stream()
         .map(model -> mergingContext.getModelParameter(model.getId()))
         .collect(Collectors.toCollection(HashSet::new));
@@ -531,12 +536,12 @@ public class ApiModelReader {
     }).collect(Collectors.toCollection(HashSet::new));
   }
 
-  private springfox.documentation.schema.Model updateModel(
-      springfox.documentation.schema.Model model,
+  private Model updateModel(
+      Model model,
       Map<String, ModelContext> contextMap,
       UniqueTypeNameAdapter adapter) {
     for (String propertyName : model.getProperties().keySet()) {
-      springfox.documentation.schema.ModelProperty property = model.getProperties().get(propertyName);
+      ModelProperty property = model.getProperties().get(propertyName);
       Optional<String> modelId = getModelId(property.getModelRef());
 
       if (modelId.isPresent() && contextMap.containsKey(modelId.get())) {
@@ -548,8 +553,8 @@ public class ApiModelReader {
                 adapter.getNames()));
       }
     }
-    List<springfox.documentation.schema.ModelReference> subTypes = new ArrayList<>();
-    for (springfox.documentation.schema.ModelReference oldModelRef : model.getSubTypes()) {
+    List<ModelReference> subTypes = new ArrayList<>();
+    for (ModelReference oldModelRef : model.getSubTypes()) {
       Optional<String> modelId = getModelId(oldModelRef);
 
       if (modelId.isPresent() && contextMap.containsKey(modelId.get())) {
@@ -564,7 +569,7 @@ public class ApiModelReader {
     ModelContext modelContxt = contextMap.get(model.getId());
     String name = typeNameExtractor.typeName(modelContxt, adapter.getNames());
 
-    return new springfox.documentation.builders.ModelBuilder(modelContxt.getTypeId()).name(name)
+    return new ModelBuilder(modelContxt.getTypeId()).name(name)
         .qualifiedType(model.getQualifiedType())
         .description(model.getDescription())
         .baseModel(model.getBaseModel())
@@ -577,9 +582,9 @@ public class ApiModelReader {
         .build();
   }
 
-  private Set<springfox.documentation.schema.Model> updateModels(
+  private Set<Model> updateModels(
       String parameterId,
-      Collection<springfox.documentation.schema.Model> models,
+      Collection<Model> models,
       Map<String, ModelContext> contextMap,
       UniqueTypeNameAdapter adapter) {
     models.forEach(model -> {
@@ -619,8 +624,8 @@ public class ApiModelReader {
     }
   }
 
-  private static Optional<String> getModelId(springfox.documentation.schema.ModelReference ref) {
-    springfox.documentation.schema.ModelReference refT = ref;
+  private static Optional<String> getModelId(ModelReference ref) {
+    ModelReference refT = ref;
     while (true) {
       if (refT.getModelId().isPresent()) {
         return refT.getModelId();
@@ -672,16 +677,16 @@ public class ApiModelReader {
 
   private static MergingContext createMergingContext(
       String parameterId,
-      Map<String, springfox.documentation.schema.Model> uniqueModels,
+      Map<String, Model> uniqueModels,
       Map<String, String> parameterModelMap,
-      Map<String, springfox.documentation.schema.Model> currentBranch,
+      Map<String, Model> currentBranch,
       Map<String, ModelContext> contextMap) {
-    Map<String, Set<springfox.documentation.schema.Model>> typedModelMap = new HashMap<>();
+    Map<String, Set<Model>> typedModelMap = new HashMap<>();
 
-    for (springfox.documentation.schema.Model model : uniqueModels.values()) {
+    for (Model model : uniqueModels.values()) {
       String rawType = model.getType().getErasedType().getName();
 
-      Set<springfox.documentation.schema.Model> models = new HashSet<>();
+      Set<Model> models = new HashSet<>();
       models.add(model);
 
       if (typedModelMap.containsKey(rawType)) {

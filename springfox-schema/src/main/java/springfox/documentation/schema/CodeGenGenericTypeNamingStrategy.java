@@ -19,7 +19,7 @@
 
 package springfox.documentation.schema;
 
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy;
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy;
 
 public class CodeGenGenericTypeNamingStrategy implements GenericTypeNamingStrategy {
   private static final String OPEN = "Of";

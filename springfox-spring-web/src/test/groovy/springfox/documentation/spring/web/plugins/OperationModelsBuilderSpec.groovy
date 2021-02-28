@@ -20,10 +20,10 @@ package springfox.documentation.spring.web.plugins
 
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy
-import springfox.documentation.spi.service.contexts.OperationModelContextsBuilder
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy
+import springfox.documentation.spi.spi.service.contexts.OperationModelContextsBuilder
 import springfox.documentation.spring.web.dummy.models.Example
 
 import static java.util.Collections.*

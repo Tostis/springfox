@@ -7,7 +7,7 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.Named;
 import org.mapstruct.ValueMapping;
 import org.mapstruct.ValueMappings;
-import springfox.documentation.service.ParameterStyle;
+import springfox.documentation.core.service.ParameterStyle;
 
 @Mapper(componentModel = "spring")
 @Named("StyleEnumSelector")

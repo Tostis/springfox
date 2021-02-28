@@ -35,7 +35,7 @@ import org.springframework.http.RequestEntity
 import org.springframework.http.converter.StringHttpMessageConverter
 import spock.lang.Shared
 import spock.lang.Specification
-import springfox.documentation.schema.AlternateTypeRuleConvention
+import springfox.documentation.core.schema.AlternateTypeRuleConvention
 import springfox.documentation.spring.web.plugins.JacksonSerializerConvention
 
 import static java.nio.charset.StandardCharsets.*

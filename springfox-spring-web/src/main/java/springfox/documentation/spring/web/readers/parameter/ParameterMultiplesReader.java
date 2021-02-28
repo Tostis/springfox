@@ -23,10 +23,10 @@ import com.fasterxml.classmate.ResolvedType;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.service.CollectionFormat;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.core.service.CollectionFormat;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 
 import static springfox.documentation.schema.Collections.*;
 

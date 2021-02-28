@@ -4,10 +4,10 @@ import io.swagger.models.properties.ArrayProperty;
 import io.swagger.models.properties.ByteArrayProperty;
 import io.swagger.models.properties.Property;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.CollectionSpecification;
-import springfox.documentation.schema.CollectionType;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CollectionSpecification;
+import springfox.documentation.core.schema.CollectionType;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 public class CollectionSpecificationToPropertyConverter implements Converter<CollectionSpecification, Property> {
   private final ModelNamesRegistry modelNamesRegistry;

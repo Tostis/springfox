@@ -22,11 +22,11 @@ package springfox.documentation.spring.web.scanners;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import springfox.documentation.RequestHandler;
-import springfox.documentation.service.ResourceGroup;
-import springfox.documentation.spi.service.contexts.ApiSelector;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.core.RequestHandler;
+import springfox.documentation.core.service.ResourceGroup;
+import springfox.documentation.spi.spi.service.contexts.ApiSelector;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;

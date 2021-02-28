@@ -1,10 +1,8 @@
 package springfox.documentation.service.model
 
-import java.util.List;
 
 import spock.lang.Specification;
-import springfox.documentation.service.AllowableListValues
-import springfox.documentation.service.AllowableRangeValues
+import springfox.documentation.core.service.AllowableListValues
 
 class AllowableListValuesSpec extends Specification {
   def "Bean properties test" () {

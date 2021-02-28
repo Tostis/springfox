@@ -11,16 +11,9 @@ import io.swagger.v3.oas.models.media.XML;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
-import springfox.documentation.schema.CollectionElementFacet;
-import springfox.documentation.schema.ElementFacetSource;
-import springfox.documentation.schema.EnumerationFacet;
-import springfox.documentation.schema.ModelFacets;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.NumericElementFacet;
-import springfox.documentation.schema.PropertySpecification;
-import springfox.documentation.schema.StringElementFacet;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.*;
+import springfox.documentation.core.service.ApiListing;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
@@ -36,7 +29,7 @@ import java.util.stream.Collectors;
 import static java.util.Collections.*;
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.emptyToNull;
 
 @SuppressWarnings("rawtypes")
 @Mapper(componentModel = "spring")
@@ -303,7 +296,7 @@ public abstract class SchemaMapper {
     return property;
   }
 
-  private XML mapXml(springfox.documentation.schema.Xml xml) {
+  private XML mapXml(Xml xml) {
     if (xml == null) {
       return null;
     }

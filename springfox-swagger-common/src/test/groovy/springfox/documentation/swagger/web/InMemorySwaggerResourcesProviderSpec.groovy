@@ -3,7 +3,7 @@ package springfox.documentation.swagger.web
 import org.springframework.mock.env.MockEnvironment
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.spi.DocumentationType
+import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spring.web.DocumentationCache
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager

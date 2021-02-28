@@ -20,6 +20,7 @@
 package springfox.documentation.service
 
 import spock.lang.Specification
+import springfox.documentation.core.service.Tag
 
 class TagSpec extends Specification {
   Tag tag = new Tag("pet", "Pet tag")

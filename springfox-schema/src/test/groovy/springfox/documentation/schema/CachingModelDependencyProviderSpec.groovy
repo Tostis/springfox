@@ -22,11 +22,11 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Shared
 import spock.lang.Specification
 import springfox.documentation.schema.mixins.TypesForTestingSupport
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class CachingModelDependencyProviderSpec extends Specification implements TypesForTestingSupport {
   @Shared

@@ -25,11 +25,12 @@ import io.swagger.annotations.ApiImplicitParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.service.RequestParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 import springfox.documentation.spring.web.DescriptionResolver;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
@@ -53,7 +54,7 @@ public class OperationImplicitParametersReader implements OperationBuilderPlugin
 
   @Override
   public void apply(OperationContext context) {
-    List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> parameters
+    List<Compatibility<Parameter, RequestParameter>> parameters
         = readParameters(context);
     context.operationBuilder().parameters(parameters.stream()
         .map(Compatibility::getLegacy)
@@ -72,11 +73,11 @@ public class OperationImplicitParametersReader implements OperationBuilderPlugin
     return pluginDoesApply(delimiter);
   }
 
-  private List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>>
+  private List<Compatibility<Parameter, RequestParameter>>
   readParameters(OperationContext context) {
     List<ApiImplicitParams> annotations = context.findAllAnnotations(ApiImplicitParams.class);
 
-    List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> parameters = new ArrayList<>();
+    List<Compatibility<Parameter, RequestParameter>> parameters = new ArrayList<>();
     if (!annotations.isEmpty()) {
       for (ApiImplicitParams annotation : annotations) {
           for (ApiImplicitParam param : annotation.value()) {

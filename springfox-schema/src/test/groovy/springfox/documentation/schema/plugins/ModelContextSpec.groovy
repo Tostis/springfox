@@ -26,12 +26,12 @@ import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.ExampleEnum
 import springfox.documentation.schema.ExampleWithEnums
 import springfox.documentation.schema.mixins.TypesForTestingSupport
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ModelContextSpec extends Specification implements TypesForTestingSupport {
   @Shared

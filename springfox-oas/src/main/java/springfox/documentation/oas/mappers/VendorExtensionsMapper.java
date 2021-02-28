@@ -19,10 +19,10 @@
 package springfox.documentation.oas.mappers;
 
 import org.mapstruct.Mapper;
-import springfox.documentation.service.ListVendorExtension;
-import springfox.documentation.service.ObjectVendorExtension;
-import springfox.documentation.service.StringVendorExtension;
-import springfox.documentation.service.VendorExtension;
+import springfox.documentation.core.service.ListVendorExtension;
+import springfox.documentation.core.service.ObjectVendorExtension;
+import springfox.documentation.core.service.StringVendorExtension;
+import springfox.documentation.core.service.VendorExtension;
 
 import java.util.Collection;
 import java.util.HashMap;

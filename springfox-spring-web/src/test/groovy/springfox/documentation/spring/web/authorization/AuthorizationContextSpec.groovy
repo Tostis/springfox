@@ -22,11 +22,11 @@ package springfox.documentation.spring.web.authorization
 import org.springframework.http.HttpMethod
 import org.springframework.web.bind.annotation.RequestMethod
 import spock.lang.Specification
-import springfox.documentation.builders.OperationBuilder
-import springfox.documentation.builders.PathSelectors
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spi.service.contexts.SecurityContext
+import springfox.documentation.core.builders.OperationBuilder
+import springfox.documentation.core.builders.PathSelectors
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
+import springfox.documentation.spi.spi.service.contexts.SecurityContext
 import springfox.documentation.spring.web.mixins.AuthSupport
 import springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator
 

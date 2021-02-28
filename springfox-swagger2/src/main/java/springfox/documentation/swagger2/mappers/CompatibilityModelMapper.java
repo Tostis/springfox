@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import springfox.documentation.service.ApiListing;
+import springfox.documentation.core.service.ApiListing;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,7 +23,7 @@ public abstract class CompatibilityModelMapper {
     if (useModelV3) {
       return Mappers.getMapper(ModelSpecificationMapper.class).modelsFromApiListings(apiListings);
     } else {
-      Map<String, springfox.documentation.schema.Model> definitions = new TreeMap<>();
+      Map<String, springfox.documentation.core.schema.Model> definitions = new TreeMap<>();
       apiListings.values().stream()
           .flatMap(Collection::stream)
           .forEachOrdered(each -> definitions.putAll(each.getModels()));

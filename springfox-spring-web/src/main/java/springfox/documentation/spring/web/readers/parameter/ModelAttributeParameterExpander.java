@@ -28,17 +28,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.common.Compatibility;
+import springfox.documentation.core.builders.ParameterBuilder;
+import springfox.documentation.core.builders.RequestParameterBuilder;
+import springfox.documentation.core.common.Compatibility;
 import springfox.documentation.schema.Maps;
-import springfox.documentation.schema.ScalarTypes;
+import springfox.documentation.core.schema.ScalarTypes;
 import springfox.documentation.schema.property.bean.AccessorsProvider;
 import springfox.documentation.schema.property.field.FieldProvider;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.spi.schema.AlternateTypeProvider;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.core.service.RequestParameter;
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 
 import java.beans.BeanInfo;
@@ -90,10 +91,10 @@ public class ModelAttributeParameterExpander {
     this.enumTypeDeterminer = enumTypeDeterminer;
   }
 
-  public List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> expand(
+  public List<Compatibility<Parameter, RequestParameter>> expand(
       ExpansionContext context) {
 
-    List<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> parameters = new ArrayList<>();
+    List<Compatibility<Parameter, RequestParameter>> parameters = new ArrayList<>();
     Set<PropertyDescriptor> propertyDescriptors = propertyDescriptors(context.getParamType().getErasedType());
     Map<Method, PropertyDescriptor> propertyLookupByGetter
         = propertyDescriptorsByMethod(context.getParamType().getErasedType(), propertyDescriptors);
@@ -159,7 +160,7 @@ public class ModelAttributeParameterExpander {
         .collect(toList());
   }
 
-  private Predicate<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> hiddenParameter() {
+  private Predicate<Compatibility<Parameter, RequestParameter>> hiddenParameter() {
     return c -> c.getLegacy()
         .map(Parameter::isHidden)
         .orElse(false);
@@ -212,7 +213,7 @@ public class ModelAttributeParameterExpander {
         input);
   }
 
-  private Predicate<Compatibility<springfox.documentation.service.Parameter, RequestParameter>> voidParameters() {
+  private Predicate<Compatibility<Parameter, RequestParameter>> voidParameters() {
     return input -> isVoid(input.getLegacy()
         .flatMap(Parameter::getType)
         .orElse(null));
@@ -222,7 +223,7 @@ public class ModelAttributeParameterExpander {
     return input -> Objects.equals(collectionElementType(input.getFieldType()), paramType);
   }
 
-  private Compatibility<springfox.documentation.service.Parameter, RequestParameter> simpleFields(
+  private Compatibility<Parameter, RequestParameter> simpleFields(
       String parentName,
       ExpansionContext context,
       ModelAttributeField each) {
@@ -242,7 +243,7 @@ public class ModelAttributeParameterExpander {
             each.getFieldType(),
             each.getName()),
         context.getDocumentationType(),
-        new springfox.documentation.builders.ParameterBuilder(),
+        new ParameterBuilder(),
         new RequestParameterBuilder());
     return pluginsManager.expandParameter(parameterExpansionContext);
   }

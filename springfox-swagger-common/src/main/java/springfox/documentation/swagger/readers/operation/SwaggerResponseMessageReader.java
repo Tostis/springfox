@@ -29,19 +29,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ExampleBuilder;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.schema.Example;
+import springfox.documentation.core.builders.ResponseMessageBuilder;
+import springfox.documentation.core.builders.ExampleBuilder;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.service.ResponseMessage;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.schema.Example;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.service.Header;
-import springfox.documentation.service.Response;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.spi.service.contexts.ResponseContext;
+import springfox.documentation.core.service.Header;
+import springfox.documentation.core.service.Response;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.service.contexts.ResponseContext;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
@@ -89,8 +92,8 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
 
   @Override
   public void apply(OperationContext context) {
-    Compatibility<Set<springfox.documentation.service.ResponseMessage>,
-        Set<springfox.documentation.service.Response>> read = read(context);
+    Compatibility<Set<ResponseMessage>,
+        Set<Response>> read = read(context);
     context.operationBuilder().responseMessages(read.getLegacy().orElse(new HashSet<>()));
     context.operationBuilder().responses(read.getModern().orElse(new HashSet<>()));
   }
@@ -102,7 +105,7 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
 
 
   @SuppressWarnings({"CyclomaticComplexity", "NPathComplexity"})
-  protected Compatibility<Set<springfox.documentation.service.ResponseMessage>,
+  protected Compatibility<Set<ResponseMessage>,
       Set<Response>> read(OperationContext context) {
     ResolvedType defaultResponse = context.getReturnType();
     Optional<ApiOperation> operationAnnotation = context.findAnnotation(ApiOperation.class);
@@ -123,7 +126,7 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
             .flatMap(responses -> Stream.of(responses.value())),
         context.findAllAnnotations(ApiResponse.class).stream())
         .collect(Collectors.toList());
-    Set<springfox.documentation.service.ResponseMessage> responseMessages = new HashSet<>();
+    Set<ResponseMessage> responseMessages = new HashSet<>();
     Set<Response> responses = new HashSet<>();
 
     Map<Integer, ApiResponse> seenResponsesByCode = new HashMap<>();
@@ -135,7 +138,7 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
         seenResponsesByCode.put(
             apiResponse.code(),
             apiResponse);
-        Optional<springfox.documentation.schema.ModelReference> responseModel = empty();
+        Optional<ModelReference> responseModel = empty();
         ModelContext modelContext = context.operationModelsBuilder()
             .addReturn(
                 typeResolver.resolve(apiResponse.response()),
@@ -175,7 +178,7 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
         Map<String, Header> headers = new HashMap<>(defaultHeaders);
         headers.putAll(headers(apiResponse.responseHeaders()));
 
-        responseMessages.add(new springfox.documentation.builders.ResponseMessageBuilder()
+        responseMessages.add(new ResponseMessageBuilder()
             .code(apiResponse.code())
             .message(apiResponse.message())
             .responseModel(responseModel.orElse(null))
@@ -211,15 +214,15 @@ public class SwaggerResponseMessageReader implements OperationBuilderPlugin {
               model.getId(),
               model.getName()));
 
-      springfox.documentation.schema.ModelReference responseModel = modelRefFactory(
+      ModelReference responseModel = modelRefFactory(
           modelContext,
           enumTypeDeterminer,
           typeNameExtractor,
           knownNames)
           .apply(resolvedType);
       context.operationBuilder().responseModel(responseModel);
-      springfox.documentation.service.ResponseMessage defaultMessage =
-          new springfox.documentation.builders.ResponseMessageBuilder()
+      ResponseMessage defaultMessage =
+          new ResponseMessageBuilder()
               .code(httpStatusCode(context))
               .message(message(context))
               .responseModel(responseModel)

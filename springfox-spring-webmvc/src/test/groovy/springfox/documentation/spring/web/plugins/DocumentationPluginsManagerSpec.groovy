@@ -20,18 +20,18 @@
 package springfox.documentation.spring.web.plugins
 
 import spock.lang.Specification
-import springfox.documentation.builders.OperationBuilder
-import springfox.documentation.builders.ParameterBuilder
-import springfox.documentation.builders.RequestParameterBuilder
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.DocumentationPlugin
-import springfox.documentation.spi.service.OperationBuilderPlugin
-import springfox.documentation.spi.service.ParameterBuilderPlugin
+import springfox.documentation.core.builders.OperationBuilder
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.DocumentationPlugin
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin
 
-import springfox.documentation.spi.service.contexts.DocumentationContext
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.ParameterContext
-import springfox.documentation.spi.service.contexts.PathContext
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.ParameterContext
+import springfox.documentation.spi.spi.service.contexts.PathContext
 
 import springfox.documentation.spring.web.mixins.ServicePluginsSupport
 import springfox.documentation.spring.web.paths.DefaultPathProvider

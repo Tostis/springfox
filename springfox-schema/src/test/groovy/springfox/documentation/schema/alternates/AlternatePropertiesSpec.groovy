@@ -23,15 +23,15 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.http.ResponseEntity
 import spock.lang.Shared
 import spock.lang.Specification
-import springfox.documentation.schema.AlternateTypeRule
+import springfox.documentation.core.schema.AlternateTypeRule
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.schema.Model
+import springfox.documentation.core.schema.Model
 import springfox.documentation.schema.ModelProvider
 import springfox.documentation.schema.mixins.ModelProviderSupport
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class AlternatePropertiesSpec extends Specification implements ModelProviderSupport {
   @Shared def resolver = new TypeResolver()

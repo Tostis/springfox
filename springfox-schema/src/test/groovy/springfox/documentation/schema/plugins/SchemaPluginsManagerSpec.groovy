@@ -22,8 +22,8 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
 import spock.lang.Specification
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
 import springfox.documentation.schema.AlternateTypesSupport
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.ExampleWithEnums
@@ -31,21 +31,21 @@ import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.TypeForTestingPropertyNames
 import springfox.documentation.schema.TypeNameExtractor
 import springfox.documentation.schema.mixins.TypesForTestingSupport
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.schema.ModelBuilderPlugin
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin
-import springfox.documentation.spi.schema.SyntheticModelProviderPlugin
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
-import springfox.documentation.spi.schema.ViewProviderPlugin
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin
+import springfox.documentation.spi.spi.schema.SyntheticModelProviderPlugin
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 
 import java.lang.reflect.AnnotatedElement
 
 import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class SchemaPluginsManagerSpec extends Specification implements TypesForTestingSupport, AlternateTypesSupport {
   SchemaPluginsManager sut

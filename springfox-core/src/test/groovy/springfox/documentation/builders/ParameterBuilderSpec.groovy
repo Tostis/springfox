@@ -22,8 +22,9 @@ package springfox.documentation.builders
 import com.fasterxml.classmate.ResolvedType
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.schema.ModelRef
-import springfox.documentation.service.AllowableListValues
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.service.AllowableListValues
 
 import static java.util.Optional.*
 

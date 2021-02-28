@@ -20,6 +20,8 @@ package springfox.documentation.builders
 
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.core.builders.ParameterMerger
 
 import static org.springframework.core.Ordered.*
 

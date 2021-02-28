@@ -31,7 +31,8 @@ import io.swagger.models.properties.FileProperty;
 import io.swagger.models.properties.Property;
 import org.mapstruct.Mapper;
 import org.springframework.util.StringUtils;
-import springfox.documentation.schema.Example;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.schema.Example;
 
 import java.util.List;
 import java.util.Map.Entry;
@@ -61,7 +62,7 @@ public class ParameterMapper {
 
   private static final VendorExtensionsMapper VENDOR_EXTENSIONS_MAPPER = new VendorExtensionsMapper();
 
-  public Parameter mapParameter(springfox.documentation.service.Parameter source) {
+  public Parameter mapParameter(springfox.documentation.core.service.Parameter source) {
     Parameter parameter;
     if ("formData".equals(source.getParamType())) {
       parameter = formParameter(source);
@@ -71,14 +72,14 @@ public class ParameterMapper {
     return SerializableParameterFactories.create(source).orElse(parameter);
   }
 
-  private Parameter formParameter(springfox.documentation.service.Parameter source) {
+  private Parameter formParameter(springfox.documentation.core.service.Parameter source) {
 
     FormParameter parameter = new FormParameter()
         .name(source.getName())
         .description(source.getDescription());
 
     // Form Parameters only work with certain primitive types specified in the spec
-    springfox.documentation.schema.ModelReference modelRef = source.getModelRef();
+    ModelReference modelRef = source.getModelRef();
     parameter.setProperty(springfox.documentation.swagger2.mappers.Properties.itemTypeProperty(modelRef));
 
     if (!SUPPORTED_FORM_DATA_TYPES.contains(parameter.getType())
@@ -106,7 +107,7 @@ public class ParameterMapper {
     return parameter;
   }
 
-  private Parameter bodyParameter(springfox.documentation.service.Parameter source) {
+  private Parameter bodyParameter(springfox.documentation.core.service.Parameter source) {
     BodyParameter parameter = new BodyParameter()
         .description(source.getDescription())
         .name(source.getName())
@@ -125,7 +126,7 @@ public class ParameterMapper {
     return parameter;
   }
 
-  private Model toSchema(springfox.documentation.service.Parameter source) {
+  private Model toSchema(springfox.documentation.core.service.Parameter source) {
     Model schema = fromModelRef(source.getModelRef());
 
     if (!StringUtils.isEmpty(source.getScalarExample()) && !isEmptyExample(source.getScalarExample())) {
@@ -139,7 +140,7 @@ public class ParameterMapper {
     return object instanceof Example && StringUtils.isEmpty(((Example) object).getValue());
   }
 
-  Model fromModelRef(springfox.documentation.schema.ModelReference modelRef) {
+  Model fromModelRef(ModelReference modelRef) {
     if (modelRef.isCollection()) {
       if (modelRef.getItemType().equals("byte")) {
         ModelImpl baseModel = new ModelImpl();
@@ -151,7 +152,7 @@ public class ParameterMapper {
         files.items(new FileProperty());
         return files;
       }
-      springfox.documentation.schema.ModelReference itemModel = modelRef.itemModel()
+      ModelReference itemModel = modelRef.itemModel()
           .orElseThrow(() -> new IllegalStateException("ModelRef that is a collection should have an itemModel"));
       return new ArrayModel()
           .items(maybeAddAllowableValues(
@@ -160,7 +161,7 @@ public class ParameterMapper {
     }
     if (modelRef.isMap()) {
       ModelImpl baseModel = new ModelImpl();
-      springfox.documentation.schema.ModelReference itemModel = modelRef.itemModel()
+      ModelReference itemModel = modelRef.itemModel()
           .orElseThrow(() -> new IllegalStateException("ModelRef that is a map should have an itemModel"));
       baseModel.additionalProperties(
           maybeAddAllowableValues(

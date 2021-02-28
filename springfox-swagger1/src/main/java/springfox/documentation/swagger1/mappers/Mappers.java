@@ -38,7 +38,7 @@ public class Mappers {
     throw new UnsupportedOperationException();
   }
 
-  public static Function<Map.Entry<String, List<springfox.documentation.service.ApiListing>>, Map.Entry<String,
+  public static Function<Map.Entry<String, List<springfox.documentation.core.service.ApiListing>>, Map.Entry<String,
       List<ApiListing>>>
   toApiListingDto(
       final HttpServletRequest servletRequest,

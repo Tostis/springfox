@@ -26,13 +26,13 @@ import org.springframework.mock.env.MockEnvironment
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.builders.ParameterBuilder
-import springfox.documentation.builders.RequestParameterBuilder
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
 import springfox.documentation.schema.ExampleEnum
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.property.field.FieldProvider
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext
 import springfox.documentation.spring.web.DescriptionResolver
 import springfox.documentation.spring.web.readers.parameter.ModelAttributeParameterMetadataAccessor
 

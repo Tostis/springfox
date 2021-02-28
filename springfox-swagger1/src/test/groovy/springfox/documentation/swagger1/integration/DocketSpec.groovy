@@ -24,12 +24,12 @@ import org.joda.time.LocalDate
 import org.springframework.aop.framework.AbstractSingletonProxyFactoryBean
 import org.springframework.aop.framework.ProxyFactoryBean
 import org.springframework.http.ResponseEntity
-import springfox.documentation.service.ApiInfo
-import springfox.documentation.service.ResponseMessage
-import springfox.documentation.service.SecurityScheme
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.Defaults
-import springfox.documentation.spi.service.contexts.SecurityContext
+import springfox.documentation.core.service.ApiInfo
+import springfox.documentation.core.service.ResponseMessage
+import springfox.documentation.core.service.SecurityScheme
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.Defaults
+import springfox.documentation.spi.spi.service.contexts.SecurityContext
 import springfox.documentation.spring.web.paths.DefaultPathProvider
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
@@ -40,7 +40,7 @@ import javax.servlet.ServletRequest
 import static java.util.Collections.*
 import static org.springframework.http.HttpStatus.*
 import static org.springframework.web.bind.annotation.RequestMethod.*
-import static springfox.documentation.schema.AlternateTypeRules.*
+import static springfox.documentation.core.schema.AlternateTypeRules.*
 
 class DocketSpec extends DocumentationContextSpec {
 

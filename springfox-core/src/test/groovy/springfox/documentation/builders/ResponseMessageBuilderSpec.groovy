@@ -20,9 +20,10 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.schema.Example
-import springfox.documentation.schema.ModelRef
-import springfox.documentation.service.Header
+import springfox.documentation.core.builders.ResponseMessageBuilder
+import springfox.documentation.core.schema.Example
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.service.Header
 
 
 class ResponseMessageBuilderSpec extends Specification {

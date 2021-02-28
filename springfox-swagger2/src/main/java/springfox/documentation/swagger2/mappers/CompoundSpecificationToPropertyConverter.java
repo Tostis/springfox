@@ -3,8 +3,8 @@ package springfox.documentation.swagger2.mappers;
 import io.swagger.models.properties.ObjectProperty;
 import io.swagger.models.properties.Property;
 import org.springframework.core.convert.converter.Converter;
-import springfox.documentation.schema.CompoundModelSpecification;
-import springfox.documentation.service.ModelNamesRegistry;
+import springfox.documentation.core.schema.CompoundModelSpecification;
+import springfox.documentation.core.service.ModelNamesRegistry;
 
 import java.util.Objects;
 import java.util.stream.Collectors;

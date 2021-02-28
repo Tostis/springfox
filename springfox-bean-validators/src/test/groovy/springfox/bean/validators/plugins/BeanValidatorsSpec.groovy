@@ -7,11 +7,10 @@ import com.fasterxml.jackson.databind.type.TypeFactory
 import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.models.BeanValidatorsTestModel
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern

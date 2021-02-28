@@ -22,13 +22,13 @@ import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
 import spock.lang.Unroll
 import springfox.bean.validators.plugins.models.DecimalMinMaxTestModel
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
-import springfox.documentation.schema.NumericElementFacet
-import springfox.documentation.service.AllowableRangeValues
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
+import springfox.documentation.core.schema.NumericElementFacet
+import springfox.documentation.core.service.AllowableRangeValues
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 
 class DecimalMinMaxAnnotationPluginSpec extends Specification {
   def "Always supported"() {

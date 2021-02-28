@@ -8,18 +8,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpMethod;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.AuthorizationScopeBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.SecurityReference;
-import springfox.documentation.service.SecurityScheme;
-import springfox.documentation.service.StringVendorExtension;
-import springfox.documentation.service.Tag;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ApiListingScannerPlugin;
-import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.core.builders.ApiInfoBuilder;
+import springfox.documentation.core.builders.AuthorizationScopeBuilder;
+import springfox.documentation.core.builders.PathSelectors;
+import springfox.documentation.core.schema.WildcardType;
+import springfox.documentation.core.service.AuthorizationScope;
+import springfox.documentation.core.service.SecurityReference;
+import springfox.documentation.core.service.SecurityScheme;
+import springfox.documentation.core.service.StringVendorExtension;
+import springfox.documentation.core.service.Tag;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin;
+import springfox.documentation.spi.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -34,8 +34,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static springfox.documentation.builders.PathSelectors.*;
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.builders.PathSelectors.regex;
+import static springfox.documentation.core.schema.AlternateTypeRules.newRule;
 
 @Configuration
 @ComponentScan({
@@ -56,7 +56,7 @@ public class Swagger2TestConfig {
           add("application/json");
         }})
         .select()
-        .paths(PathSelectors.regex(".*/api/store/search.*"))
+        .paths(regex(".*/api/store/search.*"))
         .build()
         .enableUrlTemplating(true)
         .host("petstore.swagger.io")
@@ -75,7 +75,7 @@ public class Swagger2TestConfig {
             "application/xml",
             "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/business.*"))
+        .paths(regex(".*/business.*"))
         .build();
   }
 
@@ -89,7 +89,7 @@ public class Swagger2TestConfig {
             "application/xml",
             "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/foo/.*"))
+        .paths(regex(".*/foo/.*"))
         .build();
   }
 
@@ -103,7 +103,7 @@ public class Swagger2TestConfig {
             "application/xml",
             "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/no-request-mapping/.*"))
+        .paths(regex(".*/no-request-mapping/.*"))
         .build();
   }
 
@@ -117,7 +117,7 @@ public class Swagger2TestConfig {
             "application/xml",
             "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/fancypets/.*"))
+        .paths(regex(".*/fancypets/.*"))
         .build();
   }
 
@@ -138,7 +138,7 @@ public class Swagger2TestConfig {
         .alternateTypeRules(newRule(
             LocalDate.class,
             String.class))
-        .select().paths(PathSelectors.regex(".*/features/.*"))
+        .select().paths(regex(".*/features/.*"))
         .build();
     // end::question-27-config[]
   }
@@ -153,7 +153,7 @@ public class Swagger2TestConfig {
             "application/xml",
             "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/child/.*"))
+        .paths(regex(".*/child/.*"))
         .build();
   }
 
@@ -168,7 +168,7 @@ public class Swagger2TestConfig {
             "application/json")))
         .enableUrlTemplating(true)
         .select()
-        .paths(PathSelectors.regex(".*/pets/.*"))
+        .paths(regex(".*/pets/.*"))
         .build();
   }
 
@@ -208,7 +208,7 @@ public class Swagger2TestConfig {
                         new SecurityReference(
                             "petstore_auth",
                             scopes)))
-                .forPaths(PathSelectors.regex("/bugs/2268"))
+                .forPaths(regex("/bugs/2268"))
                 .forHttpMethods(Predicate.isEqual(HttpMethod.GET))
                 .build()))
         .alternateTypeRules(
@@ -226,7 +226,7 @@ public class Swagger2TestConfig {
             ByteBuffer.class,
             String.class)
         .select()
-        .paths(PathSelectors.regex(".*/bugs/.*"))
+        .paths(regex(".*/bugs/.*"))
         .build();
   }
 
@@ -266,7 +266,7 @@ public class Swagger2TestConfig {
             BugsController.Bug1627.class,
             BugsController.Lang.class)
         .select()
-        .paths(PathSelectors.regex(".*/bugs/.*"))
+        .paths(regex(".*/bugs/.*"))
         .build();
   }
 
@@ -298,7 +298,7 @@ public class Swagger2TestConfig {
             ByteBuffer.class,
             String.class)
         .select()
-        .paths(PathSelectors.regex(".*/different/.*"))
+        .paths(regex(".*/different/.*"))
         .build();
   }
 
@@ -312,7 +312,7 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/petgrooming/.*"))
+        .paths(regex(".*/petgrooming/.*"))
         .build();
   }
 
@@ -327,7 +327,7 @@ public class Swagger2TestConfig {
                 "application/json")))
         .ignoredParameterTypes(MetaClass.class)
         .select()
-        .paths(PathSelectors.regex(".*/.*"))
+        .paths(regex(".*/.*"))
         .build();
   }
 
@@ -342,7 +342,7 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/groovy/.*"))
+        .paths(regex(".*/groovy/.*"))
         .build()
         .ignoredParameterTypes(MetaClass.class);
   }
@@ -357,7 +357,7 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/enums/.*"))
+        .paths(regex(".*/enums/.*"))
         .build();
   }
 
@@ -376,7 +376,7 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex(".*/features/.*"))
+        .paths(regex(".*/features/.*"))
         .build();
   }
 
@@ -386,7 +386,7 @@ public class Swagger2TestConfig {
         .useDefaultResponseMessages(false)
         .securitySchemes(authorizationTypes)
         .select()
-        .paths(PathSelectors.regex(".*/consumes-produces/.*"))
+        .paths(regex(".*/consumes-produces/.*"))
         .build();
   }
 
@@ -402,7 +402,7 @@ public class Swagger2TestConfig {
         .produces(new HashSet<String>() {{
           add("application/json");
         }})
-        .select().paths(PathSelectors.regex("/consumes-produces/.*")).build();
+        .select().paths(regex("/consumes-produces/.*")).build();
   }
 
   @Bean
@@ -422,10 +422,10 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex("/rest/people.*")
-            .or(PathSelectors.regex("/rest/tags.*"))
-            .or(PathSelectors.regex("/rest/categories.*"))
-            .or(PathSelectors.regex("/rest/addresses.*")))
+        .paths(regex("/rest/people.*")
+            .or(regex("/rest/tags.*"))
+            .or(regex("/rest/categories.*"))
+            .or(regex("/rest/addresses.*")))
         .build();
   }
 
@@ -439,7 +439,7 @@ public class Swagger2TestConfig {
                 "application/xml",
                 "application/json")))
         .select()
-        .paths(PathSelectors.regex("/same/.*"))
+        .paths(regex("/same/.*"))
         .build();
 
   }

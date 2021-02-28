@@ -29,28 +29,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import springfox.documentation.schema.ModelReference;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.ScalarModelSpecification;
-import springfox.documentation.schema.ScalarType;
+import springfox.documentation.core.schema.ModelRef;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.core.schema.ScalarModelSpecification;
+import springfox.documentation.core.schema.ScalarType;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.plugins.SchemaPluginsManager;
 import springfox.documentation.schema.property.ModelSpecificationFactory;
-import springfox.documentation.service.ResolvedMethodParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.ViewProviderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.core.service.ResolvedMethodParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 
 import java.util.HashSet;
 import java.util.Optional;
 
+import static springfox.documentation.core.schema.ScalarTypes.builtInScalarType;
 import static springfox.documentation.schema.Collections.*;
 import static springfox.documentation.schema.Maps.*;
 import static springfox.documentation.schema.ResolvedTypes.*;
-import static springfox.documentation.schema.ScalarTypes.*;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE + 10)
@@ -87,17 +88,17 @@ public class ParameterDataTypeReader implements ParameterBuilderPlugin {
     ResolvedMethodParameter methodParameter = context.resolvedMethodParameter();
     ResolvedType parameterType = methodParameter.getParameterType();
     parameterType = context.alternateFor(parameterType);
-    springfox.documentation.schema.ModelReference modelRef = null;
+    ModelReference modelRef = null;
     ModelContext modelContext = modelContext(context, methodParameter, parameterType);
     ModelSpecification parameterModel = models.create(modelContext, parameterType);
     if (methodParameter.hasParameterAnnotation(PathVariable.class) && treatAsAString(parameterType)) {
-      modelRef = new springfox.documentation.schema.ModelRef("string");
+      modelRef = new ModelRef("string");
       context.requestParameterBuilder()
           .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)));
     } else if (methodParameter.hasParameterAnnotation(RequestParam.class) && isMapType(parameterType)) {
-      modelRef = new springfox.documentation.schema.ModelRef(
+      modelRef = new ModelRef(
           "",
-          new springfox.documentation.schema.ModelRef("string"),
+          new ModelRef("string"),
           true);
       context.requestParameterBuilder()
           .query(q -> q.model(m -> m.mapModel(map ->
@@ -125,19 +126,19 @@ public class ParameterDataTypeReader implements ParameterBuilderPlugin {
       ModelReference modelRef,
       ModelSpecification parameterModel) {
     if (treatRequestParamAsString(parameterType)) {
-      modelRef = new springfox.documentation.schema.ModelRef("string");
+      modelRef = new ModelRef("string");
       context.requestParameterBuilder()
           .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)));
     } else if (isContainerType(parameterType)
         && context.getDocumentationType() == DocumentationType.OAS_30) {
-      modelRef = new springfox.documentation.schema.ModelRef("string");
+      modelRef = new ModelRef("string");
       context.requestParameterBuilder()
           .query(q -> q.model(m -> m.scalarModel(collectionItemScalarType(parameterModel)))
               .explode(true));
     } else {
       String typeName = springfox.documentation.schema.Types.typeNameFor(parameterType.getErasedType());
       if (builtInScalarType(parameterType).isPresent()) {
-        modelRef = new springfox.documentation.schema.ModelRef(typeName);
+        modelRef = new ModelRef(typeName);
       }
       context.requestParameterBuilder()
           .query(q -> q.model(m -> m.copyOf(parameterModel)));

@@ -22,17 +22,18 @@ package springfox.documentation.spring.web.scanners;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ApiListingBuilder;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ApiListing;
-import springfox.documentation.service.ModelNamesRegistry;
-import springfox.documentation.service.PathAdjuster;
-import springfox.documentation.service.ResourceGroup;
-import springfox.documentation.service.SecurityReference;
-import springfox.documentation.spi.service.contexts.ApiListingContext;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.ModelSpecificationRegistry;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.core.builders.ApiListingBuilder;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ApiListing;
+import springfox.documentation.core.service.ModelNamesRegistry;
+import springfox.documentation.spi.service.PathAdjuster;
+import springfox.documentation.core.service.ResourceGroup;
+import springfox.documentation.core.service.SecurityReference;
+import springfox.documentation.spi.spi.service.contexts.ApiListingContext;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.ModelSpecificationRegistry;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 import springfox.documentation.spring.web.paths.PathMappingAdjuster;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 
@@ -58,8 +59,8 @@ import static java.util.stream.Collectors.*;
 import static java.util.stream.Stream.*;
 import static java.util.stream.StreamSupport.*;
 import static org.slf4j.LoggerFactory.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
-import static springfox.documentation.spi.service.contexts.Orderings.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
+import static springfox.documentation.spi.spi.service.contexts.Orderings.methodComparator;
 import static springfox.documentation.spring.web.paths.Paths.*;
 import static springfox.documentation.spring.web.scanners.ResourceGroups.*;
 
@@ -135,7 +136,7 @@ public class ApiListingScanner {
 
     List<SecurityReference> securityReferences = new ArrayList<>();
 
-    Map<String, Set<springfox.documentation.schema.Model>> globalModelMap = new HashMap<>();
+    Map<String, Set<Model>> globalModelMap = new HashMap<>();
     for (ResourceGroup resourceGroup : sortedByName(allResourceGroups)) {
 
       DocumentationContext documentationContext = context.getDocumentationContext();
@@ -147,10 +148,10 @@ public class ApiListingScanner {
       ModelSpecificationRegistryBuilder modelRegistryBuilder = new ModelSpecificationRegistryBuilder();
 
 
-      final Map<String, springfox.documentation.schema.Model> models = new LinkedHashMap<>();
+      final Map<String, Model> models = new LinkedHashMap<>();
       List<RequestMappingContext> requestMappings = nullToEmptyList(requestMappingsByResourceGroup.get(resourceGroup));
       for (RequestMappingContext each : sortedByMethods(requestMappings)) {
-        Map<String, Set<springfox.documentation.schema.Model>> currentModelMap
+        Map<String, Set<Model>> currentModelMap
             = apiModelReader.read(each.withKnownModels(
             globalModelMap));
         modelRegistryBuilder.addAll(
@@ -159,7 +160,7 @@ public class ApiListingScanner {
                 .filter(m -> m.key().isPresent())
                 .collect(Collectors.toList()));
         currentModelMap.values().forEach(list -> {
-          for (springfox.documentation.schema.Model model : list) {
+          for (Model model : list) {
             models.put(
                 model.getName(),
                 model);

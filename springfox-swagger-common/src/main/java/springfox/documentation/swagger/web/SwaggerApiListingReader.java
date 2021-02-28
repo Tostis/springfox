@@ -22,11 +22,11 @@ package springfox.documentation.swagger.web;
 import io.swagger.annotations.Api;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.BuilderDefaults;
-import springfox.documentation.service.Tag;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ApiListingBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ApiListingContext;
+import springfox.documentation.core.builders.BuilderDefaults;
+import springfox.documentation.core.service.Tag;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ApiListingBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ApiListingContext;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -39,7 +39,7 @@ import java.util.stream.Stream;
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
 import static org.springframework.core.annotation.AnnotationUtils.*;
-import static springfox.documentation.service.Tags.*;
+import static springfox.documentation.core.service.Tags.emptyTags;
 import static springfox.documentation.swagger.common.SwaggerPluginSupport.*;
 
 @Component

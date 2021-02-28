@@ -20,7 +20,8 @@
 package springfox.documentation.schema
 
 import spock.lang.Specification
-import springfox.documentation.service.AllowableListValues
+import springfox.documentation.core.schema.Enums
+import springfox.documentation.core.service.AllowableListValues
 
 import java.util.stream.Stream
 

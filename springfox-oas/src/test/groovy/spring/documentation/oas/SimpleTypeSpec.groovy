@@ -33,14 +33,8 @@ import spock.lang.Shared
 import spock.lang.Unroll
 import springfox.documentation.oas.mappers.SchemaMapper
 import springfox.documentation.schema.CodeGenGenericTypeNamingStrategy
-import springfox.documentation.schema.ModelSpecification
 import springfox.documentation.schema.ModelTestingSupport
 import springfox.documentation.schema.SchemaSpecification
-import springfox.documentation.service.ModelNamesRegistry
-
-import static java.util.Collections.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
 
 class SimpleTypeSpec extends SchemaSpecification implements ModelTestingSupport, ModelRegistrySupport {
   @Shared

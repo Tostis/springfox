@@ -21,10 +21,10 @@ package springfox.bean.validators.plugins;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import springfox.documentation.common.Compatibility;
-import springfox.documentation.schema.NumericElementFacet;
-import springfox.documentation.schema.NumericElementFacetBuilder;
-import springfox.documentation.service.AllowableRangeValues;
+import springfox.documentation.core.common.Compatibility;
+import springfox.documentation.core.schema.NumericElementFacet;
+import springfox.documentation.core.schema.NumericElementFacetBuilder;
+import springfox.documentation.core.service.AllowableRangeValues;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -32,7 +32,7 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static springfox.documentation.schema.NumericElementFacet.*;
+import static springfox.documentation.core.schema.NumericElementFacet.DEFAULT_MULTIPLE;
 
 public class RangeAnnotations {
   private static final Logger LOG = LoggerFactory.getLogger(RangeAnnotations.class);

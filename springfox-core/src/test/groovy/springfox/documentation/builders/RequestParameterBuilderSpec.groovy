@@ -3,12 +3,14 @@ package springfox.documentation.builders
 import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.schema.ModelSpecification
-import springfox.documentation.service.ParameterStyle
-import springfox.documentation.service.ParameterType
+import springfox.documentation.core.builders.ModelSpecificationBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
+import springfox.documentation.core.schema.ModelSpecification
+import springfox.documentation.core.service.ParameterStyle
+import springfox.documentation.core.service.ParameterType
 
-import static springfox.documentation.schema.ScalarType.*
-import static springfox.documentation.service.CollectionFormat.*
+import static springfox.documentation.core.schema.ScalarType.*
+import static springfox.documentation.core.service.CollectionFormat.*
 
 @Ignore
 class RequestParameterBuilderSpec extends Specification {

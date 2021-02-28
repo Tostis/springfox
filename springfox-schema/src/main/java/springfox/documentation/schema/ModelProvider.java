@@ -22,8 +22,9 @@ package springfox.documentation.schema;
 
 import com.fasterxml.classmate.ResolvedType;
 
-import springfox.documentation.annotations.Cacheable;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.core.annotations.Cacheable;
+import springfox.documentation.core.schema.Model;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.Optional;
 

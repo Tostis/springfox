@@ -20,15 +20,18 @@
 package springfox.documentation.spring.web.readers.operation;
 
 import com.fasterxml.classmate.TypeResolver;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.AllowableListValues;
-import springfox.documentation.service.ParameterStyle;
-import springfox.documentation.service.ParameterType;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spring.wrapper.NameValueExpression;
+import springfox.documentation.core.builders.ParameterBuilder;
+import springfox.documentation.core.builders.RequestParameterBuilder;
+import springfox.documentation.core.schema.ModelRef;
+import springfox.documentation.core.service.Parameter;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.AllowableListValues;
+import springfox.documentation.core.service.ParameterStyle;
+import springfox.documentation.core.service.ParameterType;
+import springfox.documentation.core.service.RequestParameter;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.core.spring.wrapper.NameValueExpression;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -38,7 +41,7 @@ import java.util.Set;
 
 import static java.util.Collections.*;
 import static org.springframework.util.StringUtils.*;
-import static springfox.documentation.service.RequestParameter.*;
+import static springfox.documentation.core.service.RequestParameter.DEFAULT_PRECEDENCE;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractOperationParameterRequestConditionReader implements OperationBuilderPlugin {
@@ -48,10 +51,10 @@ public abstract class AbstractOperationParameterRequestConditionReader implement
     this.resolver = resolver;
   }
 
-  public List<springfox.documentation.service.Parameter> getParameters(
+  public List<Parameter> getParameters(
       Set<NameValueExpression<String>> expressions,
       String parameterType) {
-    List<springfox.documentation.service.Parameter> parameters = new ArrayList<>();
+    List<Parameter> parameters = new ArrayList<>();
     for (NameValueExpression<String> expression : expressions) {
       if (skipParameter(parameters, expression)) {
         continue;
@@ -62,14 +65,14 @@ public abstract class AbstractOperationParameterRequestConditionReader implement
       if (!isEmpty(paramValue)) {
         allowableValues = new AllowableListValues(singletonList(paramValue), "string");
       }
-      springfox.documentation.service.Parameter parameter = new springfox.documentation.builders.ParameterBuilder()
+      Parameter parameter = new ParameterBuilder()
           .name(expression.getName())
           .description(null)
           .defaultValue(paramValue)
           .required(true)
           .allowMultiple(false)
           .type(resolver.resolve(String.class))
-          .modelRef(new springfox.documentation.schema.ModelRef("string"))
+          .modelRef(new ModelRef("string"))
           .allowableValues(allowableValues)
           .parameterType(parameterType)
           .order(DEFAULT_PRECEDENCE)
@@ -116,7 +119,7 @@ public abstract class AbstractOperationParameterRequestConditionReader implement
   }
 
   private boolean skipParameter(
-      List<springfox.documentation.service.Parameter> parameters,
+      List<Parameter> parameters,
       NameValueExpression<String> expression) {
     return expression.isNegated() || parameterHandled(parameters, expression);
   }
@@ -130,7 +133,7 @@ public abstract class AbstractOperationParameterRequestConditionReader implement
   }
 
   private boolean parameterHandled(
-      List<springfox.documentation.service.Parameter> parameters,
+      List<Parameter> parameters,
       NameValueExpression<String> expression) {
     return parameters.stream().anyMatch(input -> expression.getName().equals(input.getName()));
   }

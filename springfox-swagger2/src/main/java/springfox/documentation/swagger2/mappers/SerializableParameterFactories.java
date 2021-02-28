@@ -28,6 +28,8 @@ import io.swagger.models.parameters.QueryParameter;
 import io.swagger.models.parameters.SerializableParameter;
 import io.swagger.models.properties.MapProperty;
 import io.swagger.models.properties.Property;
+import springfox.documentation.core.schema.ModelReference;
+import springfox.documentation.core.service.Parameter;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -61,7 +63,7 @@ public class SerializableParameterFactories {
     throw new UnsupportedOperationException();
   }
 
-  static Optional<io.swagger.models.parameters.Parameter> create(springfox.documentation.service.Parameter source) {
+  static Optional<io.swagger.models.parameters.Parameter> create(Parameter source) {
     String safeSourceParamType = ofNullable(source.getParamType()).map(String::toLowerCase).orElse("");
     SerializableParameterFactory factory = SerializableParameterFactories.FACTORY_MAP.getOrDefault(safeSourceParamType,
         new NullSerializableParameterFactory());
@@ -70,7 +72,7 @@ public class SerializableParameterFactories {
     if (toReturn == null) {
       return empty();
     }
-    springfox.documentation.schema.ModelReference paramModel = source.getModelRef();
+    ModelReference paramModel = source.getModelRef();
     toReturn.setName(source.getName());
     toReturn.setDescription(source.getDescription());
     toReturn.setAccess(source.getParamAccess());
@@ -88,7 +90,7 @@ public class SerializableParameterFactories {
       } else {
         toReturn.setCollectionFormat(collectionFormat(source));
         toReturn.setType("array");
-        springfox.documentation.schema.ModelReference paramItemModelRef = paramModel.itemModel()
+        ModelReference paramItemModelRef = paramModel.itemModel()
             .orElseThrow(() -> new IllegalStateException("ModelRef that is a collection should have an itemModel"));
         Property itemProperty
             = maybeAddAllowableValues(
@@ -98,7 +100,7 @@ public class SerializableParameterFactories {
         maybeAddAllowableValuesToParameter(toReturn, itemProperty, paramItemModelRef.getAllowableValues());
       }
     } else if (paramModel.isMap()) {
-      springfox.documentation.schema.ModelReference paramItemModelRef = paramModel.itemModel()
+      ModelReference paramItemModelRef = paramModel.itemModel()
           .orElseThrow(() -> new IllegalStateException("ModelRef that is a map should have an itemModel"));
       Property itemProperty =
           new MapProperty(springfox.documentation.swagger2.mappers.Properties.itemTypeProperty(paramItemModelRef));
@@ -114,13 +116,13 @@ public class SerializableParameterFactories {
     return of(toReturn);
   }
 
-  private static String collectionFormat(springfox.documentation.service.Parameter source) {
+  private static String collectionFormat(Parameter source) {
     return isEmpty(source.getCollectionFormat()) ? "multi" : source.getCollectionFormat();
   }
 
   static class CookieSerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       CookieParameter param = new CookieParameter();
       param.setDefaultValue(source.getDefaultValue());
       return param;
@@ -129,7 +131,7 @@ public class SerializableParameterFactories {
 
   static class FormSerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       FormParameter param = new FormParameter();
       param.setDefaultValue(source.getDefaultValue());
       return param;
@@ -138,7 +140,7 @@ public class SerializableParameterFactories {
 
   static class HeaderSerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       HeaderParameter param = new HeaderParameter();
       param.setDefaultValue(source.getDefaultValue());
       return param;
@@ -147,7 +149,7 @@ public class SerializableParameterFactories {
 
   static class PathSerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       PathParameter param = new PathParameter();
       param.setDefaultValue(source.getDefaultValue());
       return param;
@@ -156,7 +158,7 @@ public class SerializableParameterFactories {
 
   static class QuerySerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       QueryParameter param = new QueryParameter();
       param.setDefaultValue(source.getDefaultValue());
       return param;
@@ -165,7 +167,7 @@ public class SerializableParameterFactories {
 
   static class NullSerializableParameterFactory implements SerializableParameterFactory {
     @Override
-    public SerializableParameter create(springfox.documentation.service.Parameter source) {
+    public SerializableParameter create(Parameter source) {
       return null;
     }
   }

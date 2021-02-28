@@ -21,8 +21,8 @@ package springfox.documentation.swagger.readers.parameter;
 
 import io.swagger.annotations.ExampleProperty;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
-import springfox.documentation.builders.ExampleBuilder;
-import springfox.documentation.schema.Example;
+import springfox.documentation.core.builders.ExampleBuilder;
+import springfox.documentation.core.schema.Example;
 
 import java.util.ArrayList;
 import java.util.HashMap;

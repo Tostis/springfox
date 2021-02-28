@@ -19,8 +19,8 @@
 package springfox.documentation.spring.web.scanners;
 
 
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ResourceGroup;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ResourceGroup;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.Collection;
@@ -29,7 +29,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.spi.service.contexts.Orderings.*;
+import static springfox.documentation.spi.spi.service.contexts.Orderings.resourceGroupComparator;
 
 class ResourceGroups {
   private ResourceGroups() {

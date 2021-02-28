@@ -39,9 +39,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ModelPropertyBuilder;
-import springfox.documentation.builders.PropertySpecificationBuilder;
-import springfox.documentation.schema.PropertySpecification;
+import springfox.documentation.core.builders.ModelPropertyBuilder;
+import springfox.documentation.core.builders.PropertySpecificationBuilder;
+import springfox.documentation.core.schema.ModelProperty;
+import springfox.documentation.core.schema.PropertySpecification;
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.configuration.ObjectMapperConfigured;
 import springfox.documentation.schema.plugins.SchemaPluginsManager;
@@ -50,9 +51,9 @@ import springfox.documentation.schema.property.bean.BeanModelProperty;
 import springfox.documentation.schema.property.bean.ParameterModelProperty;
 import springfox.documentation.schema.property.field.FieldModelProperty;
 import springfox.documentation.schema.property.field.FieldProvider;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
-import springfox.documentation.spi.schema.contexts.ModelContext;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ import static springfox.documentation.schema.ResolvedTypes.*;
 import static springfox.documentation.schema.property.BeanPropertyDefinitions.*;
 import static springfox.documentation.schema.property.FactoryMethodProvider.*;
 import static springfox.documentation.schema.property.bean.BeanModelProperty.*;
-import static springfox.documentation.spi.schema.contexts.ModelContext.*;
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.fromParent;
 
 @Primary
 @Component("optimized")
@@ -127,10 +128,10 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
 
 
   @Override
-  public List<springfox.documentation.schema.ModelProperty> propertiesFor(
+  public List<ModelProperty> propertiesFor(
       ResolvedType type,
       ModelContext givenContext) {
-    List<springfox.documentation.schema.ModelProperty> syntheticProperties
+    List<ModelProperty> syntheticProperties
         = schemaPluginsManager.syntheticProperties(givenContext);
     if (!syntheticProperties.isEmpty()) {
       return syntheticProperties;
@@ -157,11 +158,11 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
   }
 
   // List cannot contain duplicated byPropertyName()
-  private List<springfox.documentation.schema.ModelProperty> propertiesFor(
+  private List<ModelProperty> propertiesFor(
       ResolvedType type,
       ModelContext givenContext,
       String namePrefix) {
-    Set<springfox.documentation.schema.ModelProperty> properties = new TreeSet<>(byPropertyName());
+    Set<ModelProperty> properties = new TreeSet<>(byPropertyName());
     BeanDescription beanDescription = beanDescription(
         type,
         givenContext);
@@ -228,8 +229,8 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
     return new ArrayList<>(properties);
   }
 
-  private static Comparator<springfox.documentation.schema.ModelProperty> byPropertyName() {
-    return Comparator.comparing(springfox.documentation.schema.ModelProperty::getName);
+  private static Comparator<ModelProperty> byPropertyName() {
+    return Comparator.comparing(ModelProperty::getName);
   }
 
   private static AnnotatedMember safeGetPrimaryMember(
@@ -251,7 +252,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
     }
   }
 
-  private Function<ResolvedMethod, List<springfox.documentation.schema.ModelProperty>> propertyFromBean(
+  private Function<ResolvedMethod, List<ModelProperty>> propertyFromBean(
       ModelContext givenContext,
       BeanPropertyDefinition jacksonProperty,
       String namePrefix) {
@@ -311,7 +312,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
     };
   }
 
-  private Function<ResolvedField, List<springfox.documentation.schema.ModelProperty>> propertyFromField(
+  private Function<ResolvedField, List<ModelProperty>> propertyFromField(
       ModelContext givenContext,
       BeanPropertyDefinition jacksonProperty,
       String namePrefix) {
@@ -321,7 +322,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
         if (memberIsUnwrapped(jacksonProperty.getField())) {
           return propertiesFor(
               input.getType(),
-              ModelContext.fromParent(
+              fromParent(
                   givenContext,
                   input.getType()),
               String.format(
@@ -349,7 +350,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
         if (memberIsUnwrapped(jacksonProperty.getField())) {
           return propertySpecificationsFor(
               input.getType(),
-              ModelContext.fromParent(
+              fromParent(
                   givenContext,
                   input.getType()),
               String.format(
@@ -367,14 +368,14 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
     };
   }
 
-  private List<springfox.documentation.schema.ModelProperty> candidateProperties(
+  private List<ModelProperty> candidateProperties(
       ResolvedType type,
       AnnotatedMember member,
       BeanPropertyDefinition jacksonProperty,
       ModelContext givenContext,
       String namePrefix) {
 
-    List<springfox.documentation.schema.ModelProperty> properties = new ArrayList<>();
+    List<ModelProperty> properties = new ArrayList<>();
     if (!isInActiveView(member, givenContext)) {
       return properties;
     }
@@ -397,7 +398,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
               namePrefix))
           .orElse(new ArrayList<>()));
     } else if (member instanceof AnnotatedParameter) {
-      ModelContext modelContext = ModelContext.fromParent(
+      ModelContext modelContext = fromParent(
           givenContext,
           type);
       properties.addAll(
@@ -446,7 +447,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
                   namePrefix))
               .orElse(new ArrayList<>()));
     } else if (member instanceof AnnotatedParameter) {
-      ModelContext modelContext = ModelContext.fromParent(
+      ModelContext modelContext = fromParent(
           givenContext,
           type);
       properties.addAll(
@@ -498,7 +499,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
         .findFirst();
   }
 
-  private springfox.documentation.schema.ModelProperty fieldModelProperty(
+  private ModelProperty fieldModelProperty(
       ResolvedField childField,
       BeanPropertyDefinition jacksonProperty,
       ModelContext modelContext,
@@ -575,7 +576,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
             modelContext));
   }
 
-  private springfox.documentation.schema.ModelProperty beanModelProperty(
+  private ModelProperty beanModelProperty(
       ResolvedMethod childProperty,
       BeanPropertyDefinition jacksonProperty,
       ModelContext modelContext,
@@ -598,7 +599,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
     return modelProperty(jacksonProperty, modelContext, propertyName, beanModelProperty);
   }
 
-  private springfox.documentation.schema.ModelProperty modelProperty(
+  private ModelProperty modelProperty(
       BeanPropertyDefinition jacksonProperty,
       ModelContext modelContext,
       String propertyName,
@@ -670,7 +671,7 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
             propertyBuilder));
   }
 
-  private springfox.documentation.schema.ModelProperty paramModelProperty(
+  private ModelProperty paramModelProperty(
       ResolvedParameterizedMember<?> constructor,
       BeanPropertyDefinition jacksonProperty,
       AnnotatedParameter parameter,
@@ -752,14 +753,14 @@ public class OptimizedModelPropertiesProvider implements ModelPropertiesProvider
         .findFirst();
   }
 
-  private List<springfox.documentation.schema.ModelProperty> fromFactoryMethod(
+  private List<ModelProperty> fromFactoryMethod(
       ResolvedType resolvedType,
       BeanPropertyDefinition beanProperty,
       AnnotatedParameter member,
       ModelContext givenContext,
       String namePrefix) {
 
-    Optional<springfox.documentation.schema.ModelProperty> property =
+    Optional<ModelProperty> property =
         factoryMethods.in(
             resolvedType,
             factoryMethodOf(member))

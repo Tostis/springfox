@@ -24,11 +24,13 @@ import org.springframework.http.ResponseEntity
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.schema.AlternateTypeRule
+import springfox.documentation.core.schema.WildcardType
 import springfox.documentation.schema.mixins.TypesForTestingSupport
-import springfox.documentation.spi.schema.AlternateTypeProvider
-import springfox.documentation.spi.service.contexts.Defaults
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider
+import springfox.documentation.spi.spi.service.contexts.Defaults
 
-import static springfox.documentation.schema.AlternateTypeRules.*
+import static springfox.documentation.core.schema.AlternateTypeRules.*
 
 class AlternateTypeProviderSpec extends Specification implements TypesForTestingSupport {
   @Shared def resolver = new TypeResolver()
@@ -42,7 +44,7 @@ class AlternateTypeProviderSpec extends Specification implements TypesForTesting
     where:
       rule                                   | expectedType
       newMapRule(String, String)             | genericMap(List, String, String)
-      newMapRule(WildcardType, String)       | genericMap(List, String, String)
+      newMapRule(WildcardType, String) | genericMap(List, String, String)
       newMapRule(String, WildcardType)       | genericMap(List, String, String)
       newMapRule(WildcardType, WildcardType) | genericMap(List, String, String)
   }
@@ -100,7 +102,7 @@ class AlternateTypeProviderSpec extends Specification implements TypesForTesting
       hateoasCollectionModelRule()                            | resources(SimpleTypeEntityModel) | resolver.resolve(List, SimpleType)
   }
 
-  AlternateTypeRule hateoasCollectionModelRule() {
+    AlternateTypeRule hateoasCollectionModelRule() {
     def typeResolver = new TypeResolver()
     newRule(
         typeResolver.resolve(CollectionModel.class, SimpleTypeEntityModel.class),

@@ -20,7 +20,8 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.Operation
+import springfox.documentation.core.builders.ApiDescriptionBuilder
+import springfox.documentation.core.service.Operation
 
 import java.util.function.Function
 

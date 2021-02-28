@@ -29,9 +29,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationModelsProviderPlugin;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationModelsProviderPlugin;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.ArrayList;

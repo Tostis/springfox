@@ -2,7 +2,7 @@ package springfox.documentation.oas.mappers;
 
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.mapstruct.Mapper;
-import springfox.documentation.service.AuthorizationScope;
+import springfox.documentation.core.service.AuthorizationScope;
 
 import java.util.List;
 import java.util.Map;

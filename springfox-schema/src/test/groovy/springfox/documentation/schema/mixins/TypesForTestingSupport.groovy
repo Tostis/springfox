@@ -25,6 +25,7 @@ import org.springframework.hateoas.CollectionModel
 import org.springframework.hateoas.EntityModel
 import org.springframework.http.ResponseEntity
 import org.springframework.ui.ModelMap
+import springfox.documentation.core.schema.Entry
 import springfox.documentation.schema.*
 
 trait TypesForTestingSupport {

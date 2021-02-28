@@ -2,8 +2,10 @@ package springfox.documentation.common
 
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.common.SpringVersionCapability
+import springfox.documentation.core.common.Version
 
-import static springfox.documentation.common.SpringVersionCapability.*
+import static springfox.documentation.core.common.SpringVersionCapability.*
 
 class SpringVersionCapabilitySpec extends Specification {
 

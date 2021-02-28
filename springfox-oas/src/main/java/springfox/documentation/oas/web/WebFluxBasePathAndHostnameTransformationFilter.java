@@ -7,7 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.util.StringUtils;
 import org.springframework.web.server.adapter.ForwardedHeaderTransformer;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

@@ -23,29 +23,22 @@ import com.fasterxml.classmate.ResolvedType;
 import com.fasterxml.classmate.TypeResolver;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.RequestMethod;
-import springfox.documentation.PathProvider;
-import springfox.documentation.annotations.Incubating;
-import springfox.documentation.schema.AlternateTypeRule;
+import springfox.documentation.core.schema.AlternateTypeRules;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.core.annotations.Incubating;
+import springfox.documentation.core.schema.AlternateTypeRule;
+import springfox.documentation.core.service.*;
 import springfox.documentation.schema.CodeGenGenericTypeNamingStrategy;
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiListingReference;
-import springfox.documentation.service.Operation;
-import springfox.documentation.service.RequestParameter;
-import springfox.documentation.service.Response;
-import springfox.documentation.service.SecurityScheme;
-import springfox.documentation.service.Server;
-import springfox.documentation.service.Tag;
-import springfox.documentation.service.VendorExtension;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.GenericTypeNamingStrategy;
-import springfox.documentation.spi.service.DocumentationPlugin;
-import springfox.documentation.spi.service.contexts.ApiSelector;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
-import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.core.schema.WildcardType;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.GenericTypeNamingStrategy;
+import springfox.documentation.spi.spi.service.DocumentationPlugin;
+import springfox.documentation.spi.spi.service.contexts.ApiSelector;
+import springfox.documentation.spi.spi.service.contexts.Defaults;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.spi.spi.service.contexts.SecurityContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,8 +55,8 @@ import java.util.stream.Stream;
 
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.builders.BuilderDefaults.*;
+import static springfox.documentation.core.schema.AlternateTypeRules.*;
 
 /**
  * A builder which is intended to be the primary interface into the Springfox framework.
@@ -76,10 +69,10 @@ public class Docket implements DocumentationPlugin {
 
   private final DocumentationType documentationType;
   private final List<SecurityContext> securityContexts = new ArrayList<>();
-  private final Map<RequestMethod, List<springfox.documentation.service.ResponseMessage>> responseMessages
+  private final Map<RequestMethod, List<ResponseMessage>> responseMessages
       = new HashMap<>();
   private final Map<HttpMethod, List<Response>> responses = new HashMap<>();
-  private final List<springfox.documentation.service.Parameter> globalOperationParameters = new ArrayList<>();
+  private final List<Parameter> globalOperationParameters = new ArrayList<>();
   private final List<Function<TypeResolver, AlternateTypeRule>> ruleBuilders = new ArrayList<>();
   private final Set<Class> ignorableParameterTypes = new HashSet<>();
   private final Set<String> protocols = new HashSet<>();
@@ -196,14 +189,14 @@ public class Docket implements DocumentationPlugin {
    * @param responseMessages - the message
    * @return this Docket
    * {@code See swagger annotations <code>@ApiResponse</code>, <code>@ApiResponses</code> }.
-   * @see springfox.documentation.spi.service.contexts.Defaults#defaultResponseMessages()
+   * @see Defaults#defaultResponseMessages()
    * Use {@link Docket#responses} instead
    * @deprecated @since 3.0.0
    */
   @Deprecated
   public Docket globalResponseMessage(
       RequestMethod requestMethod,
-      List<springfox.documentation.service.ResponseMessage> responseMessages) {
+      List<ResponseMessage> responseMessages) {
     this.responseMessages.put(requestMethod, responseMessages);
     return this;
   }
@@ -218,7 +211,7 @@ public class Docket implements DocumentationPlugin {
    * @param responses  - the message
    * @return this Docket
    * {@code See swagger annotations <code>@ApiResponse</code>, <code>@ApiResponses</code> }.
-   * @see springfox.documentation.spi.service.contexts.Defaults#defaultResponseMessages()
+   * @see Defaults#defaultResponseMessages()
    */
   //TODO: Fix this builder
   public Docket globalResponses(
@@ -236,7 +229,7 @@ public class Docket implements DocumentationPlugin {
    * @deprecated
    */
   @Deprecated
-  public Docket globalOperationParameters(List<springfox.documentation.service.Parameter> operationParameters) {
+  public Docket globalOperationParameters(List<Parameter> operationParameters) {
     this.globalOperationParameters.addAll(nullToEmptyList(operationParameters));
     return this;
   }
@@ -260,7 +253,7 @@ public class Docket implements DocumentationPlugin {
    *
    * @param classes the classes to ignore
    * @return this Docket
-   * @see springfox.documentation.spi.service.contexts.Defaults#defaultIgnorableParameterTypes()
+   * @see Defaults#defaultIgnorableParameterTypes()
    */
   public Docket ignoredParameterTypes(Class... classes) {
     this.ignorableParameterTypes.addAll(Arrays.asList(classes));
@@ -293,7 +286,7 @@ public class Docket implements DocumentationPlugin {
    *
    * @param alternateTypeRules - rules to be applied
    * @return this Docket
-   * @see springfox.documentation.schema.AlternateTypeRules#newRule(java.lang.reflect.Type,
+   * @see AlternateTypeRules#newRule(java.lang.reflect.Type,
    * java.lang.reflect.Type)
    */
   public Docket alternateTypeRules(AlternateTypeRule... alternateTypeRules) {

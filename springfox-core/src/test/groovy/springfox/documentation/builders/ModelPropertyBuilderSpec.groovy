@@ -22,9 +22,10 @@ package springfox.documentation.builders
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.service.AllowableListValues
-import springfox.documentation.service.ListVendorExtension
-import springfox.documentation.service.VendorExtension
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.service.AllowableListValues
+import springfox.documentation.core.service.ListVendorExtension
+import springfox.documentation.core.service.VendorExtension
 
 class ModelPropertyBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

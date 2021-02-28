@@ -28,13 +28,13 @@ import springfox.documentation.schema.TypeNameExtractor
 import springfox.documentation.schema.plugins.PropertyDiscriminatorBasedInheritancePlugin
 import springfox.documentation.schema.plugins.SchemaPluginsManager
 import springfox.documentation.schema.property.ModelSpecificationFactory
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.ModelBuilderPlugin
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin
-import springfox.documentation.spi.schema.SyntheticModelProviderPlugin
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
-import springfox.documentation.spi.schema.ViewProviderPlugin
-import springfox.documentation.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin
+import springfox.documentation.spi.spi.schema.SyntheticModelProviderPlugin
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
 
 trait SchemaPluginsSupport {
   @SuppressWarnings("GrMethodMayBeStatic")

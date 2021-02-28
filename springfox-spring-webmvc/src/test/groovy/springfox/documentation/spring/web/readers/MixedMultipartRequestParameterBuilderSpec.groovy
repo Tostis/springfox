@@ -2,15 +2,15 @@ package springfox.documentation.spring.web.readers
 
 import org.springframework.http.MediaType
 import spock.lang.Specification
-import springfox.documentation.builders.CompoundModelSpecificationBuilder
-import springfox.documentation.builders.ModelSpecificationBuilder
-import springfox.documentation.builders.RequestParameterBuilder
-import springfox.documentation.schema.QualifiedModelName
-import springfox.documentation.schema.ScalarType
-import springfox.documentation.schema.Xml
-import springfox.documentation.service.Header
-import springfox.documentation.service.ParameterType
-import springfox.documentation.service.RequestParameter
+import springfox.documentation.core.builders.CompoundModelSpecificationBuilder
+import springfox.documentation.core.builders.ModelSpecificationBuilder
+import springfox.documentation.core.builders.RequestParameterBuilder
+import springfox.documentation.core.schema.QualifiedModelName
+import springfox.documentation.core.schema.ScalarType
+import springfox.documentation.core.schema.Xml
+import springfox.documentation.core.service.Header
+import springfox.documentation.core.service.ParameterType
+import springfox.documentation.core.service.RequestParameter
 import springfox.documentation.spring.web.readers.operation.ContentParameterAggregator
 
 import java.util.function.Consumer

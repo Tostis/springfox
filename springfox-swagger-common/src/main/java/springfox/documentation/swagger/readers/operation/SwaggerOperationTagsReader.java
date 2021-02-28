@@ -23,9 +23,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.HashSet;
@@ -36,7 +36,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.service.Tags.*;
+import static springfox.documentation.core.service.Tags.emptyTags;
 
 @Component
 @Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)

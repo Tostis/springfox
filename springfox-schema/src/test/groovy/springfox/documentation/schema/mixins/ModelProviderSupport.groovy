@@ -40,9 +40,9 @@ import springfox.documentation.schema.property.ObjectMapperBeanPropertyNamingStr
 import springfox.documentation.schema.property.OptimizedModelPropertiesProvider
 import springfox.documentation.schema.property.bean.AccessorsProvider
 import springfox.documentation.schema.property.field.FieldProvider
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.EnumTypeDeterminer
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.EnumTypeDeterminer
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
 
 @SuppressWarnings("GrMethodMayBeStatic")
 trait ModelProviderSupport extends SchemaPluginsSupport implements TypesForTestingSupport, AlternateTypesSupport {

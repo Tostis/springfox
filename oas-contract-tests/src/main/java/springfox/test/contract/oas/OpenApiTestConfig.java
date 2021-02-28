@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.HttpAuthenticationScheme;
-import springfox.documentation.service.OAuth2Scheme;
-import springfox.documentation.service.SecurityScheme;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.core.builders.PathSelectors;
+import springfox.documentation.core.schema.WildcardType;
+import springfox.documentation.core.service.ApiKey;
+import springfox.documentation.core.service.AuthorizationScope;
+import springfox.documentation.core.service.HttpAuthenticationScheme;
+import springfox.documentation.core.service.OAuth2Scheme;
+import springfox.documentation.core.service.SecurityScheme;
+import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.io.File;
@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.core.schema.AlternateTypeRules.newRule;
 
 @Configuration
 public class OpenApiTestConfig {

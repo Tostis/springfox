@@ -20,8 +20,9 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.TokenEndpoint
-import springfox.documentation.service.TokenRequestEndpoint
+import springfox.documentation.core.builders.AuthorizationCodeGrantBuilder
+import springfox.documentation.core.service.TokenEndpoint
+import springfox.documentation.core.service.TokenRequestEndpoint
 
 class AuthorizationCodeGrantBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

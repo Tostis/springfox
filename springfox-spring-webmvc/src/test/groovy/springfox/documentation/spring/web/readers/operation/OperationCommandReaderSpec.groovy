@@ -20,8 +20,8 @@
 package springfox.documentation.spring.web.readers.operation
 
 import spock.lang.Unroll
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 

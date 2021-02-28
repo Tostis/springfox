@@ -19,10 +19,10 @@
 package springfox.documentation.swagger2.mappers
 
 import spock.lang.Specification
-import springfox.documentation.service.VendorExtension
-import springfox.documentation.service.ListVendorExtension
-import springfox.documentation.service.ObjectVendorExtension
-import springfox.documentation.service.StringVendorExtension
+import springfox.documentation.core.service.VendorExtension
+import springfox.documentation.core.service.ListVendorExtension
+import springfox.documentation.core.service.ObjectVendorExtension
+import springfox.documentation.core.service.StringVendorExtension
 
 class VendorExtensionsMapperSpec extends Specification {
   class Person {

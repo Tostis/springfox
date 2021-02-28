@@ -26,12 +26,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.builders.AuthorizationScopeBuilder;
-import springfox.documentation.service.SecurityReference;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.core.builders.AuthorizationScopeBuilder;
+import springfox.documentation.core.service.SecurityReference;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.service.contexts.SecurityContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class OperationAuthReader implements OperationBuilderPlugin {
       for (Authorization authorization : authorizationReferences(apiOperationAnnotation.get())) {
         String value = authorization.value();
         AuthorizationScope[] scopes = authorization.scopes();
-        List<springfox.documentation.service.AuthorizationScope> authorizationScopeList = new ArrayList<>();
+        List<springfox.documentation.core.service.AuthorizationScope> authorizationScopeList = new ArrayList<>();
         for (AuthorizationScope authorizationScope : scopes) {
           String description = authorizationScope.description();
           String scope = authorizationScope.scope();
@@ -93,9 +93,9 @@ public class OperationAuthReader implements OperationBuilderPlugin {
                     .build());
           }
         }
-        springfox.documentation.service.AuthorizationScope[] authorizationScopes
+        springfox.documentation.core.service.AuthorizationScope[] authorizationScopes
             = authorizationScopeList
-            .toArray(new springfox.documentation.service.AuthorizationScope[0]);
+            .toArray(new springfox.documentation.core.service.AuthorizationScope[0]);
         SecurityReference securityReference =
             SecurityReference.builder()
                              .reference(value)

@@ -23,13 +23,13 @@ import com.fasterxml.classmate.TypeResolver
 
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.mixins.SchemaPluginsSupport
-import springfox.documentation.service.PathDecorator
-import springfox.documentation.spi.service.ApiListingScannerPlugin
-import springfox.documentation.spi.service.DefaultsProviderPlugin
-import springfox.documentation.spi.service.DocumentationPlugin
-import springfox.documentation.spi.service.ModelNamesRegistryFactoryPlugin
-import springfox.documentation.spi.service.OperationBuilderPlugin
-import springfox.documentation.spi.service.ParameterBuilderPlugin
+import springfox.documentation.spi.service.PathDecorator
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin
+import springfox.documentation.spi.spi.service.DefaultsProviderPlugin
+import springfox.documentation.spi.spi.service.DocumentationPlugin
+import springfox.documentation.spi.spi.service.ModelNamesRegistryFactoryPlugin
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin
 
 import springfox.documentation.spring.web.paths.OperationPathDecorator
 import springfox.documentation.spring.web.paths.PathMappingDecorator

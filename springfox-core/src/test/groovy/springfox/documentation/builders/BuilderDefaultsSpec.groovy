@@ -22,10 +22,11 @@ package springfox.documentation.builders
 import com.fasterxml.classmate.TypeResolver
 import org.joda.time.LocalDate
 import spock.lang.Specification
-import springfox.documentation.service.AllowableListValues
-import springfox.documentation.service.AllowableRangeValues
+import springfox.documentation.core.builders.BuilderDefaults
+import springfox.documentation.core.service.AllowableListValues
+import springfox.documentation.core.service.AllowableRangeValues
 
-import static BuilderDefaults.*
+import static springfox.documentation.core.builders.BuilderDefaults.*
 
 class BuilderDefaultsSpec extends Specification {
   def "BuilderDefaults is a static class" () {

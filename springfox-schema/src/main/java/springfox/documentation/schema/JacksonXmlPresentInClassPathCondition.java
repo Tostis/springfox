@@ -1,6 +1,6 @@
 package springfox.documentation.schema;
 
-import springfox.documentation.common.ClassPresentInClassPathCondition;
+import springfox.documentation.core.common.ClassPresentInClassPathCondition;
 
 public class JacksonXmlPresentInClassPathCondition extends ClassPresentInClassPathCondition {
   @Override

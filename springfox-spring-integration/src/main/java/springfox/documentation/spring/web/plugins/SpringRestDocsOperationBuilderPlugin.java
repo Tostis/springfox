@@ -27,16 +27,17 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 import rawhttp.core.RawHttp;
 import rawhttp.core.RawHttpResponse;
-import springfox.documentation.builders.ExampleBuilder;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.builders.ResponseBuilder;
-import springfox.documentation.schema.Example;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.Header;
-import springfox.documentation.service.Response;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.core.builders.ExampleBuilder;
+import springfox.documentation.core.builders.ModelSpecificationBuilder;
+import springfox.documentation.core.builders.ResponseBuilder;
+import springfox.documentation.core.schema.ModelRef;
+import springfox.documentation.core.schema.Example;
+import springfox.documentation.core.schema.ScalarType;
+import springfox.documentation.core.service.Header;
+import springfox.documentation.core.service.Response;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -145,7 +146,7 @@ public class SpringRestDocsOperationBuilderPlugin implements OperationBuilderPlu
         .map(strings -> new Header(
             strings,
             "",
-            new springfox.documentation.schema.ModelRef("string"),
+            new ModelRef("string"),
             new ModelSpecificationBuilder()
                 .scalarModel(ScalarType.STRING)
                 .build()))

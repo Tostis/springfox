@@ -1,6 +1,6 @@
 package springfox.documentation.spring.web;
 
-import springfox.documentation.common.ClassNotPresentInClassPathCondition;
+import springfox.documentation.core.common.ClassNotPresentInClassPathCondition;
 
 public class OnNotServletBasedWebApplication extends ClassNotPresentInClassPathCondition {
   private static final String SERVLET_WEB_APPLICATION_CLASS

@@ -21,15 +21,15 @@ package springfox.service.model.builder
 
 import org.springframework.http.HttpMethod
 import spock.lang.Specification
-import springfox.documentation.OperationNameGenerator
-import springfox.documentation.builders.OperationBuilder
-import springfox.documentation.builders.ParameterBuilder
-import springfox.documentation.builders.ResponseMessageBuilder
-import springfox.documentation.schema.Example
-import springfox.documentation.schema.ModelRef
-import springfox.documentation.service.ResponseMessage
-import springfox.documentation.service.SecurityReference
-import springfox.documentation.service.VendorExtension
+import springfox.documentation.core.OperationNameGenerator
+import springfox.documentation.core.builders.OperationBuilder
+import springfox.documentation.core.builders.ParameterBuilder
+import springfox.documentation.core.builders.ResponseMessageBuilder
+import springfox.documentation.core.schema.Example
+import springfox.documentation.core.schema.ModelRef
+import springfox.documentation.core.service.ResponseMessage
+import springfox.documentation.core.service.SecurityReference
+import springfox.documentation.core.service.VendorExtension
 
 import java.util.stream.Collectors
 

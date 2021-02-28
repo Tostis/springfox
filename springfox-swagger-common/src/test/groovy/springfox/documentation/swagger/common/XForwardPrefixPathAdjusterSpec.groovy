@@ -2,8 +2,8 @@ package springfox.documentation.swagger.common
 
 import spock.lang.Specification
 import spock.lang.Unroll
-import springfox.documentation.common.SpringVersion
-import springfox.documentation.common.Version
+import springfox.documentation.core.common.SpringVersion
+import springfox.documentation.core.common.Version
 
 import javax.servlet.http.HttpServletRequest
 

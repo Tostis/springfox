@@ -5,7 +5,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.web.util.UriComponents;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 
 import javax.servlet.http.HttpServletRequest;
 

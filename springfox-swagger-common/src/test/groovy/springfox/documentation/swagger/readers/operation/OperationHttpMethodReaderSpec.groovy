@@ -21,8 +21,8 @@ package springfox.documentation.swagger.readers.operation
 
 import org.springframework.http.HttpMethod
 import org.springframework.web.bind.annotation.RequestMethod
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 

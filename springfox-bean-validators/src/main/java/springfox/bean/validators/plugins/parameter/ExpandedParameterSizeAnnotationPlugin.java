@@ -23,10 +23,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.bean.validators.plugins.Validators;
-import springfox.documentation.service.AllowableRangeValues;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ExpandedParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterExpansionContext;
+import springfox.documentation.core.service.AllowableRangeValues;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ExpandedParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterExpansionContext;
 
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;

@@ -20,10 +20,10 @@
 package springfox.documentation.spring.web.readers.parameter;
 
 import com.fasterxml.classmate.ResolvedType;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.AlternateTypeProvider;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.OperationContext;
 
 import java.util.Collection;
 import java.util.HashSet;

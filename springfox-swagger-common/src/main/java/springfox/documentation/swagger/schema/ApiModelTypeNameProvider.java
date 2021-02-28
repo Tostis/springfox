@@ -23,11 +23,11 @@ import io.swagger.annotations.ApiModel;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.documentation.schema.DefaultTypeNameProvider;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import static org.springframework.core.annotation.AnnotationUtils.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmpty;
 
 @Component
 @Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)

@@ -21,13 +21,10 @@ package springfox.documentation.swagger.readers.operation;
 import io.swagger.annotations.ResponseHeader;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.util.StringUtils;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.schema.CollectionType;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.schema.ScalarTypes;
+import springfox.documentation.core.builders.ModelSpecificationBuilder;
+import springfox.documentation.core.schema.*;
 import springfox.documentation.schema.property.PackageNames;
-import springfox.documentation.service.Header;
+import springfox.documentation.core.service.Header;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -123,15 +120,15 @@ public class ResponseHeaders {
   }
 
   @SuppressWarnings("deprecation")
-  private static springfox.documentation.schema.ModelReference headerModel(ResponseHeader each) {
-    springfox.documentation.schema.ModelReference modelReference;
+  private static ModelReference headerModel(ResponseHeader each) {
+    ModelReference modelReference;
     String typeName = ofNullable(springfox.documentation.schema.Types.typeNameFor(each.response()))
         .orElse("string");
     if (isEmpty(each.responseContainer())) {
-      modelReference = new springfox.documentation.schema.ModelRef(typeName);
+      modelReference = new ModelRef(typeName);
     } else {
-      modelReference = new springfox.documentation.schema.ModelRef(each.responseContainer(),
-          new springfox.documentation.schema.ModelRef(typeName));
+      modelReference = new ModelRef(each.responseContainer(),
+          new ModelRef(typeName));
     }
     return modelReference;
   }

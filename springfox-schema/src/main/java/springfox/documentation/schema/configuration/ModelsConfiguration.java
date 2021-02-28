@@ -24,11 +24,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.plugin.core.config.EnablePluginRegistries;
-import springfox.documentation.spi.schema.ModelBuilderPlugin;
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
-import springfox.documentation.spi.schema.SyntheticModelProviderPlugin;
-import springfox.documentation.spi.schema.TypeNameProviderPlugin;
-import springfox.documentation.spi.schema.ViewProviderPlugin;
+import springfox.documentation.spi.spi.schema.ModelBuilderPlugin;
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.spi.schema.SyntheticModelProviderPlugin;
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin;
+import springfox.documentation.spi.spi.schema.ViewProviderPlugin;
 
 @Configuration
 @ComponentScan(basePackages = {

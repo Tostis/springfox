@@ -21,7 +21,8 @@ package springfox.documentation.builders
 
 import com.fasterxml.classmate.TypeResolver
 import spock.lang.Specification
-import springfox.documentation.schema.ModelProperty
+import springfox.documentation.core.builders.ModelBuilder
+import springfox.documentation.core.schema.ModelProperty
 
 class ModelBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

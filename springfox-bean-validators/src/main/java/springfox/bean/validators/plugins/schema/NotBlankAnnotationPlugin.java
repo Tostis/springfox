@@ -22,9 +22,9 @@ package springfox.bean.validators.plugins.schema;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.bean.validators.plugins.Validators;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;

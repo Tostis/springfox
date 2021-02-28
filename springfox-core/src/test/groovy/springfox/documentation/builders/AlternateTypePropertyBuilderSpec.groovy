@@ -2,6 +2,7 @@ package springfox.documentation.builders
 
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.core.builders.AlternateTypeBuilder
 
 
 class AlternateTypePropertyBuilderSpec extends Specification {

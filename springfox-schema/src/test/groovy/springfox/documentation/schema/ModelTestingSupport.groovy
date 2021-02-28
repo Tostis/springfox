@@ -1,11 +1,19 @@
 package springfox.documentation.schema
 
+import springfox.documentation.core.schema.CollectionElementFacet
+import springfox.documentation.core.schema.CollectionSpecification
+import springfox.documentation.core.schema.CollectionType
+import springfox.documentation.core.schema.CompoundModelSpecification
+import springfox.documentation.core.schema.ModelKey
+import springfox.documentation.core.schema.QualifiedModelName
+import springfox.documentation.core.schema.ScalarType
+
 trait ModelTestingSupport {
   def assertPropertySpecification(
-      CompoundModelSpecification compoundSpec,
-      String propertyName,
-      type,
-      isRequest = false) {
+          CompoundModelSpecification compoundSpec,
+          String propertyName,
+          type,
+          isRequest = false) {
     if (type instanceof ScalarType) {
       assertScalarPropertySpecification(compoundSpec, propertyName, type)
     } else {
@@ -62,11 +70,11 @@ trait ModelTestingSupport {
 
 
   def assertCollectionPropertySpecification(
-      CompoundModelSpecification specification,
-      String propertyName,
-      CollectionType collectionType,
-      itemType,
-      isRequest = false) {
+          CompoundModelSpecification specification,
+          String propertyName,
+          CollectionType collectionType,
+          itemType,
+          isRequest = false) {
     def collectionProperty = specification.properties.find { it.name.equals(propertyName) }
     assert !collectionProperty.elementFacet(CollectionElementFacet).isPresent()
     if (itemType instanceof ScalarType) {
@@ -85,10 +93,10 @@ trait ModelTestingSupport {
   }
 
   def assertScalarCollectionPropertySpecification(
-      CollectionSpecification collectionSpecification,
-      String propertyName,
-      CollectionType collectionType,
-      ScalarType itemType) {
+          CollectionSpecification collectionSpecification,
+          String propertyName,
+          CollectionType collectionType,
+          ScalarType itemType) {
     assert collectionSpecification != null
     assert collectionSpecification.collectionType == collectionType
     assert collectionSpecification.model.scalar.isPresent()

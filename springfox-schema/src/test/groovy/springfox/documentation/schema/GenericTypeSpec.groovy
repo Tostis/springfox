@@ -19,11 +19,13 @@
 package springfox.documentation.schema
 
 import spock.lang.Unroll
+import springfox.documentation.core.schema.Model
+import springfox.documentation.core.schema.ModelProperty
 
 import static java.util.Collections.*
 import static org.springframework.util.StringUtils.*
 import static springfox.documentation.schema.Collections.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class GenericTypeSpec extends SchemaSpecification {
   def namingStrategy = new DefaultGenericTypeNamingStrategy()
@@ -175,7 +177,7 @@ class GenericTypeSpec extends SchemaSpecification {
 
   void verifyModelProperty(Model model, String propertyType, qualifiedPropertyType, propertyName) {
     assert model.getProperties().containsKey(propertyName)
-    ModelProperty modelProperty = model.properties.get(propertyName)
+      ModelProperty modelProperty = model.properties.get(propertyName)
     modelProperty.qualifiedType == qualifiedPropertyType
     def item = modelProperty.modelRef
     assert item.type == maybeTransformVoid(propertyType)

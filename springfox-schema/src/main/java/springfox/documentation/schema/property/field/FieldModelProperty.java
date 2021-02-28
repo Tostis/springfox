@@ -24,7 +24,7 @@ import com.fasterxml.classmate.TypeResolver;
 import com.fasterxml.classmate.members.ResolvedField;
 import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
 import springfox.documentation.schema.property.BaseModelProperty;
-import springfox.documentation.spi.schema.AlternateTypeProvider;
+import springfox.documentation.spi.spi.schema.AlternateTypeProvider;
 
 public class FieldModelProperty extends BaseModelProperty {
 

@@ -4,7 +4,7 @@ import io.swagger.models.Swagger;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.spi.DocumentationType;
 
 import static org.springframework.util.StringUtils.*;
 

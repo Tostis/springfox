@@ -22,9 +22,9 @@ package springfox.documentation.swagger1.readers.parameter;
 import io.swagger.annotations.ApiParam;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.ParameterBuilderPlugin;
-import springfox.documentation.spi.service.contexts.ParameterContext;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
+import springfox.documentation.spi.spi.service.contexts.ParameterContext;
 import springfox.documentation.swagger.common.SwaggerPluginSupport;
 
 import java.util.Optional;

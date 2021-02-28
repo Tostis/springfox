@@ -1,12 +1,12 @@
 package springfox.documentation.schema.property;
 
 import com.fasterxml.classmate.ResolvedType;
-import springfox.documentation.builders.CollectionSpecificationBuilder;
-import springfox.documentation.schema.CollectionSpecification;
-import springfox.documentation.schema.CollectionType;
+import springfox.documentation.core.builders.CollectionSpecificationBuilder;
+import springfox.documentation.core.schema.CollectionSpecification;
+import springfox.documentation.core.schema.CollectionType;
 import springfox.documentation.schema.Collections;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.spi.schema.contexts.ModelContext;
+import springfox.documentation.core.schema.ModelSpecification;
+import springfox.documentation.spi.spi.schema.contexts.ModelContext;
 
 import java.util.Optional;
 

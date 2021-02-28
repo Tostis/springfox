@@ -22,13 +22,13 @@ package springfox.documentation.spring.web.scanners
 import com.fasterxml.classmate.TypeResolver
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Unroll
-import springfox.documentation.schema.ModelSpecification
-import springfox.documentation.service.ApiListing
-import springfox.documentation.service.ResourceGroup
-import springfox.documentation.spi.service.ApiListingScannerPlugin
-import springfox.documentation.spi.service.contexts.DocumentationContext
-import springfox.documentation.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spi.service.contexts.SecurityContext
+import springfox.documentation.core.schema.ModelSpecification
+import springfox.documentation.core.service.ApiListing
+import springfox.documentation.core.service.ResourceGroup
+import springfox.documentation.spi.spi.service.ApiListingScannerPlugin
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
+import springfox.documentation.spi.spi.service.contexts.SecurityContext
 
 import springfox.documentation.spring.web.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.Bug2219ListingScanner
@@ -44,7 +44,7 @@ import springfox.documentation.spring.web.readers.operation.HandlerMethodResolve
 
 import static java.util.Collections.*
 import static org.springframework.http.MediaType.*
-import static springfox.documentation.builders.PathSelectors.*
+import static springfox.documentation.core.builders.PathSelectors.*
 import static springfox.documentation.spring.web.scanners.ApiListingScanner.*
 
 class ApiListingScannerSpec

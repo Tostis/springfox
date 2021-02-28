@@ -1,6 +1,6 @@
 package springfox.documentation.spring.web.readers.operation;
 
-import springfox.documentation.service.RequestParameter;
+import springfox.documentation.core.service.RequestParameter;
 
 import java.util.Collection;
 

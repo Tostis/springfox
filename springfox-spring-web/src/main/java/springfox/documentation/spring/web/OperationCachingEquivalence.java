@@ -18,7 +18,7 @@
  */
 package springfox.documentation.spring.web;
 
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import java.util.Objects;
 import java.util.function.BiPredicate;

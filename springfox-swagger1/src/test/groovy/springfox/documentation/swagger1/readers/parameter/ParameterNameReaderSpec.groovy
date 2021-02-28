@@ -22,11 +22,11 @@ package springfox.documentation.swagger1.readers.parameter
 import com.fasterxml.classmate.TypeResolver
 import io.swagger.annotations.ApiParam
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
-import springfox.documentation.service.ParameterType
-import springfox.documentation.service.ResolvedMethodParameter
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.service.contexts.OperationContext
-import springfox.documentation.spi.service.contexts.ParameterContext
+import springfox.documentation.core.service.ParameterType
+import springfox.documentation.core.service.ResolvedMethodParameter
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.ParameterContext
 import springfox.documentation.spring.web.mixins.ModelProviderForServiceSupport
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec

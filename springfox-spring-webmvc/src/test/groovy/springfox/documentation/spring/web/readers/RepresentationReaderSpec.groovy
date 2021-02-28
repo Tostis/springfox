@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Unroll
-import springfox.documentation.spi.service.contexts.OperationContext
+import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
 import springfox.documentation.spring.web.scanners.MediaTypeReader

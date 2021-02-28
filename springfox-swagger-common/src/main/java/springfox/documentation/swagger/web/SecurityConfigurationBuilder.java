@@ -20,7 +20,7 @@ package springfox.documentation.swagger.web;
 
 import java.util.Map;
 
-import static springfox.documentation.builders.BuilderDefaults.*;
+import static springfox.documentation.core.builders.BuilderDefaults.defaultIfAbsent;
 
 public class SecurityConfigurationBuilder {
 

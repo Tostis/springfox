@@ -28,8 +28,8 @@ import org.springframework.mock.env.MockEnvironment
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
 import spock.lang.Specification
-import springfox.documentation.builders.ModelPropertyBuilder
-import springfox.documentation.builders.PropertySpecificationBuilder
+import springfox.documentation.core.builders.ModelPropertyBuilder
+import springfox.documentation.core.builders.PropertySpecificationBuilder
 import springfox.documentation.schema.AlternateTypesSupport
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.DefaultTypeNameProvider
@@ -38,17 +38,17 @@ import springfox.documentation.schema.TypeNameExtractor
 import springfox.documentation.schema.TypeWithAnnotatedGettersAndSetters
 import springfox.documentation.schema.mixins.ConfiguredObjectMapperSupport
 import springfox.documentation.schema.property.ModelSpecificationFactory
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spi.schema.TypeNameProviderPlugin
-import springfox.documentation.spi.schema.contexts.ModelContext
-import springfox.documentation.spi.schema.contexts.ModelPropertyContext
+import springfox.documentation.spi.spi.DocumentationType
+import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
+import springfox.documentation.spi.spi.schema.contexts.ModelContext
+import springfox.documentation.spi.spi.schema.contexts.ModelPropertyContext
 import springfox.documentation.spring.web.DescriptionResolver
 import springfox.documentation.spring.web.mixins.ServicePluginsSupport
 
 import static java.util.Collections.*
 import static springfox.documentation.schema.ResolvedTypes.*
-import static springfox.documentation.spi.DocumentationType.*
-import static springfox.documentation.spi.schema.contexts.ModelContext.*
+import static springfox.documentation.spi.spi.DocumentationType.*
+import static springfox.documentation.spi.spi.schema.contexts.ModelContext.*
 
 class ApiModelPropertyPropertyBuilderSpec
     extends Specification

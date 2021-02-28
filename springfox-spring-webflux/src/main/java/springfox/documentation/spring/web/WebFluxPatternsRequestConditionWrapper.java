@@ -26,7 +26,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class WebFluxPatternsRequestConditionWrapper
-    implements springfox.documentation.spring.wrapper.PatternsRequestCondition<PatternsRequestCondition> {
+    implements springfox.documentation.core.spring.wrapper.PatternsRequestCondition<PatternsRequestCondition> {
 
   private final PatternsRequestCondition wrapped;
 
@@ -35,8 +35,8 @@ public class WebFluxPatternsRequestConditionWrapper
   }
 
   @Override
-  public springfox.documentation.spring.wrapper.PatternsRequestCondition combine(
-      springfox.documentation.spring.wrapper.PatternsRequestCondition<PatternsRequestCondition> other) {
+  public springfox.documentation.core.spring.wrapper.PatternsRequestCondition combine(
+      springfox.documentation.core.spring.wrapper.PatternsRequestCondition<PatternsRequestCondition> other) {
     if (other instanceof WebFluxPatternsRequestConditionWrapper && !this.equals(other)) {
       return new WebFluxPatternsRequestConditionWrapper(
           wrapped.combine(((WebFluxPatternsRequestConditionWrapper) other).wrapped));

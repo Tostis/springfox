@@ -20,11 +20,11 @@
 package springfox.documentation.spring.web.scanners;
 
 
-import springfox.documentation.service.ApiDescription;
-import springfox.documentation.service.ResourceGroup;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.core.service.ApiDescription;
+import springfox.documentation.core.service.ResourceGroup;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.RequestMappingContext;
 
 import java.util.Comparator;
 import java.util.List;

@@ -21,17 +21,17 @@ package springfox.documentation.spring.web.plugins;
 import com.fasterxml.classmate.TypeResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import springfox.documentation.PathProvider;
-import springfox.documentation.RequestHandler;
-import springfox.documentation.schema.AlternateTypeRule;
-import springfox.documentation.schema.AlternateTypeRuleConvention;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.DocumentationPlugin;
-import springfox.documentation.spi.service.RequestHandlerCombiner;
-import springfox.documentation.spi.service.RequestHandlerProvider;
-import springfox.documentation.spi.service.contexts.Defaults;
-import springfox.documentation.spi.service.contexts.DocumentationContext;
-import springfox.documentation.spi.service.contexts.DocumentationContextBuilder;
+import springfox.documentation.core.PathProvider;
+import springfox.documentation.core.RequestHandler;
+import springfox.documentation.core.schema.AlternateTypeRule;
+import springfox.documentation.core.schema.AlternateTypeRuleConvention;
+import springfox.documentation.spi.spi.DocumentationType;
+import springfox.documentation.spi.spi.service.DocumentationPlugin;
+import springfox.documentation.spi.spi.service.RequestHandlerCombiner;
+import springfox.documentation.spi.spi.service.RequestHandlerProvider;
+import springfox.documentation.spi.spi.service.contexts.Defaults;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContext;
+import springfox.documentation.spi.spi.service.contexts.DocumentationContextBuilder;
 import springfox.documentation.spring.web.DocumentationCache;
 import springfox.documentation.spring.web.scanners.ApiDocumentationScanner;
 
@@ -40,8 +40,8 @@ import java.util.List;
 
 import static java.util.Optional.*;
 import static java.util.stream.Collectors.*;
-import static springfox.documentation.builders.BuilderDefaults.*;
-import static springfox.documentation.spi.service.contexts.Orderings.*;
+import static springfox.documentation.core.builders.BuilderDefaults.nullToEmptyList;
+import static springfox.documentation.spi.spi.service.contexts.Orderings.pluginOrdering;
 
 public class AbstractDocumentationPluginsBootstrapper {
   private static final Logger LOGGER = LoggerFactory.getLogger(DocumentationPluginsBootstrapper.class);

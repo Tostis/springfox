@@ -20,7 +20,8 @@
 package springfox.documentation.builders
 
 import spock.lang.Specification
-import springfox.documentation.service.LoginEndpoint
+import springfox.documentation.core.builders.ImplicitGrantBuilder
+import springfox.documentation.core.service.LoginEndpoint
 
 class ImplicitGrantBuilderSpec extends Specification {
   def "Setting properties on the builder with non-null values"() {

@@ -20,7 +20,7 @@ package springfox.documentation.spring.web.readers.parameter;
 
 import com.fasterxml.classmate.ResolvedType;
 import org.springframework.core.annotation.AnnotationUtils;
-import springfox.documentation.spi.service.ParameterMetadataAccessor;
+import springfox.documentation.spi.spi.service.ParameterMetadataAccessor;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
