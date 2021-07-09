@@ -26,7 +26,7 @@ import org.springframework.web.method.HandlerMethod;
 import springfox.documentation.core.RequestHandler;
 import springfox.documentation.core.RequestHandlerKey;
 import springfox.documentation.core.service.ResolvedMethodParameter;
-import springfox.documentation.spring.web.WebMvcPatternsRequestConditionWrapper;
+import springfox.documentation.spring.webmvc.WebMvcPatternsRequestConditionWrapper;
 import springfox.documentation.spring.web.plugins.CombinedRequestHandler;
 import springfox.documentation.core.spring.wrapper.NameValueExpression;
 import springfox.documentation.core.spring.wrapper.PatternsRequestCondition;

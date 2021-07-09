@@ -29,7 +29,7 @@ import springfox.documentation.core.service.Documentation
 import springfox.documentation.core.service.ResourceListing
 import springfox.documentation.spi.spi.service.contexts.Defaults
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.paths.DefaultPathProvider
 import springfox.documentation.spring.web.paths.Paths

@@ -5,10 +5,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import springfox.documentation.spring.web.SpringfoxWebConfiguration;
-import springfox.documentation.spring.web.SpringfoxWebFluxConfiguration;
-import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
+import springfox.documentation.spring.webflux.SpringfoxWebFluxConfiguration;
+import springfox.documentation.spring.webmvc.SpringfoxWebMvcConfiguration;
 import springfox.documentation.spring.web.json.JacksonModuleRegistrar;
-import springfox.documentation.swagger.configuration.SwaggerCommonConfiguration;
+import springfox.documentation.common.configuration.SwaggerCommonConfiguration;
 
 @Configuration
 @Import({

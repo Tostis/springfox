@@ -1,5 +1,6 @@
 package springfox.documentation.swagger.web
 import spock.lang.Specification
+import springfox.documentation.common.web.SwaggerApiListingReader
 import springfox.documentation.core.builders.ApiListingBuilder
 import springfox.documentation.core.service.ResourceGroup
 import springfox.documentation.spi.spi.DocumentationType
@@ -11,7 +12,7 @@ import springfox.documentation.spring.web.dummy.DummyControllerWithTags
 class SwaggerApiListingReaderSpec extends Specification {
   def "ApiListingTagReaderSpec supports all documentation types" () {
     given:
-      SwaggerApiListingReader sut = new SwaggerApiListingReader()
+    SwaggerApiListingReader sut = new SwaggerApiListingReader()
     expect:
       sut.supports(DocumentationType.SWAGGER_12)
       sut.supports(DocumentationType.SWAGGER_2)

@@ -25,12 +25,13 @@ import io.swagger.annotations.ApiResponse
 import io.swagger.annotations.ApiResponses
 import spock.lang.Shared
 import spock.lang.Specification
+import springfox.documentation.common.annotations.Annotations
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.controllers.ConcreteController
 
 import java.lang.reflect.AnnotatedElement
 
-import static springfox.documentation.swagger.annotations.Annotations.*
+import static springfox.documentation.common.annotations.Annotations.*
 
 class AnnotationsSpec extends Specification {
 

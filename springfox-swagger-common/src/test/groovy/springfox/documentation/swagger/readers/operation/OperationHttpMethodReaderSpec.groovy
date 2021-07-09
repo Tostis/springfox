@@ -21,6 +21,7 @@ package springfox.documentation.swagger.readers.operation
 
 import org.springframework.http.HttpMethod
 import org.springframework.web.bind.annotation.RequestMethod
+import springfox.documentation.common.readers.operation.OperationHttpMethodReader
 import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
@@ -33,7 +34,7 @@ class OperationHttpMethodReaderSpec extends DocumentationContextSpec implements 
       OperationContext operationContext =
         operationContext(documentationContext(), handlerMethod)
 
-      OperationHttpMethodReader sut = new OperationHttpMethodReader();
+    OperationHttpMethodReader sut = new OperationHttpMethodReader();
     when:
       sut.apply(operationContext)
     and:

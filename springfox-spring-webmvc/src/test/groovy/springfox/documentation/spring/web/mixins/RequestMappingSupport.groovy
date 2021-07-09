@@ -33,7 +33,7 @@ import springfox.documentation.core.builders.OperationBuilder
 import springfox.documentation.core.schema.Model
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.DummyController
 import springfox.documentation.spring.web.dummy.DummyControllerWithApiDescription

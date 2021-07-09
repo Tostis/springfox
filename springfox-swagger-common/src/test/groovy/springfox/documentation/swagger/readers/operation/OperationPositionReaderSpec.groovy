@@ -19,6 +19,7 @@
 
 package springfox.documentation.swagger.readers.operation
 
+import springfox.documentation.common.readers.operation.OperationPositionReader
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
@@ -29,7 +30,7 @@ class OperationPositionReaderSpec extends DocumentationContextSpec implements Re
     given:
       OperationContext operationContext =
         operationContext(documentationContext(), handlerMethod, contextCount)
-      OperationPositionReader operationPositionReader = new OperationPositionReader();
+    OperationPositionReader operationPositionReader = new OperationPositionReader();
 
     when:
       operationPositionReader.apply(operationContext)

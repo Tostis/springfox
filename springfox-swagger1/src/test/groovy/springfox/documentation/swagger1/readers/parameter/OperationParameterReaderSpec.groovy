@@ -32,7 +32,7 @@ import springfox.documentation.core.service.Parameter
 import springfox.documentation.spi.spi.service.contexts.Defaults
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.DummyModels
 import springfox.documentation.spring.web.dummy.models.Example
 import springfox.documentation.spring.web.dummy.models.Treeish

@@ -23,6 +23,7 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.plugin.core.OrderAwarePluginRegistry
 import org.springframework.plugin.core.PluginRegistry
 import spock.lang.Unroll
+import springfox.documentation.common.readers.operation.SwaggerResponseMessageReader
 import springfox.documentation.schema.DefaultTypeNameProvider
 import springfox.documentation.core.schema.Example
 import springfox.documentation.schema.JacksonEnumTypeDeterminer

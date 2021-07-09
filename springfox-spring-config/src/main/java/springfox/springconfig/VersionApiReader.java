@@ -28,7 +28,7 @@ import springfox.documentation.core.service.ResolvedMethodParameter;
 import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.spi.spi.service.ParameterBuilderPlugin;
 import springfox.documentation.spi.spi.service.contexts.ParameterContext;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
+import springfox.documentation.common.common.SwaggerPluginSupport;
 
 import java.util.Optional;
 

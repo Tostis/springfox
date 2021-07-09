@@ -9,6 +9,21 @@ ext {
   ]
 }
 
+// BEGIN workaround jpms
+// io.swagger.core.v3:swagger-annotations:2.1.2
+// and io.swagger:swagger-annotations:1.5.20
+// share same jar name: swagger-annotations:x.y.jar
+ext.moduleName = "springfox.swagger.common"
+
+jar {
+  inputs.property("moduleName", moduleName)
+
+  manifest {
+    attributes  'Automatic-Module-Name': moduleName
+  }
+}
+// END workaround jpms
+
 dependencies {
   api project(':springfox-spi')
   api project(':springfox-schema')

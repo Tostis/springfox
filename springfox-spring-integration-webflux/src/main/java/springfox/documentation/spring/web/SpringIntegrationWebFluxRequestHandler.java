@@ -26,6 +26,7 @@ import org.springframework.web.reactive.result.method.RequestMappingInfo;
 import springfox.documentation.core.service.ResolvedMethodParameter;
 import springfox.documentation.spring.web.plugins.SpringIntegrationParametersProvider;
 import springfox.documentation.spring.web.readers.operation.HandlerMethodResolver;
+import springfox.documentation.spring.webflux.WebFluxRequestHandler;
 
 import java.lang.annotation.Annotation;
 import java.util.List;

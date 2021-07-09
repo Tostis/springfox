@@ -5,6 +5,7 @@ module springfox.core {
     exports springfox.documentation.core.service;
     exports springfox.documentation.core.builders;
     exports springfox.documentation.core.spring.wrapper;
+    exports springfox.documentation.core.common;
     requires net.bytebuddy;
     requires spring.core;
     requires spring.web;

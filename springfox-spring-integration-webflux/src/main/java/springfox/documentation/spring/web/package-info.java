@@ -37,7 +37,7 @@
  * Changes to existing code:
  * <ul>
  * <li>Filter for Integration Handler Mappings in
- * {@link springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider}</li>
+ * {@link springfox.documentation.spring.webflux.plugins.WebFluxRequestHandlerProvider}</li>
  * </ul>
  *
  * @see springfox.documentation.spring.web.plugins.SpringIntegrationWebFluxRequestHandlerProvider

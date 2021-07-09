@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.plugin.core.config.EnablePluginRegistries;
-import springfox.documentation.spring.web.OnServletBasedWebApplication;
+import springfox.documentation.spring.webmvc.OnServletBasedWebApplication;
 import springfox.documentation.swagger2.web.WebMvcBasePathAndHostnameTransformationFilter;
 import springfox.documentation.swagger2.web.WebMvcSwaggerTransformationFilter;
 

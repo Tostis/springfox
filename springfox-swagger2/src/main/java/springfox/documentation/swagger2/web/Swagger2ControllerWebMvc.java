@@ -39,7 +39,7 @@ import springfox.documentation.core.annotations.ApiIgnore;
 import springfox.documentation.core.service.Documentation;
 import springfox.documentation.spi.spi.DocumentationType;
 import springfox.documentation.spring.web.DocumentationCache;
-import springfox.documentation.spring.web.OnServletBasedWebApplication;
+import springfox.documentation.spring.webmvc.OnServletBasedWebApplication;
 import springfox.documentation.spring.web.json.Json;
 import springfox.documentation.spring.web.json.JsonSerializer;
 import springfox.documentation.spring.web.plugins.Docket;

@@ -19,6 +19,7 @@
 
 package springfox.documentation.swagger.schema
 import spock.lang.Specification
+import springfox.documentation.common.schema.ApiModelTypeNameProvider
 import springfox.documentation.schema.ExampleWithEnums
 import springfox.documentation.schema.TypeWithApiModelAnnotation
 import springfox.documentation.schema.TypeWithEmptyApiModelAnnotation

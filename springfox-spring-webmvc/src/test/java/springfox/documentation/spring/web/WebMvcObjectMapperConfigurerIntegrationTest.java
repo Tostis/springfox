@@ -28,6 +28,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import springfox.documentation.schema.configuration.ObjectMapperConfigured;
+import springfox.documentation.spring.webmvc.WebMvcObjectMapperConfigurer;
 
 import java.util.ArrayList;
 import java.util.List;

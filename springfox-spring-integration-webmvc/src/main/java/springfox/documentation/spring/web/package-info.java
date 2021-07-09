@@ -37,7 +37,7 @@
  * Changes to existing code:
  * <ul>
  * <li>Filter for Integration Handler Mappings in
- * {@link springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider}</li>
+ * {@link springfox.documentation.spring.webmvc.plugins.WebMvcRequestHandlerProvider}</li>
  * </ul>
  *
  * @see springfox.documentation.spring.web.plugins.SpringIntegrationWebMvcRequestHandlerProvider

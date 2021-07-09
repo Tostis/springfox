@@ -21,6 +21,7 @@ package springfox.documentation.swagger.readers.parameter
 import io.swagger.annotations.Example
 import io.swagger.annotations.ExampleProperty
 import spock.lang.Specification
+import springfox.documentation.common.readers.parameter.Examples
 
 
 class ExamplesSpec extends Specification {

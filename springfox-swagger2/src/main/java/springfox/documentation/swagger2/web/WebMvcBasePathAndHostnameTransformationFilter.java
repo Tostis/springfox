@@ -10,7 +10,7 @@ import springfox.documentation.spi.spi.DocumentationType;
 import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.util.StringUtils.*;
-import static springfox.documentation.swagger.common.HostNameProvider.*;
+import static springfox.documentation.common.common.HostNameProvider.*;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebMvcBasePathAndHostnameTransformationFilter implements WebMvcSwaggerTransformationFilter {

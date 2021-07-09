@@ -20,9 +20,10 @@ package springfox.documentation.swagger.readers.operation
 
 import com.fasterxml.classmate.TypeResolver
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
+import springfox.documentation.common.readers.operation.SwaggerOperationModelsProvider
 import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.paths.Paths
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec

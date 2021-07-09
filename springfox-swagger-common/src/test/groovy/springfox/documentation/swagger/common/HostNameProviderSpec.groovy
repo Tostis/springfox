@@ -2,12 +2,13 @@ package springfox.documentation.swagger.common
 
 import org.springframework.http.HttpHeaders
 import spock.lang.Specification
+import springfox.documentation.common.common.HostNameProvider
 
 import javax.servlet.http.HttpServletRequest
 
 import static java.util.Collections.*
-import static springfox.documentation.swagger.common.HostNameProvider.*
-import static springfox.documentation.swagger.common.XForwardPrefixPathAdjuster.*
+import static springfox.documentation.common.common.HostNameProvider.*
+import static springfox.documentation.common.common.XForwardPrefixPathAdjuster.*
 
 class HostNameProviderSpec extends Specification {
   def "should prefix path with x-forwarded-prefix"() {

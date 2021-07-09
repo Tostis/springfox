@@ -42,6 +42,7 @@ import springfox.documentation.spring.web.mixins.HandlerMethodsSupport
 import springfox.documentation.spring.web.paths.Paths
 import springfox.documentation.spring.web.readers.operation.HandlerMethodResolver
 import springfox.documentation.core.spring.wrapper.PatternsRequestCondition
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 
 import java.lang.annotation.Annotation
 

@@ -31,7 +31,7 @@ dependencies {
   compileOnly libs.springProvidedWithMvc
   compileOnly "org.springframework:spring-webflux:$spring"
   compileOnly "org.springframework.boot:spring-boot-autoconfigure:$springBoot"
-  compileOnly "javax.servlet:javax.servlet-api:$servlet"
+  compileOnly "jakarta.servlet:jakarta.servlet-api:$servlet"
   compileOnly libs.clientProvided
 
   testImplementation project(':springfox-core').sourceSets.test.output

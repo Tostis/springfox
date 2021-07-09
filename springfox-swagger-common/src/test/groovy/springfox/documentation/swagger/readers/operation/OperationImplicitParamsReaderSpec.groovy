@@ -21,6 +21,8 @@ package springfox.documentation.swagger.readers.operation
 
 import com.fasterxml.classmate.TypeResolver
 import org.springframework.mock.env.MockEnvironment
+import springfox.documentation.common.readers.operation.OperationImplicitParameterReader
+import springfox.documentation.common.readers.operation.OperationImplicitParametersReader
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
 import springfox.documentation.schema.property.bean.AccessorsProvider
 import springfox.documentation.schema.property.field.FieldProvider

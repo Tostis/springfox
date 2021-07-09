@@ -22,6 +22,7 @@ import com.fasterxml.classmate.TypeResolver
 import io.swagger.annotations.ApiModel
 import spock.lang.Shared
 import spock.lang.Specification
+import springfox.documentation.common.schema.ApiModelBuilder
 import springfox.documentation.schema.TypeNameExtractor;
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.schema.property.ModelSpecificationFactory

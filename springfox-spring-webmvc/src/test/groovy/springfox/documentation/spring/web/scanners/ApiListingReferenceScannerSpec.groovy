@@ -24,7 +24,7 @@ import springfox.documentation.core.RequestHandler
 import springfox.documentation.core.annotations.ApiIgnore
 import springfox.documentation.core.service.ResourceGroup
 
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.DummyController
 import springfox.documentation.spring.web.mixins.AccessorAssertions

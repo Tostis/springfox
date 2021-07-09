@@ -2,6 +2,7 @@ package springfox.documentation.swagger.common
 
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.common.common.XForwardPrefixPathAdjuster
 import springfox.documentation.core.common.SpringVersion
 import springfox.documentation.core.common.Version
 

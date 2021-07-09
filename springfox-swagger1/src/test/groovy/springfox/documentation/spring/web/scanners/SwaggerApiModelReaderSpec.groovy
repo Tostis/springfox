@@ -35,7 +35,7 @@ import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spi.spi.schema.TypeNameProviderPlugin
 import springfox.documentation.spi.spi.service.contexts.Defaults
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.DummyModels
 import springfox.documentation.spring.web.dummy.controllers.BusinessService

@@ -18,6 +18,7 @@
  */
 package springfox.documentation.swagger.readers.operation
 
+import springfox.documentation.common.readers.operation.OperationNicknameIntoUniqueIdReader
 import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport

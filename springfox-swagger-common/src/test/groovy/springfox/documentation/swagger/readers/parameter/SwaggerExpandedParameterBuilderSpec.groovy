@@ -26,6 +26,7 @@ import org.springframework.mock.env.MockEnvironment
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.common.readers.parameter.SwaggerExpandedParameterBuilder
 import springfox.documentation.core.builders.ParameterBuilder
 import springfox.documentation.core.builders.RequestParameterBuilder
 import springfox.documentation.schema.ExampleEnum

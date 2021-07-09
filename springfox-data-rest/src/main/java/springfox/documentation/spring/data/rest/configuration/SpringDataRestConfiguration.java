@@ -30,7 +30,7 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import springfox.documentation.core.builders.AlternateTypeBuilder;
 import springfox.documentation.core.schema.AlternateTypeRule;
 import springfox.documentation.core.schema.AlternateTypeRuleConvention;
-import springfox.documentation.spring.web.OnServletBasedWebApplication;
+import springfox.documentation.spring.webmvc.OnServletBasedWebApplication;
 
 import java.lang.reflect.Type;
 import java.util.List;

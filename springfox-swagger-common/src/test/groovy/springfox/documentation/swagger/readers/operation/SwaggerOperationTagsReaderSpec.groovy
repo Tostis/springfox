@@ -18,6 +18,7 @@
  */
 package springfox.documentation.swagger.readers.operation
 
+import springfox.documentation.common.readers.operation.SwaggerOperationTagsReader
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.mixins.RequestMappingSupport
 import springfox.documentation.spring.web.plugins.DocumentationContextSpec
@@ -28,7 +29,7 @@ class SwaggerOperationTagsReaderSpec extends DocumentationContextSpec implements
       OperationContext operationContext =
         operationContext(documentationContext(), handlerMethod)
     and:
-      SwaggerOperationTagsReader sut = new SwaggerOperationTagsReader()
+    SwaggerOperationTagsReader sut = new SwaggerOperationTagsReader()
 
     when:
       sut.apply(operationContext)

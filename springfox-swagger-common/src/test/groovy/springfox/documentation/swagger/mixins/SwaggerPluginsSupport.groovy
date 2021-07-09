@@ -42,12 +42,12 @@ import springfox.documentation.spring.web.readers.operation.OperationModelsProvi
 import springfox.documentation.spring.web.readers.parameter.ExpandedParameterBuilder
 import springfox.documentation.spring.web.readers.parameter.ParameterNameReader
 import springfox.documentation.spring.web.scanners.MediaTypeReader
-import springfox.documentation.swagger.readers.operation.SwaggerOperationModelsProvider
-import springfox.documentation.swagger.readers.parameter.SwaggerExpandedParameterBuilder
-import springfox.documentation.swagger.schema.ApiModelBuilder
-import springfox.documentation.swagger.schema.ApiModelPropertyPropertyBuilder
+import springfox.documentation.common.readers.operation.SwaggerOperationModelsProvider
+import springfox.documentation.common.readers.parameter.SwaggerExpandedParameterBuilder
+import springfox.documentation.common.schema.ApiModelBuilder
+import springfox.documentation.common.schema.ApiModelPropertyPropertyBuilder
 
-import springfox.documentation.swagger.web.SwaggerApiListingReader
+import springfox.documentation.common.web.SwaggerApiListingReader
 
 import java.util.stream.Stream
 

@@ -2,6 +2,7 @@ package springfox.documentation.swagger.readers.operation
 
 import spock.lang.Specification
 import spock.lang.Unroll
+import springfox.documentation.common.readers.operation.OperationImplicitParameterReader
 import springfox.documentation.core.builders.ModelSpecificationBuilder
 import springfox.documentation.core.builders.ReferenceModelSpecificationBuilder
 import springfox.documentation.core.schema.Example

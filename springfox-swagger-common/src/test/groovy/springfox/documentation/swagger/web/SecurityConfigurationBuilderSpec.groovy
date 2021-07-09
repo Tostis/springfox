@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.skyscreamer.jsonassert.JSONAssert
 import org.skyscreamer.jsonassert.JSONCompareMode
 import spock.lang.Specification
+import springfox.documentation.common.web.SecurityConfigurationBuilder
 
 class SecurityConfigurationBuilderSpec extends Specification {
   def securityConfig = SecurityConfigurationBuilder.builder().build()

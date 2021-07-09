@@ -30,7 +30,7 @@ import java.util.function.Function;
 
 import static java.util.stream.Collectors.*;
 import static org.springframework.util.StringUtils.*;
-import static springfox.documentation.swagger.common.HostNameProvider.*;
+import static springfox.documentation.common.common.HostNameProvider.*;
 
 public class Mappers {
 

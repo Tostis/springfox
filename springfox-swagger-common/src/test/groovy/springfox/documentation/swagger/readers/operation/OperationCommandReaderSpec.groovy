@@ -22,6 +22,10 @@ package springfox.documentation.swagger.readers.operation
 import org.springframework.mock.env.MockEnvironment
 import spock.lang.Shared
 import spock.lang.Unroll
+import springfox.documentation.common.readers.operation.OperationHiddenReader
+import springfox.documentation.common.readers.operation.OperationNotesReader
+import springfox.documentation.common.readers.operation.OperationPositionReader
+import springfox.documentation.common.readers.operation.OperationSummaryReader
 import springfox.documentation.spi.spi.DocumentationType
 import springfox.documentation.spi.spi.service.contexts.OperationContext
 import springfox.documentation.spring.web.DescriptionResolver

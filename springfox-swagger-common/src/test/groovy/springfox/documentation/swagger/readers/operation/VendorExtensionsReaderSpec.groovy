@@ -18,6 +18,7 @@
  */
 package springfox.documentation.swagger.readers.operation
 
+import springfox.documentation.common.readers.operation.VendorExtensionsReader
 import springfox.documentation.core.service.ObjectVendorExtension
 import springfox.documentation.core.service.StringVendorExtension
 import springfox.documentation.spi.spi.DocumentationType
@@ -30,7 +31,7 @@ class VendorExtensionsReaderSpec extends DocumentationContextSpec implements Req
     given:
     OperationContext operationContext =
         operationContext(documentationContext(), dummyHandlerMethod('methodWithExtensions'))
-      VendorExtensionsReader sut = new VendorExtensionsReader()
+    VendorExtensionsReader sut = new VendorExtensionsReader()
     when:
       sut.apply(operationContext)
       def operation = operationContext.operationBuilder().build()

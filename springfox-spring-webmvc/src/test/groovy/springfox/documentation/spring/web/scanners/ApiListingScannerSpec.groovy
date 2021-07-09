@@ -30,7 +30,7 @@ import springfox.documentation.spi.spi.service.contexts.DocumentationContext
 import springfox.documentation.spi.spi.service.contexts.RequestMappingContext
 import springfox.documentation.spi.spi.service.contexts.SecurityContext
 
-import springfox.documentation.spring.web.WebMvcRequestHandler
+import springfox.documentation.spring.webmvc.WebMvcRequestHandler
 import springfox.documentation.spring.web.dummy.Bug2219ListingScanner
 import springfox.documentation.spring.web.dummy.DummyClass
 import springfox.documentation.spring.web.dummy.DummyControllerWithResourcePath

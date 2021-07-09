@@ -26,6 +26,15 @@ import org.springframework.http.MediaType
 import org.springframework.mock.env.MockEnvironment
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import spock.lang.Specification
+import springfox.documentation.common.web.ApiResourceController
+import springfox.documentation.common.web.DocExpansion
+import springfox.documentation.common.web.InMemorySwaggerResourcesProvider
+import springfox.documentation.common.web.ModelRendering
+import springfox.documentation.common.web.OperationsSorter
+import springfox.documentation.common.web.SecurityConfigurationBuilder
+import springfox.documentation.common.web.TagsSorter
+import springfox.documentation.common.web.UiConfiguration
+import springfox.documentation.common.web.UiConfigurationBuilder
 import springfox.documentation.core.builders.DocumentationBuilder
 import springfox.documentation.core.service.ApiInfo
 import springfox.documentation.spi.spi.DocumentationType

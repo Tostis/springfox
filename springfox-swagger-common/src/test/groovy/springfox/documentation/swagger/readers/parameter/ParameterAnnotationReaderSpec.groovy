@@ -22,6 +22,7 @@ package springfox.documentation.swagger.readers.parameter
 import io.swagger.annotations.ApiParam
 import org.springframework.core.MethodParameter
 import spock.lang.Specification
+import springfox.documentation.common.readers.parameter.ParameterAnnotationReader
 
 import java.lang.reflect.Method
 

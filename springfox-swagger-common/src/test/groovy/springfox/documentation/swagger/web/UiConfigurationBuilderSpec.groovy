@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.skyscreamer.jsonassert.JSONAssert
 import org.skyscreamer.jsonassert.JSONCompareMode
 import spock.lang.Specification
+import springfox.documentation.common.web.UiConfigurationBuilder
 
 class UiConfigurationBuilderSpec extends Specification {
   def uiConfig = UiConfigurationBuilder.builder().build()

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.plugin.core.config.EnablePluginRegistries;
 import springfox.documentation.oas.web.WebMvcBasePathAndHostnameTransformationFilter;
 import springfox.documentation.oas.web.WebMvcOpenApiTransformationFilter;
-import springfox.documentation.spring.web.OnServletBasedWebApplication;
+import springfox.documentation.spring.webmvc.OnServletBasedWebApplication;
 
 import static springfox.documentation.oas.web.SpecGeneration.*;
 

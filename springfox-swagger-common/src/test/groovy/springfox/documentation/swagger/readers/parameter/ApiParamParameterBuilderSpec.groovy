@@ -25,6 +25,7 @@ import com.fasterxml.classmate.TypeResolver
 import org.springframework.core.MethodParameter
 import org.springframework.mock.env.MockEnvironment
 import spock.lang.Unroll
+import springfox.documentation.common.readers.parameter.ApiParamParameterBuilder
 import springfox.documentation.schema.DefaultGenericTypeNamingStrategy
 import springfox.documentation.core.schema.EnumerationFacet
 import springfox.documentation.schema.JacksonEnumTypeDeterminer
