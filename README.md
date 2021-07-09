@@ -8,6 +8,7 @@ Regarding this fork
   - springfox-spring-webflux
   - springfox-spring-webmvc
   - springfox-swagger-common (automatic module in manifest)
+
 see https://github.com/springfox/springfox/issues/2064
   
 Due to package collisions (same packages into different modules) I had to rename some of them so you have to change imports accordingly.
